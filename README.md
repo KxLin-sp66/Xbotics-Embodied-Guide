@@ -204,7 +204,7 @@
     4. 两阶段参数高效适配：Phase I 异构预训练（290K 轨迹）学通用策略；Phase II 新机器人时，先 Prompt Warm-up（冻结骨干，仅优 32K 参数编码硬件），再联合 LoRA 微调（仅 9M 参数），仅 1% 总参数达 LIBERO 93%、Simpler-WidowX 54% SOTA，媲美 3B 全调 π0。
   
   **结构图**：
-<img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/6fcedbc7-2da0-42b0-833e-0b4f626c8dff" />
+<img width="350" height="600" alt="image" src="https://github.com/user-attachments/assets/6fcedbc7-2da0-42b0-833e-0b4f626c8dff" />
   
   **适用场景**：X-VLA 适用于**任何“硬件不同、任务复杂、数据有限”的机器人场景**，实现“一模型走天下”。。
   
