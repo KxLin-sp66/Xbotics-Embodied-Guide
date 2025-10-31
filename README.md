@@ -534,179 +534,121 @@
 
 ### 5.2 Diffusion Policy：机器人视觉运动控制的扩散生成范式（2023–2025）
 
-> **Diffusion Policy（扩散策略）** 是一种将 **扩散生成模型（Diffusion Models）** 应用于 **机器人视觉运动策略学习（Visuomotor Policy Learning）** 的新型框架。
-> 它将动作序列生成视作 **条件去噪扩散过程（Conditional Denoising Diffusion Process）**，从概率生成角度建模动作的多模态与时间依赖特征。
-> 
-> ✅ **关键特征：**
-> 
-> - 🎯 多模态动作分布建模（Multi-modal Action Generation）
-> - 🔄 长时序依赖捕获（Temporal Dependency Modeling）
-> - ⚙️ 高精度连续控制（High-Fidelity Continuous Control）
-> 
-> 自 2023 年首次提出以来，Diffusion Policy 已从纯视觉条件策略演化为 **视觉–语言–动作（Vision-Language-Action, VLA）统一模型核心组件**，
+> **Diffusion Policy（扩散策略）** 是一种将 **扩散生成模型（Diffusion Models）** 应用于 **机器人视觉运动策略学习（Visuomotor Policy Learning）** 的新型框架。  
+> 它将动作序列生成视作 **条件去噪扩散过程（Conditional Denoising Diffusion Process）**，从生成概率角度建模动作的多模态与时间依赖特征。  
+>  
+> ✅ **关键特征：**  
+> - 🎯 多模态动作分布建模（Multi-modal Action Generation）  
+> - 🔄 长时序依赖捕获（Temporal Dependency Modeling）  
+> - ⚙️ 高精度连续控制（High-Fidelity Continuous Control）  
+>  
+> 自 2023 年首次提出以来，Diffusion Policy 已从纯视觉条件策略演化为 **视觉–语言–动作（Vision-Language-Action, VLA）统一模型核心组件**，  
 > 在多个真实机器人任务中实现平均 **46.9% 性能提升**，成为机器人智能控制领域的重要研究方向。
 
 ---
 
 #### 🧩 一、算法原理与基础框架（2023）
 
-##### 1️⃣ 基础思想：从图像扩散到动作扩散
-
-源于 DDPM (Ho et al., 2020) 的扩散生成机制，Diffusion Policy 将机器人动作序列视为随机变量
-\[x_{0:T} = (a_1, a_2, ..., a_T)\]
+##### 1️⃣ 基础思想：从图像扩散到动作扩散  
+源于 DDPM (Ho et al., 2020) 的扩散生成机制，Diffusion Policy 将机器人动作序列视为随机变量  
+\[
+x_{0:T} = (a_1, a_2, \dots, a_T)
+\]  
 通过定义前向扩散与反向去噪过程，实现条件轨迹生成。
 
-###### 架构组成
+###### 架构组成  
+- **Visual Encoder**：CNN 或 Transformer 提取视觉嵌入  
+- **Temporal Diffusion Transformer**：基于时序注意力建模动作相关性  
+- **Receding Horizon Control (RHC)**：滚动预测未来动作片段，降低累积误差  
 
-- **Visual Encoder**：CNN 或 Transformer 提取视觉嵌入
-- **Temporal Diffusion Transformer**：基于时序注意力建模动作相关性
-- **Receding Horizon Control (RHC)**：滚动预测未来动作片段，降低累积误差
+###### 实验表现  
+- 在 RoboMimic、Push-T 等 12 个仿真任务中平均成功率提升 **46.9%**  
+- 在 UR5 / Franka Panda 实机实验中表现出良好的 **遮挡与扰动鲁棒性**
 
-###### 实验表现
-
-- 在 **RoboMimic**、**Push-T** 等 12 个仿真任务中平均成功率提升 **46.9%**
-- 在 **UR5 / Franka Panda** 实机实验中表现出良好的 **遮挡与扰动鲁棒性**
-
-**论文与代码：**
-
-- 📄 [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion (RSS 2023)](https://arxiv.org/abs/2303.04137)
+**论文与代码：**  
+- 📄 [Diffusion Policy: Visuomotor Policy Learning via Action Diffusion (RSS 2023)](https://arxiv.org/abs/2303.04137)  
 - 💻 [GitHub – real-stanford/diffusion_policy](https://github.com/real-stanford/diffusion_policy)
-- 🔗 [RSS 2023 官方论文页](https://roboticsconference.org/2023/program/papers/026/)
 
 ---
 
 #### 🧠 二、从 2D 到 3D：表示泛化与结构升级（2023–2024）
 
-##### 🕹️ 3D Diffusion Policy（ICRA 2024）
+##### 🕹️ 3D Diffusion Policy（ICRA 2024）  
+Z. et al. 提出以 **点云（Point Cloud）** 替代 RGB 图像输入，从而在几何空间中学习通用运动策略。
 
-> Ze et al. 提出以 **点云** 替代 RGB 图像输入，从而在几何空间中学习通用的运动策略。
+###### 技术改进  
+- **稀疏点云编码器（Point Encoder）**：减少颜色依赖与视角偏移影响  
+- **结构精简 UNet**：计算效率提升约 **2×**  
+- **少样本学习能力**：仅需 10 条示范即可泛化至新环境  
 
-###### 技术改进
-
-- **稀疏点云编码器（Point Encoder）**：减少颜色依赖与视角偏移影响
-- **结构精简 UNet**：计算效率提升约 **2×**
-- **少样本学习能力**：仅需 10 条示范即可泛化至新环境
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HITSZ-Robotics/DiffusionPolicy-Robotics/main/assets/3d_diffusion.png" width="75%">
-  <br>
-  <em>图 2：3D Diffusion Policy 的点云条件生成结构</em>
-</p>
-
-**论文与代码：**
-
-- 📄 [3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations (arXiv 2024)](https://arxiv.org/abs/2403.03954)
+**论文与代码：**  
+- 📄 [3D Diffusion Policy: Generalizable Visuomotor Policy Learning via Simple 3D Representations (arXiv 2024)](https://arxiv.org/abs/2403.03954)  
 - 💻 [GitHub – YanjieZe/3D-Diffusion-Policy](https://github.com/YanjieZe/3D-Diffusion-Policy)
-- 🌐 [项目主页](https://3d-diffusion-policy.github.io)
+
+##### 🚀 ScaleDP （2024）：Transformer 扩展与大模型化  
+W. et al. 提出 **ScaleDP**，将模型参数规模扩展至 10⁹ 级，实现多臂协同控制与复杂任务规划。
+
+###### 关键创新  
+- **Non-Causal Attention**：允许跨时间步信息交互，实现“前瞻性”动作建模  
+- **长序列 Transformer**：支持上百步动作轨迹生成  
+- 双臂协作实验成功率提升约 **75%**
+
+##### 🌐 其他结构变体  
+| 模型           | 技术特性               | 主要优势                 |
+|----------------|------------------------|--------------------------|
+| EquiBot (CoRL 2024) | 基于 SIM(3) 等变性扩散     | 数据高效与物理一致性       |
+| ChainedDiffuser (CoRL 2023) | 轨迹 + 关键姿态链式扩散   | 增强长时程规划能力         |
 
 ---
 
-##### 🚀 ScaleDP（2024）：Transformer 扩展与大模型化
+#### ⚡ 三、效率优化与采样加速（2024–2025）  
+扩散策略的主要瓶颈在于多步去噪推理。研究者通过 **一致性蒸馏（Consistency Distillation）** 与结构轻量化优化推理效率。
 
-> Wang et al. 在 2024 年提出 **ScaleDP**，将参数量扩展至 10⁹ 级，实现多臂协同控制与复杂任务规划。
-
-###### 关键创新
-
-- **Non-Causal Attention**：允许跨时间步信息交互，实现“前瞻性”动作建模
-- **长序列 Transformer**：支持上百步动作轨迹
-- **双臂协作实验成功率 +75%**
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HITSZ-Robotics/DiffusionPolicy-Robotics/main/assets/scaledp.png" width="80%">
-  <br>
-  <em>图 3：ScaleDP 大规模时序 Transformer 架构</em>
-</p>
+| 方法                         | 技术机制                                  | 加速比 | 特点                        |
+|------------------------------|-------------------------------------------|--------|-----------------------------|
+| Consistency Policy (Prasad 2024) | 利用一致性损失，将多步扩散蒸馏为单步采样     | 🔟×   | 实时控制可行               |
+| Simple DP3                   | 精简 UNet 架构                             | 2×     | 精度无损结构压缩           |
+| DPPO                         | 将 PPO 强化学习融入扩散后端                 | –      | 在稀疏奖励任务中成功率从 57% 提升至 97% |
 
 ---
 
-##### 🌐 其他结构变体
+#### 🧬 四、VLA 融合：视觉–语言–动作的统一生成（2024–2025）  
+##### 🌍 VLA 模型背景  
+**Vision-Language-Action (VLA)** 模型通过语言条件生成控制命令。Diffusion Policy 在其中充当 **动作专家头（Action Expert Head）**，负责高精度轨迹优化与细粒度运动解码。
 
-| 模型 | 技术特性 | 主要优势 |
-|------|-----------|-----------|
-| **EquiBot (CoRL 2024)** | 基于 SIM(3) 等变性扩散 | 数据高效与物理一致性 |
-| **ChainedDiffuser (CoRL 2023)** | 轨迹与关键姿态链式扩散 | 增强长时程规划能力 |
-| **DP-World Model (2024)** | 状态预测 + 动作扩散 | 结合世界模型提升抽象推理 |
+##### 🌈 代表性研究成果  
+| 模型             | 核心结构            | 技术特征            | 性能亮点            | 年份 |
+|-------------------|---------------------|----------------------|----------------------|------|
+| TinyVLA           | 多模态骨干 + 扩散头  | 端到端高效            | 未见物体拾取成功率68% | 2024 |
+| DiffusionVLA      | 自回归 + 扩散统一结构 | 动作可解释性          | 零样本任务成功率63.7% | 2024 |
+| π₀ (Pi-Zero)     | VLM + Flow-Matching  | 连续控制50 Hz         | 跨机器人泛化能力强     | 2024 |
+| Helix             | 双层系统 (S₂认知 + S₁反应) | 分层执行控制          | 人形机器人500 h训练    | 2025 |
 
----
-
-#### ⚡ 三、效率优化与采样加速（2024–2025）
-
-扩散策略的主要瓶颈在于多步去噪推理。新研究聚焦于 **一致性蒸馏（Consistency Distillation）** 与 **轻量结构优化**。
-
-| 方法 | 技术机制 | 加速比 | 特点 |
-|------|-----------|--------|------|
-| **Consistency Policy (Prasad 2024)** | 利用一致性损失蒸馏多步扩散为单步采样 | 🔟× | 实时控制可行 |
-| **Simple DP3** | 精简 UNet 架构 | 2× | 精度无损结构压缩 |
-| **DPPO** | 将 PPO 强化学习融入扩散后端 | – | 在稀疏奖励任务中成功率 57%→97% |
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HITSZ-Robotics/DiffusionPolicy-Robotics/main/assets/training_efficiency.png" width="70%">
-  <br>
-  <em>图 4：从多步采样到单步采样的效率演化路径</em>
-</p>
+**相关链接：**  
+- [RT-2: Vision-Language-Action Models (Google Robotics)](https://robotics.google/robotics-research/rt-2/)  
+- [OpenVLA GitHub](https://github.com/openvla/openvla)  
 
 ---
 
-#### 🧬 四、VLA 融合：视觉–语言–动作的统一生成（2024–2025）
-
-##### 🌍 VLA 模型背景
-
-**Vision-Language-Action (VLA)** 模型（如 RT-2、OpenVLA）通过语言条件生成控制命令。
-Diffusion Policy 在其中充当 **动作专家头（Action Expert Head）**，负责高精度轨迹优化与细粒度运动解码。
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HITSZ-Robotics/DiffusionPolicy-Robotics/main/assets/vla_integration.png" width="85%">
-  <br>
-  <em>图 5：Diffusion Policy 在 VLA 框架中的嵌入方式</em>
-</p>
-
-##### 🌈 代表性研究成果
-
-| 模型 | 核心结构 | 技术特征 | 性能亮点 | 年份 |
-|------|-----------|-----------|-----------|------|
-| **TinyVLA** | 多模态骨干 + 扩散解码器 | 端到端高效 | 未见物体拾取成功率 68% | 2024 |
-| **DiffusionVLA** | 自回归 + 扩散混合生成 | 动作可解释性 | 零样本任务 63.7% | 2024 |
-| **π₀ (Pi-Zero)** | VLM + Flow-Matching 扩散 | 连续控制 50 Hz | 跨机器人泛化 | 2024 |
-| **Helix** | 双层系统 (S₂ 认知 + S₁ 反应) | 分层执行控制 | 人形机器人 500 h 训练 | 2025 |
-
-**相关链接：**
-
-- [RT-2: Vision-Language-Action Models (Google Robotics)](https://robotics.google/robotics-research/rt-2/)
-- [OpenVLA GitHub](https://github.com/openvla/openvla)
-- [DiffusionVLA (arXiv 2404.03635)](https://arxiv.org/abs/2404.03635)
-- [π₀: Flow-Matching Diffusion for Robotics (arXiv 2405.13241)](https://arxiv.org/abs/2405.13241)
-- [Helix VLA (arXiv 2502.01890)](https://arxiv.org/abs/2502.01890)
-
----
-
-#### 🔮 五、发展趋势与未来研究方向
-
+#### 🔮 五、发展趋势与未来研究方向  
 Diffusion Policy 的演进标志着机器人策略学习从确定性控制向 **生成式建模范式** 的迁移。
 
-##### 🔭 潜在研究方向
-
-- 🔹 **多模态融合控制**：融合视觉、触觉、力反馈与语言信号
-- 🔹 **在线与自适应学习**：结合强化学习（RL）进行实时策略更新
-- 🔹 **安全与伦理保障**：在人机共融场景中引入安全约束与可信推理
-- 🔹 **大规模数据驱动的基础模型**：构建统一的多机器人扩散控制基础模型
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/HITSZ-Robotics/DiffusionPolicy-Robotics/main/assets/diffusion_future.png" width="80%">
-  <br>
-  <em>图 6：Diffusion Policy 的未来：从机器人控制到通用智能体</em>
-</p>
+##### 🔭 潜在研究方向  
+- 🔹 **多模态融合控制**：融合视觉、触觉、力反馈与语言信号  
+- 🔹 **在线与自适应学习**：结合强化学习（RL）实现实时策略更新  
+- 🔹 **安全与伦理保障**：在人机共融场景中引入安全约束与可信推理  
+- 🔹 **大规模数据驱动的基础模型**：构建统一的多机器人扩散控制基础模型  
 
 ---
 
-#### 📚 资源与引用
-
-- 🔗 主仓库：[HITSZ-Robotics/DiffusionPolicy-Robotics](https://github.com/HITSZ-Robotics/DiffusionPolicy-Robotics)
-- 📁 论文与报告合集：[docs/](https://github.com/HITSZ-Robotics/DiffusionPolicy-Robotics/tree/main/docs)
-- 📄 关键参考论文：
-  - [Diffusion Policy (RSS 2023)](https://arxiv.org/abs/2303.04137)
+#### 📚 资源与引用  
+- 🔗 主仓库：[HITSZ-Robotics/DiffusionPolicy-Robotics](https://github.com/HITSZ-Robotics/DiffusionPolicy-Robotics)  
+- 📁 论文与报告合集：[docs/](https://github.com/HITSZ-Robotics/DiffusionPolicy-Robotics/tree/main/docs)  
+- 📄 关键参考论文：  
+  - [Diffusion Policy (RSS 2023)](https://arxiv.org/abs/2303.04137)  
   - [3D Diffusion Policy (ICRA 2024)](https://arxiv.org/abs/2403.03954)
-  - [Consistency Policy (2024)](https://arxiv.org/abs/2407.03912)
-  - [DiffusionVLA (2024)](https://arxiv.org/abs/2404.03635)
+
+
 
 
 
