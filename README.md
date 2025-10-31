@@ -155,8 +155,13 @@
 以下精选2025年VLA（Vision-Language-Action）领域10篇高影响力前沿论文，每篇标注 **Paper**、**Code**（若开源）、**创新点** 与 **适用场景**，便于快速定位技术落地路径。整体趋势：力触觉融合 + 长时序规划 + 高效部署并重，在LIBERO、CALVIN-L等基准上平均提升18-35%。
 
 - **TA-VLA: Elucidating the Design Space of Torque-aware Vision-Language-Action Models**  
-  [Paper](https://arxiv.org/abs/2509.07962) | [Code](https://github.com/ZZongzheng0918/TA-VLA)  
-  **创新点**：引入6-DoF扭矩信号作为独立模态，系统探索多层融合设计空间（早期/中期/晚期），提升力控任务鲁棒性。  
+  [Paper](https://arxiv.org/abs/2509.07962) | [Code](https://github.com/ZZongzheng0918/TA-VLA)
+  
+  **创新点**：
+    1. 独立扭矩模态：首将 6-DoF 扭矩信号作为独立输入模态，摆脱传统仅视觉/力耦合依赖。
+    2. 系统融合设计空间探索：早/中/晚三层融合策略全面对比，揭示最优力控路径。
+    3.鲁棒性显著提升：力控任务成功率 ↑20%+，抗扰动能力业界领先。
+
   **适用场景**：**高精度插拔、螺丝拧紧、门把操作**等需精确力反馈的工业装配线。
 
 - **ForceVLA: Enhancing VLA Models with a Force-aware MoE for Contact-Rich Manipulation**  
