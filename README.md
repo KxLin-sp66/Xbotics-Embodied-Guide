@@ -402,13 +402,424 @@
 
 ## 3. 基础学习（机器人基础｜深度学习基础）
 
-**贡献者**：@alice，@charlie
-**小标题**
+**贡献者**：@mumu-jushen，@alice
+**你将获得**：机器人学数学基础、深度学习核心机制、工程实践能力；从"坐标变换→运动规划→神经网络→多模态融合"构建知识体系。
 
-* 3.1 机器人学打底：坐标系/运动学/动力学/控制
-* 3.2 传感与同步：相机/IMU/力传感/时钟与标定
-* 3.3 深度学习打底：优化/正则/卷积与注意力/训练套路
-* 3.4 工程环境：Conda/Docker、日志与可视化、复现实验规范
+### 目录（Table of Contents）
+- [3.1 机器人学打底：坐标系/运动学/动力学/控制](#31-机器人学打底坐标系运动学动力学控制)
+- [3.2 深度学习打底：Self-Attention与Transformer](#32-深度学习打底self-attention与transformer)
+- [3.3 深度学习打底：优化/正则化/训练技巧](#33-深度学习打底优化正则化训练技巧)
+- [3.4 工程环境：Conda/Docker、日志与可视化、复现实验规范](#34-工程环境condadocker日志与可视化复现实验规范)
+
+---
+
+### 3.1 机器人学打底：坐标系/运动学/动力学/控制
+
+#### 起步三件事
+⭐ **必看**：[Modern Robotics](http://hades.mech.northwestern.edu/index.php/Modern_Robotics) 第2-4章（坐标系、正逆运动学）
+🧪 **实作**：用Python实现平面二连杆的正逆运动学求解
+📦 **代码**：[Robotics Toolbox for Python](https://github.com/petercorke/robotics-toolbox-python) - Peter Corke的经典工具箱
+
+#### 核心知识点
+
+**坐标系与齐次变换**
+
+机器人要在空间中精确操作，核心是搞清楚"我在哪，要去哪"。这需要多个坐标系协同：
+
+- **世界坐标系 {W}**：全局固定参考，所有物体位置相对于它描述
+- **基座坐标系 {B}**：机器人自身参考系
+- **工具坐标系 {T}**：末端执行器（夹爪中心）
+- **物体坐标系 {O}**：待操作物体
+
+齐次变换矩阵统一旋转R和平移P：
+```
+T = [R_{3×3}  P_{3×1}]
+    [0_{1×3}     1   ]
+```
+串联机械臂从基座到末端：$T_0^n = T_0^1 \cdot T_1^2 \cdots T_{n-1}^n$
+
+**正逆运动学**
+
+- **正运动学(FK)**：关节角度 → 末端位姿
+  平面二连杆：`x = L1*cos(θ1) + L2*cos(θ1+θ2)`
+
+- **逆运动学(IK)**：末端位姿 → 关节角度
+  难点：无解（够不着）、多解（肘向上/下）、奇异点（失去自由度）
+
+**DH参数法**
+
+用4个参数$(θ_i, d_i, a_i, α_i)$标准化描述连杆关系：
+- 连杆长度 $a_i$：沿$x_i$轴距离
+- 连杆扭角 $α_i$：绕$x_i$轴角度
+- 连杆偏距 $d_i$：沿$z_{i-1}$轴距离
+- 关节角 $θ_i$：绕$z_{i-1}$轴角度
+
+**轨迹规划对比**
+
+| 规划空间 | 优点 | 缺点 | 适用场景 |
+|---------|------|------|---------|
+| 关节空间 | 计算简单、无奇异点 | 末端路径不可控 | 点到点运动 |
+| 笛卡尔空间 | 路径精确可控 | 每点需IK、可能奇异 | 焊接、喷涂、装配 |
+
+三次多项式保证速度连续，五次保证加速度连续，避免机械冲击。
+
+**雅可比矩阵**
+
+建立关节速度$\dot{q}$和末端速度$v$的桥梁：
+```
+v = J(q) · q̇  （速度正运动学）
+τ = J^T · F  （静力学关系）
+```
+当$\det(J)=0$时处于奇异位形，失去某自由度。
+
+**MoveIt框架架构**
+
+```
+用户接口层
+├── MoveIt Commander（Python/C++ API）
+├── Rviz Plugin（可视化拖动）
+└── Setup Assistant（配置向导）
+
+核心规划层
+├── Move Group（中央协调）
+├── Planning Scene（环境模型）
+├── Planning Pipeline
+│   ├── OMPL（RRT/PRM采样）
+│   ├── CHOMP（轨迹优化）
+│   └── Pilz（工业轨迹）
+└── Kinematics Solver（KDL/IKFast）
+
+执行控制层
+└── Trajectory Execution → Controllers
+```
+
+#### 实践要点
+
+- **坐标变换**：$T_A^B$表示从A到B，连续变换从右往左读
+- **逆运动学**：优先解析解（快），数值解做后备
+- **轨迹规划**：简单任务用梯形速度，复杂用五次多项式
+- **MoveIt调试**：碰撞太严调`padding`，规划失败查起点碰撞
+
+---
+
+### 3.2 深度学习打底：Self-Attention与Transformer
+
+#### 起步三件事
+⭐ **必看**：[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/) - Jay Alammar的可视化讲解
+🧪 **实作**：手撕一个mini Transformer（<500行代码）
+📄 **论文**：[Attention Is All You Need](https://arxiv.org/abs/1706.03762) - 原始论文
+
+#### 核心机制图解
+
+![Transformer架构](./第三节/images/transformer%20structure.png)
+
+**Self-Attention：让模型知道"该看哪里"**
+
+传统RNN串行传递信息容易遗忘，CNN感受野固定。Self-Attention的革命性：**序列中任意两个位置都可以直接交互**。
+
+核心思想类比信息检索：
+- **Query（查询）**："我要什么信息"
+- **Key（键）**："我能提供什么特征"
+- **Value（值）**："实际信息内容"
+
+数学公式：
+```
+Attention(Q,K,V) = softmax(QK^T/√d_k) · V
+```
+除以$\sqrt{d_k}$防止内积过大导致softmax饱和。
+
+**多头注意力：并行专家系统**
+
+假设512维分8个头，每头64维，不同头学习不同关系：
+- 头1：局部语法（相邻词）
+- 头2：长距离依赖（主语-谓语）
+- 头3：指代关系（代词-名词）
+- 头4：语义相似（同义词）
+
+**位置编码：告诉模型顺序**
+
+Self-Attention本身没有位置概念，用正弦编码：
+```python
+pos_emb[:, 0::2] = torch.sin(pos / 10000^(2i/d))  # 偶数维
+pos_emb[:, 1::2] = torch.cos(pos / 10000^(2i/d))  # 奇数维
+```
+
+**Transformer结构**
+
+Encoder每层两个子层：
+1. Multi-Head Self-Attention
+2. Feed Forward（先升维后降维）
+
+每个子层都有残差连接+LayerNorm：
+```python
+x = layer_norm(x + dropout(sublayer(x)))
+```
+
+Decoder多了Encoder-Decoder Attention，且Self-Attention需要Mask防止看到未来。
+
+#### 实现踩坑记录
+
+**维度管理**
+```python
+# ❌ 错误：bmm期望3D
+attention = torch.bmm(Q, K.transpose(-2, -1))
+
+# ✅ 正确：matmul自动处理batch
+attention = torch.matmul(Q, K.transpose(-2, -1))
+```
+
+**Mask类型**
+```python
+# ❌ 错误：忘记转bool
+mask = torch.tril(torch.ones(seq_len, seq_len))
+scores.masked_fill_(mask, -inf)
+
+# ✅ 正确
+mask = torch.tril(...).bool()
+scores.masked_fill_(mask == 0, -1e9)
+```
+
+**位置编码梯度**
+```python
+# ❌ 错误：位置编码被训练改变
+pos_encoding = positional_encoding(seq_len, d_model)
+
+# ✅ 正确：固定位置编码
+pos_encoding.requires_grad = False
+# 或 self.register_buffer('pos_encoding', pos_encoding)
+```
+
+#### 为什么Transformer强？
+
+**vs RNN**：完全并行，无长期依赖问题，信息通道丰富
+**vs CNN**：全局感受野，动态注意力权重，位置处理灵活
+
+计算复杂度：Self-Attention $O(n^2·d)$，序列不太长时$n^2$不是瓶颈。
+
+---
+
+### 3.3 深度学习打底：优化/正则化/训练技巧
+
+#### 优化器选择
+
+**SGD族**
+```
+SGD: θ = θ - η·∇L
+Momentum: v = βv + η∇L, θ = θ - v
+```
+动量让更新有惯性，能冲过局部最优。
+
+**Adam（最常用）**
+```python
+m = β1*m + (1-β1)*grad        # 一阶矩
+v = β2*v + (1-β2)*grad²       # 二阶矩
+m_hat = m/(1-β1^t)            # 偏差修正
+v_hat = v/(1-β2^t)
+param = param - lr*m_hat/√(v_hat+ε)
+```
+
+经验值：
+- 视觉：SGD+Momentum（需调lr）
+- NLP：Adam（1e-4~3e-3）
+- 微调：1e-5~5e-5
+
+#### 学习率调度
+
+**常用策略**
+```python
+# 阶梯衰减
+scheduler = StepLR(optimizer, step_size=30, gamma=0.1)
+
+# 余弦退火
+scheduler = CosineAnnealingLR(optimizer, T_max=100)
+
+# Warmup（Transformer标配）
+lr = d_model^(-0.5) * min(step^(-0.5), step*warmup^(-1.5))
+```
+
+#### 正则化技术
+
+**Dropout**：训练时随机关闭神经元
+- 全连接层：0.5
+- 卷积层：0.1~0.2
+- Transformer：0.1
+
+**LayerNorm vs BatchNorm**
+- BatchNorm：对batch维归一化，依赖batch size
+- LayerNorm：对特征维归一化，Transformer首选
+
+**Label Smoothing**
+```python
+# one-hot: [0, 0, 1, 0, 0]
+# smooth:  [0.01, 0.01, 0.96, 0.01, 0.01]
+```
+防止过度自信，提高泛化。
+
+#### 混合精度训练
+
+FP16计算快省显存，但数值范围小：
+```python
+from torch.cuda.amp import autocast, GradScaler
+
+scaler = GradScaler()
+with autocast():
+    loss = model(data)
+scaler.scale(loss).backward()
+scaler.step(optimizer)
+```
+V100加速2-3倍，3090注意不稳定。
+
+---
+
+### 3.4 工程环境：Conda/Docker、日志与可视化、复现实验规范
+
+#### 环境管理
+
+**Conda标准流程**
+```bash
+# 创建环境
+conda create -n robot_env python=3.9
+conda activate robot_env
+
+# 安装PyTorch（查nvidia-smi确定CUDA版本）
+conda install pytorch pytorch-cuda=11.8 -c pytorch
+
+# 导出/复现
+conda env export > environment.yml
+conda env create -f environment.yml
+```
+
+最佳实践：先conda装大包，再pip装小包。
+
+**Docker容器化**
+```dockerfile
+FROM pytorch/pytorch:2.0.0-cuda11.8-cudnn8-runtime
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "main.py"]
+```
+
+#### 实验管理
+
+**WandB集成**
+```python
+import wandb
+wandb.init(project="robot", config={
+    "lr": 1e-3,
+    "batch_size": 32
+})
+wandb.log({"loss": loss, "acc": acc})
+```
+
+**随机种子固定**
+```python
+def set_seed(seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+```
+
+**项目结构**
+```
+project/
+├── configs/        # 配置文件
+├── data/           # 数据
+├── models/         # 模型定义
+├── utils/          # 工具函数
+├── train.py        # 训练脚本
+└── requirements.txt
+```
+
+#### 常见坑与解决
+
+**Windows路径中文**
+```python
+os.environ['HF_DATASETS_CACHE'] = 'D:/hf_cache'
+```
+
+**显存爆炸**
+- 梯度累积：`gradient_accumulation_steps = 4`
+- 减小batch：`per_device_train_batch_size = 8`
+- 混合精度：`fp16 = True`
+
+**性能优化**
+- DataLoader的`num_workers`通常2-4
+- `pin_memory=True`对GPU有帮助
+- 预处理后保存：`dataset.save_to_disk()`
+
+#### 多模态融合实践
+
+**统一Token化**
+```python
+class MultiModalEncoder(nn.Module):
+    def __init__(self, d_model=512):
+        # 不同模态编码器
+        self.vision_encoder = nn.Linear(2048, d_model)  # ResNet
+        self.text_encoder = nn.Embedding(vocab_size, d_model)
+        self.joint_encoder = nn.Linear(7, d_model)  # 7DOF
+
+    def forward(self, vision, text, joints):
+        # 编码并拼接所有模态
+        tokens = torch.cat([
+            self.vision_encoder(vision),
+            self.text_encoder(text),
+            self.joint_encoder(joints)
+        ], dim=1)
+        return tokens
+```
+
+**跨模态效果**
+- 文本"红色方块" → 视觉关注红色区域
+- 触觉检测碰撞 → 文本关注"小心"
+- 关节接近限位 → 降低相关运动权重
+
+**不同采样率处理**
+```python
+# 视觉30Hz，关节100Hz，力1000Hz
+# 方法1：下采样到最低频率
+joint_seq = joint_seq[::3]    # 100Hz→30Hz
+force_seq = force_seq[::33]   # 1000Hz→30Hz
+
+# 方法2：分层聚合
+force_local = pool(force_seq)       # 1000Hz→100Hz
+joint_force = fuse(joint, force_local)  # 100Hz
+final = fuse(vision, joint_force[::3])  # 30Hz
+```
+
+**图注意力网络（GAT）在场景理解中的应用**
+
+机器人场景可表示为图：物体是节点，关系是边。
+```python
+class GraphAttentionLayer(nn.Module):
+    def __init__(self, in_dim, out_dim):
+        super().__init__()
+        self.W = nn.Linear(in_dim, out_dim)
+        self.a = nn.Linear(2 * out_dim, 1)
+
+    def forward(self, node_feats, adj_matrix):
+        h = self.W(node_feats)
+        N = h.shape[0]
+
+        # 计算注意力系数
+        h_i = h.unsqueeze(1).repeat(1, N, 1)
+        h_j = h.unsqueeze(0).repeat(N, 1, 1)
+        e = self.a(torch.cat([h_i, h_j], dim=-1))
+
+        # Mask不存在的边
+        e = e.masked_fill(adj_matrix == 0, -1e9)
+        alpha = F.softmax(e, dim=-1)
+
+        return alpha @ h
+```
+
+应用场景：
+- 抓取规划：识别目标周围遮挡物
+- 导航：理解房间布局和通道关系
+- 装配：理解部件连接顺序
 
 ---
 
