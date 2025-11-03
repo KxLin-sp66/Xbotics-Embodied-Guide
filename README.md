@@ -1840,12 +1840,6 @@ best_object_idx = torch.argmax(scores)
 
 换句话说，如果智能体偶尔偏离专家轨迹，一旦进入偏离状态，再恢复到专家轨迹的难度就会变大，错误可能一发不可收。很多实践中，这一问题使 BC 在真实环境（尤其是高维、长时序任务）中表现并不稳定。
 
-##### 2.4 经典论文／引用
-
-* Pomerleau, D. A. “ALVINN: an autonomous land vehicle in a neural network.” (1990 年代) — 较早的监督式驾驶模仿学习。
-* 相关综述：Zheng et al., “Imitation Learning: Progress, Taxonomies and Challenges” (2021) ([arxiv.org](https://arxiv.org/pdf/2106.12177?utm_source=chatgpt.com "Imitation Learning: Progress, Taxonomies and Challenges"))
-* 值差异分析：Xu et al., “On Value Discrepancy of Imitation Learning” (2019) ([arxiv.org](https://arxiv.org/abs/1911.07027?utm_source=chatgpt.com "On Value Discrepancy of Imitation Learning"))
-
 
 #### 3. 数据集聚合（DAgger）
 
@@ -1876,11 +1870,6 @@ best_object_idx = torch.argmax(scores)
 * 需要专家随时可查询：在执行过程中智能体生成新状态时，需要专家实时标注动作，这在许多现实场景中成本较高或不可行。
 * 虽然改进了 BC 的分布偏移问题，但仍可能存在：如果策略已严重偏离，生成状态–动作对的质量可能较低。
 * 在安全敏感任务中，智能体自主探索可能带来风险。相关扩展如 DropoutDAgger 试图引入不确定性估计以控制风险。 ([arxiv.org](https://arxiv.org/abs/1709.06166?utm_source=chatgpt.com "DropoutDAgger: A Bayesian Approach to Safe Imitation Learning"))
-
-##### 3.4 经典论文／引用
-
-* Ross, Gordon & Bagnell, “A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning” (2011) — 原始 DAgger 论文。
-* 综合教材：MIT AlgorithmsBook 第 18 章 “Imitation Learning” 描述 DAgger 算法实现。 ([algorithmsbook.com](https://algorithmsbook.com/files/chapter-18.pdf?utm_source=chatgpt.com "18 Imitation Learning"))
 
 
 #### 4. 生成式对抗模仿学习（GAIL）
@@ -1918,7 +1907,7 @@ GAIL（Generative Adversarial Imitation Learning）借鉴了生成对抗网络�
 ##### 4.4 经典论文／引用
 
 * Ho, Jonathan & Ermon, Stefano, “Generative Adversarial Imitation Learning”, NeurIPS 2016.
-* 相关综述：Liu, Z. “Generative Adversarial Imitation Learning Benchmarking and …” (2019) ([ziiiliu.github.io](https://ziiiliu.github.io/files/R255_zl413_Topic_1.pdf?utm_source=chatgpt.com "Generative Adversarial Imitation Learning Benchmarking and ..."))
+* 相关综述：Liu, Z. “Generative Adversarial Imitation Learning Benchmarking and …” ([ziiiliu.github.io](https://ziiiliu.github.io/files/R255_zl413_Topic_1.pdf?utm_source=chatgpt.com "Generative Adversarial Imitation Learning Benchmarking and ..."))
 
 
 #### 5. 三者关系与误差累积视角总结
