@@ -1818,7 +1818,8 @@ best_object_idx = torch.argmax(scores)
 
 ##### 2.1 算法简介
 
-行为克隆将模仿学习视为一个典型的监督学习问题。给定专家演示数据集 <img width="123" height="40" alt="image" src="https://github.com/user-attachments/assets/fa469d3f-12c7-4af5-8d7f-d7c077492251" />
+行为克隆将模仿学习视为一个典型的监督学习问题。给定专家演示数据集<img width="116" height="30" alt="image" src="https://github.com/user-attachments/assets/e900cab4-60d4-4148-8a7f-76e27fc1fcef" />
+
 ，智能体直接训练一个策略 <img width="61" height="25" alt="image" src="https://github.com/user-attachments/assets/1b6f7685-e266-43a9-a36a-fefe34ceca8a" />
  或确定性映射<img width="79" height="26" alt="image" src="https://github.com/user-attachments/assets/c9a3c606-e987-4f27-a233-2afa778aa61a" />
 ，使其在专家所处状态 (s) 下输出与专家动作 (a^*​) 接近的动作。
@@ -1857,9 +1858,12 @@ best_object_idx = torch.argmax(scores)
 
 1. 初始化<img width="18" height="17" alt="image" src="https://github.com/user-attachments/assets/37696f6e-7ac2-41f0-984b-cbef161a5ee6" />
 为专家示范数据。
-2. 训练策略 ( \\pi\_\\theta ) 在 ( \\mathcal{D} ) 上。
-3. 使用当前 ( \\pi\_\\theta ) 与专家混合运行策略（如以概率 β 执行专家，其余执行 ( \\pi\_\\theta )）生成轨迹。
-4. 对于轨迹中的每个状态 ( s )，令专家标注 ( a^\* = \\pi\_E(s) )，将 ( (s, a^\*) ) 加入 ( \\mathcal{D} )。
+2. 训练策略 <img width="25" height="20" alt="image" src="https://github.com/user-attachments/assets/d10bda55-d516-40fa-9b51-4151fac1ecfd" />
+在 <img width="18" height="17" alt="image" src="https://github.com/user-attachments/assets/37696f6e-7ac2-41f0-984b-cbef161a5ee6" />上。
+3. 使用当前  <img width="25" height="20" alt="image" src="https://github.com/user-attachments/assets/d10bda55-d516-40fa-9b51-4151fac1ecfd" />与专家混合运行策略生成轨迹。
+4. 对于轨迹中的每个状态 s，令专家标注<img width="95" height="28" alt="image" src="https://github.com/user-attachments/assets/27d87f23-2bbd-43e3-9f54-00fd91da2554" />
+，将<img width="50" height="31" alt="image" src="https://github.com/user-attachments/assets/cddbe3b3-c43b-497a-922e-610201eb5b76" />
+加入<img width="18" height="17" alt="image" src="https://github.com/user-attachments/assets/37696f6e-7ac2-41f0-984b-cbef161a5ee6" />。
 5. 重复训练直到收敛。
    详见教材中算法说明。 ([algorithmsbook.com](https://algorithmsbook.com/files/chapter-18.pdf?utm_source=chatgpt.com "18 Imitation Learning"))
 
@@ -1888,17 +1892,23 @@ best_object_idx = torch.argmax(scores)
 
 GAIL（Generative Adversarial Imitation Learning）借鉴了生成对抗网络（GAN）的思想，将模仿学习转化为一种 **匹配专家与政策的状态–动作分布** 的问题。
 
-* 设专家策略产生的状态–动作分布为 ( \\rho\_E(s,a) )，智能体策略 ( \\pi\_\\theta ) 下对应 ( \\rho\_\\theta(s,a) )。
-* GAIL 通过训练判别器 ( D\_\\phi(s,a) ) 来区分「来自专家」与「来自策略」的样本。策略 ( \\pi\_\\theta ) 则作为“生成器”尝试生成专家难以区分的样本。
+* 设专家策略产生的状态–动作分布为<img width="67" height="35" alt="image" src="https://github.com/user-attachments/assets/bc714a45-4f5b-4401-9775-311034508369" />
+，智能体策略<img width="24" height="20" alt="image" src="https://github.com/user-attachments/assets/565a81d7-13f7-45c4-ac99-41ad20cedd38" />
+下对应<img width="65" height="30" alt="image" src="https://github.com/user-attachments/assets/e05984ee-bc94-4330-9834-de964a097f22" />
+。
+* GAIL 通过训练判别器 <img width="69" height="30" alt="image" src="https://github.com/user-attachments/assets/bdd4746a-031a-4326-b01d-1cf07b5d79b4" />
+来区分「来自专家」与「来自策略」的样本。策略<img width="26" height="18" alt="image" src="https://github.com/user-attachments/assets/54d64245-b0ad-4cfa-9aa9-a85bfb981538" />
+则作为“生成器”尝试生成专家难以区分的样本。
 * 对应目标近似为：
-  [
-  \\min\_\\theta \\max\_\\phi ; \\mathbb{E}​*{(s,a)\\sim\\rho\_E} \\log D*​\\phi(s,a) ;+; \\mathbb{E}​*{(s,a)\\sim\\rho*​\\theta} \\log(1 - D\_\\phi(s,a))
-  ]
+<img width="513" height="35" alt="image" src="https://github.com/user-attachments/assets/06ae5d9b-32dc-4950-9b63-56843c6289f6" />
+
   策略训练通常结合强化学习（如 TRPO）驱动。 ([arxiv.org](https://arxiv.org/html/2408.06536v2?utm_source=chatgpt.com "A Comparison of Imitation Learning Algorithms for ..."))
 
 ### 4.2 优点
 
-* 本质上考虑了 ​**分布匹配**​（而非仅监督拟合专家动作），因此在理论上比单纯 BC 更强。比如，通过 “值差异” 框架表明，GAIL 的误差为 (O((1-\\gamma)^{-1}))，好于 BC 的 (O((1-\\gamma)^{-2}))。 ([arxiv.org](https://arxiv.org/abs/1911.07027?utm_source=chatgpt.com "On Value Discrepancy of Imitation Learning"))
+* 本质上考虑了 ​**分布匹配**​（而非仅监督拟合专家动作），因此在理论上比单纯 BC 更强。比如，通过 “值差异” 框架表明，GAIL 的误差为 <img width="109" height="29" alt="image" src="https://github.com/user-attachments/assets/f7090970-bbb3-43ab-bea2-97bd033d360f" />
+，好于 BC 的<img width="110" height="33" alt="image" src="https://github.com/user-attachments/assets/90c85de0-5493-4b58-b2a4-cc780b077f6a" />
+。 ([arxiv.org](https://arxiv.org/abs/1911.07027?utm_source=chatgpt.com "On Value Discrepancy of Imitation Learning"))
 * 能适应更灵活的行为复制（不仅仅是专家动作的直接复制）——通过交互获得更多样本。
 * 在仿真任务中通常优于 BC。 ([ziiiliu.github.io](https://ziiiliu.github.io/files/R255_zl413_Topic_1.pdf?utm_source=chatgpt.com "Generative Adversarial Imitation Learning Benchmarking and ..."))
 
@@ -1922,14 +1932,6 @@ GAIL（Generative Adversarial Imitation Learning）借鉴了生成对抗网络�
 * ​**BC**​：最为简单、监督学习式，但受限于专家状态分布，容易偏离后累积错误。
 * ​**DAgger**​：引入在线采样＋专家标注机制，缓解状态分布偏移，但需要专家持续参与。
 * ​**GAIL**​：进一步把焦点放在智能体生成状态–动作分布与专家匹配上，通过 adversarial training 实现更强泛化能力。
-
-### 5.2 数据分布偏移（Covariate Shift）与误差累积 (Compounding Error)
-
-* 在 BC 的场景中，智能体训练数据来自专家策略 ( \\pi\_E ) 的状态分布 ( d\_{\\pi\_E}(s) )，但在部署时执行的是学习策略 ( \\pi\_\\theta )，其状态分布 ( d\_{\\pi\_\\theta}(s) ) 很可能偏离 ( d\_{\\pi\_E}(s) )。
-* 由于训练目标最小化的是在专家状态分布下的动作预测误差，而实际运行在 ( d\_{\\pi\_\\theta}(s) ) 上，便导致“训练/测试分布不一致”的问题。
-* 一旦进入未在训练集中大量覆盖的状态，误差可能迅速累积，从而造成性能严重下降。
-* 从理论分析来看，BC 的误差累积呈 (O((1-\\gamma)^{-2}))，而 GAIL 则改进为 (O((1-\\gamma)^{-1}))（假设某些可恢复性条件）。 ([arxiv.org](https://arxiv.org/abs/1911.07027?utm_source=chatgpt.com "On Value Discrepancy of Imitation Learning"))
-* DAgger 尝试缩小这种差距：通过让智能体采样自己可能到达的状态，再由专家标注，使得训练数据更贴合 ( d\_{\\pi\_\\theta}(s) ) 分布，从而减缓累积效应。
 
 ### 5.3 实践建议
 
