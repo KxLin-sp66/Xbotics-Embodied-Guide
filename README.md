@@ -2097,7 +2097,7 @@ GAIL（Generative Adversarial Imitation Learning）借鉴了生成对抗网络�
 
 CLIP（Contrastive Language–Image Pre-training）由 OpenAI 提出，用于用自然语言监督来学习视觉概念。模型的关键贡献在于：
 
-* 用 4 亿 (image, text) 对预训练。 [arXiv**+1**](https://arxiv.org/abs/2103.00020?utm_source=chatgpt.com)
+* 用 4 亿 (image, text) 对预训练。 [paper](https://arxiv.org/abs/2103.00020?utm_source=chatgpt.com)
 * 将图像和文本映射到同一特征空间，从而实现“零样本” (zero-shot) 图像分类。 
 
 ##### 3.2 架构与训练流程
@@ -2126,12 +2126,12 @@ CLIP（Contrastive Language–Image Pre-training）由 OpenAI 提出，用于用
 
 ##### 4.1 背景与动机
 
-SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，旨在解决 CLIP 使用 softmax 对比损失时的一些瓶颈。 [arXiv**+1**](https://arxiv.org/abs/2303.15343?utm_source=chatgpt.com)
+SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，旨在解决 CLIP 使用 softmax 对比损失时的一些瓶颈。 [paper](https://arxiv.org/abs/2303.15343?utm_source=chatgpt.com)
 
 ##### 4.2 核心区别：损失函数
 
 * CLIP 采用 softmax 归一化对比损失，需要对整个 batch 或 batch 内所有配对进行归一化。
-* SigLIP 采用 ​**pairwise sigmoid 损失**​，对每一个图像-文本对独立计算（正对和负对），无需考虑 batch 中所有其他配对。 [arXiv**+1**](https://arxiv.org/abs/2303.15343?utm_source=chatgpt.com)
+* SigLIP 采用 ​**pairwise sigmoid 损失**​，对每一个图像-文本对独立计算（正对和负对），无需考虑 batch 中所有其他配对。 [paper](https://arxiv.org/abs/2303.15343?utm_source=chatgpt.com)
 
 简化后的损失表示（任意 i,j 对）：
 <img width="360" height="68" alt="image" src="https://github.com/user-attachments/assets/b44d2367-d06c-40ce-88dd-bb850fc5a6c9" />
@@ -2217,8 +2217,6 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 ##### 3.1 方法概述
 
-![Image](https://moonlight-paper-snapshot.s3.ap-northeast-2.amazonaws.com/arxiv/transformer-based-model-predictive-path-integral-control-1.png)
-
 ![Image](https://dilithjay.com/assets/images/race-car-1-1024x1024.png)
 
 ![Image](https://www.researchgate.net/publication/396671756/figure/fig1/AS%3A11431281682652512%401760855541106/llustration-of-the-architecture-of-the-ZSG-MPPI-method-The-optimal-control-u-and.ppm)
@@ -2232,10 +2230,14 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 * MPPI（Model Predictive Path Integral control）是一种基于采样的最优控制方法：在当前状态下，随机采样多条未来控制序列（roll‐outs），利用系统模型模拟得到状态轨迹，按代价计算权重，再通过加权平均更新控制序列。 ([arxiv.org](https://arxiv.org/html/2309.12566v2?utm_source=chatgpt.com "Recent Advances in Path Integral Control for Trajectory ..."))
 * 该方法常用于动态场景、非线性系统、带障碍或复杂代价函数场景，因为无需对代价函数求导且可并行。
 * 操作流程简要：
-  1. 当前状态 (x\_t)，前一时刻控制序列作为初始。
-  2. 随机扰动生成 (K) 条控制序列，分别模拟未来 H 步。
-  3. 每条轨迹计算代价 (S\_k)，然后权重 (w\_k = \\exp(-\\frac1\\lambda S\_k))。
-  4. 更新控制序列为 (\\sum\_k w\_k u\_k / \\sum\_k w\_k)。
+  1. 当前状态<img width="18" height="21" alt="image" src="https://github.com/user-attachments/assets/97558881-5882-479a-8723-a1291b10ef3c" />
+，前一时刻控制序列作为初始。
+  2. 随机扰动生成K条控制序列，分别模拟未来 H 步。
+  3. 每条轨迹计算代价<img width="24" height="22" alt="image" src="https://github.com/user-attachments/assets/c4f1fae7-f0b9-44d2-8ae9-e4c59bf4c0e6" />
+，然后权重<img width="143" height="26" alt="image" src="https://github.com/user-attachments/assets/04168815-ea45-4152-98cc-7385bde9379a" />
+。
+  4. 更新控制序列为<img width="140" height="27" alt="image" src="https://github.com/user-attachments/assets/e772dd84-a9e4-454e-9a95-29179dec5a43" />
+。
   5. 执行第一条控制，然后前移、重算。
 
 ##### 3.2 优势与局限
@@ -2278,11 +2280,8 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 * MPC（Model Predictive Control）是一种基于模型的优化控制方法：在每个时刻，基于当前状态和系统模型，预测未来 N 步的状态演化，求解优化问题（最小化代价且满足约束），然后执行第一步控制，时间推进后重复。 ([control.com](https://control.com/technical-articles/what-is-model-predictive-control-mpc/?utm_source=chatgpt.com "What is Model Predictive Control (MPC)? - Technical Articles"))
 * 典型优化形式（离散时间）：
-  [
-  \\min\_{u\_{0:N-1}} \\sum\_{k=0}^{N-1} \\ell(x\_k,u\_k) + \\ell\_f(x\_N)
-  \\quad
-  \\text{s.t. } x\_{k+1}=f(x\_k,u\_k),; (x\_k,u\_k)\\in\\mathcal X\\times\\mathcal U
-  ]
+  <img width="521" height="60" alt="image" src="https://github.com/user-attachments/assets/31a8179f-e53a-4df6-9fe3-18b4d5100e20" />
+
   然后只使用 (u\_0)，前移至下一个时刻。
 
 ##### 4.2 优势与局限
@@ -2323,9 +2322,10 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 ![Image](https://pub.mdpi-res.com/entropy/entropy-24-00653/article_deploy/html/images/entropy-24-00653-ag-550.jpg?1652256370=)
 
-* TrajOpt（Trajectory Optimization，尤其在机器人运动规划领域）是一种将运动规划问题转化为数学优化的问题：通过 Sequential Convex Programming (SCP) 或信赖域 SQP 等方式，对关节/路径/时间参数化轨迹求最优解。 ([rll.berkeley.edu](https://rll.berkeley.edu/trajopt/ijrr/2013-IJRR-TRAJOPT.pdf?utm_source=chatgpt.com "Motion Planning with Sequential Convex Optimization and ..."))
+* TrajOpt（Trajectory Optimization，尤其在机器人运动规划领域）是一种将运动规划问题转化为数学优化的问题：通过 Sequential Convex Programming (SCP) 或信赖域 SQP 等方式，对关节/路径/时间参数化轨迹求最优解。 
 * 举例：在 MoveIt 框架中，TrajOpt 可用于机械臂从起点到目标的关节路径优化。
-* 优化变量通常是 (q\_0, q\_1, …, q\_T) （关节位置或笛卡尔位置），代价包括轨迹长度、速度、加速度、与障碍物的距离等；约束包括动力学、碰撞、关节限位。
+* 优化变量通常是<img width="96" height="22" alt="image" src="https://github.com/user-attachments/assets/5dbccb1b-2c6a-4581-80cc-eb32e9c25fed" />
+，代价包括轨迹长度、速度、加速度、与障碍物的距离等；约束包括动力学、碰撞、关节限位。
 
 ##### 5.2 优势与局限
 
