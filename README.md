@@ -2264,19 +2264,13 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 ![Image](https://i.stack.imgur.com/lYqJ3.png)
 
-![Image](https://www.researchgate.net/publication/228969094/figure/fig2/AS%3A393643073523715%401470863230608/Block-diagram-schematic-of-Model-Predictive-Control-highlighting-the-introduction-of.png)
-
-![Image](https://www.researchgate.net/publication/347806574/figure/fig1/AS%3A974355966205952%401609315973123/Block-diagram-of-model-predictive-control.png)
-
-![Image](https://www.researchgate.net/publication/381740282/figure/fig3/AS%3A11431281260534724%401721098860921/A-block-diagram-illustrating-the-nonlinear-model-predictive-control-NMPC-strategy-for.png)
-
 ![Image](https://www.mdpi.com/robotics/robotics-12-00067/article_deploy/html/images/robotics-12-00067-g001.png)
 
 * MPC（Model Predictive Control）是一种基于模型的优化控制方法：在每个时刻，基于当前状态和系统模型，预测未来 N 步的状态演化，求解优化问题（最小化代价且满足约束），然后执行第一步控制，时间推进后重复。 ([control.com](https://control.com/technical-articles/what-is-model-predictive-control-mpc/?utm_source=chatgpt.com "What is Model Predictive Control (MPC)? - Technical Articles"))
 * 典型优化形式（离散时间）：
   <img width="521" height="60" alt="image" src="https://github.com/user-attachments/assets/31a8179f-e53a-4df6-9fe3-18b4d5100e20" />
 
-  然后只使用 (u/0)，前移至下一个时刻。
+  然后只使用 (u0)，前移至下一个时刻。
 
 ##### 4.2 优势与局限
 
