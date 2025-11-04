@@ -2260,8 +2260,6 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 ##### 4.1 方法概述
 
-![Image](https://www.researchgate.net/publication/269398882/figure/fig5/AS%3A668229370404878%401536329705644/The-receding-horizon-concept-of-Model-Predictive-Control-By-Martin-Behrendt-via.png)
-
 ![Image](https://i.stack.imgur.com/lYqJ3.png)
 
 ![Image](https://www.mdpi.com/robotics/robotics-12-00067/article_deploy/html/images/robotics-12-00067-g001.png)
@@ -2299,12 +2297,6 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 ##### 5.1 方法概述
 
 ![Image](https://roboticseabass.com/wp-content/uploads/2024/06/manip_intro_banner-1568x606.png)
-
-![Image](https://manipulation.csail.mit.edu/figures/gcs_simple_2d_fifth_order_min_time.svg)
-
-![Image](https://moveit.picknik.ai/main/_images/trajopt.png)
-
-![Image](https://moveit.picknik.ai/main/_images/req_traj.png)
 
 ![Image](https://www.frontiersin.org/files/Articles/724116/fnbot-15-724116-HTML/image_m/fnbot-15-724116-g001.jpg)
 
