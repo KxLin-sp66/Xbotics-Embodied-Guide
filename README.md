@@ -1,4 +1,4 @@
-<img width="877" height="443" alt="image" src="https://github.com/user-attachments/assets/971e4b67-0e78-430b-8b35-b00ce435c537" /><img width="554" height="385" alt="image" src="https://github.com/user-attachments/assets/6fe404a2-a85d-4a6c-97e8-affa415819ae" /><img width="554" height="225" alt="image" src="https://github.com/user-attachments/assets/50db8fb1-eb70-47ff-9c07-36ac0fa75f20" /><img width="554" height="365" alt="image" src="https://github.com/user-attachments/assets/dea8aff8-458b-413f-93a8-2f2b21722f2e" /><img width="552" height="181" alt="image" src="https://github.com/user-attachments/assets/4b279040-dfbb-4879-b695-b1d9ad999e7d" /><img width="539" height="272" alt="image" src="https://github.com/user-attachments/assets/bfe53006-4817-4f7d-a184-4d40399f1476" /><img width="554" height="256" alt="image" src="https://github.com/user-attachments/assets/8a10dc48-638f-4488-b865-661a8f2d702c" /><div align="center">
+<div align="center">
 
 <h1>Xbotics 具身智能学习路线（Embodied‑AI Guide）</h1>
 
@@ -5030,6 +5030,7 @@ franka.set_dofs_force_range(
   - 使用运动规划器到达目标位置
 在Genesis中，运动规划使用OMPL库。你可以按照安装页面中的说明进行安装。
 Genesis中的IK和运动规划非常简单：每个操作都可以通过一个函数调用完成。
+```python
 # get the end-effector link
 end_effector = franka.get_link('hand')
 
@@ -5053,8 +5054,10 @@ for waypoint in path:
 # allow robot to reach the last waypoint
 for i in range(100):
     scene.step()
+```
 正如你所看到的，逆向运动学求解和运动规划是机器人实体的两个集成方法。对于逆向运动学求解，你只需要告诉机器人的IK求解器哪个链接是末端执行器，并指定目标姿态。然后，你告诉运动规划器目标关节位置（qpos），它将返回一个规划并平滑过的路径点列表。请注意，在执行路径后，我们让控制器再运行100步。这是因为我们使用的是PD控制器，目标位置和当前实际位置之间会存在一定的差距。因此，我们让控制器多运行一段时间，以便机器人能够到达规划轨迹中的最后一个路径点。
 接下来，我们将机器人夹爪向下移动，抓取方块，然后将其提起：
+```python
 # reach
 qpos = franka.inverse_kinematics(
     link = end_effector,
@@ -5081,6 +5084,7 @@ qpos = franka.inverse_kinematics(
 franka.control_dofs_position(qpos[:-2], motors_dof)
 for i in range(200):
     scene.step()
+```
 在抓取物体时，我们对夹爪的两个自由度进行了力控制，并施加了0.5N的抓取力。如果一切顺利，你将看到物体被成功抓取并提起。
 
 注意:
@@ -5522,12 +5526,13 @@ github.com/robot-descriptions/awesome-robot-descriptions
 在 Isaac Lab 中 , sim.SimulationContext 类继承了 Isaac Sim 的 isaacsim.core.api.simulation_context.SimulationContext ，以允许通过 Python 的 dataclass 对象配置仿真器，并处理仿真步进的某些复杂性。
 
 对于本教程，我们将将物理和渲染时间步长设置为0.01秒。通过将这些数量传递给 sim.SimulationCfg ，然后用它创建仿真上下文的实例。
-
+```python
     # Initialize the simulation context
     sim_cfg = SimulationCfg(dt=0.01)
     sim = SimulationContext(sim_cfg)
     # Set main camera
     sim.set_camera_view([2.5, 2.5, 2.5], [0.0, 0.0, 0.0])
+```
 创建仿真上下文后，我们只配置了作用于仿真场景的物理。这包括用于仿真的设备、重力矢量和其他高级求解器参数。现在还有两个主要步骤剩下来运行仿真:
 
 设计仿真场景: 添加传感器、机器人和其他仿真对象
@@ -5537,28 +5542,31 @@ github.com/robot-descriptions/awesome-robot-descriptions
 6.3.3 光照与碰撞
 生成地面平面
 GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小等属性可修改。
-
+```python
     # Ground-plane
     cfg_ground = sim_utils.GroundPlaneCfg()
     cfg_ground.func("/World/defaultGroundPlane", cfg_ground)
+```
 生成灯光
 可以将 不同类型的灯光基本体 生成到场景中。这些包括远光灯、球形灯、圆盘灯和圆柱灯。在本教程中，我们生成一个远光灯，这是一种远离场景无限远的灯，只朝一个方向发光。
-
+```python
     # spawn distant light
     cfg_light_distant = sim_utils.DistantLightCfg(
         intensity=3000.0,
         color=(0.75, 0.75, 0.75),
     )
     cfg_light_distant.func("/World/lightDistant", cfg_light_distant, translation=(1, 0, 10))
+```
 生成基本形状
 在生成基本形状之前，我们介绍了一个变换基本体或Xform的概念。变换基本体是一个仅包含变换属性的基本体。它用于将其他基本体分组，并作为一个组对其进行变换。在这里，我们创建一个Xform基本体，将所有的基本形状分组在其中。
-
+```python
     # create a new xform prim for all objects to be spawned under
     prim_utils.create_prim("/World/Objects", "Xform")
+```
 接下来，我们使用 ConeCfg 类生成一个圆锥体。可以指定圆锥体的半径、高度、物理属性和材质属性。默认情况下，物理和材质属性是禁用的。
 
 我们生成的前两个圆锥 Cone1 和 Cone2 是视觉元素，不启用物理属性。
-
+```python
     # spawn a red cone
     cfg_cone = sim_utils.ConeCfg(
         radius=0.15,
@@ -5567,8 +5575,9 @@ GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小�
     )
     cfg_cone.func("/World/Objects/Cone1", cfg_cone, translation=(-1.0, 1.0, 1.0))
     cfg_cone.func("/World/Objects/Cone2", cfg_cone, translation=(-1.0, -1.0, 1.0))
+```
 对于第三个圆锥 ConeRigid ，我们在配置类中设置刚体物理属性。通过这些属性，我们可以指定圆锥体的质量、摩擦力和弹性。如果未指定，它们将默认为USD Physics设置的默认值。
-
+```python
     # spawn a green cone with colliders and rigid body
     cfg_cone_rigid = sim_utils.ConeCfg(
         radius=0.15,
@@ -5581,9 +5590,9 @@ GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小�
     cfg_cone_rigid.func(
         "/World/Objects/ConeRigid", cfg_cone_rigid, translation=(-0.2, 0.0, 2.0), orientation=(0.5, 0.0, 0.5, 0.0)
     )
-
+```
 最后，我们生成一个长方体 CuboidDeformable ，其中包含可变形体物理属性。与刚体仿真不同，可变形体可以在其顶点之间具有相对运动。这对于仿真软体如布料、橡胶或果冻非常有用。需要注意的是，可变形体仅在GPU仿真中受支持，并且需要生成一个带有可变形体物理属性的网格对象。
-
+```python
     # spawn a blue cuboid with deformable body
     cfg_cuboid_deformable = sim_utils.MeshCuboidCfg(
         size=(0.2, 0.5, 0.2),
@@ -5592,26 +5601,29 @@ GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小�
         physics_material=sim_utils.DeformableBodyMaterialCfg(),
     )
     cfg_cuboid_deformable.func("/World/Objects/CuboidDeformable", cfg_cuboid_deformable, translation=(0.15, 0.0, 2.0))
-
+```
 从另一个文件生成
 最后，可以从其他文件格式生成基本体，例如其他USD、URDF或OBJ文件。在本教程中，我们将一个表的USD文件生成到场景中。这个表是一个网格基本体，并且有一个与之关联的材质基本体。所有这些信息都存储在其USD文件中。
-
+```python
     # spawn a usd file of a table into the scene
     cfg = sim_utils.UsdFileCfg(usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Mounts/SeattleLabTable/table_instanceable.usd")
     cfg.func("/World/Objects/Table", cfg, translation=(0.0, 0.0, 1.05))
+```
 上面的表被添加为场景的一个引用。简单来说，这意味着表实际上并没有添加到场景中，而是添加了一个指向表资产的 指针 。这允许我们修改表资产，并使更改以非破坏性的方式反映在场景中。例如，我们可以更改表的材质，而不实际修改表资产的底层文件。只有更改存储在USD场景中。
 
 6.4 日志与回放：录制、重放、评测
 查看日志
 在单独的终端中，您可以通过执行以下命令监视训练进度:
-
+```python
 # execute from the root directory of the repository
 ./isaaclab.sh -p -m tensorboard.main --logdir logs/sb3/Isaac-Cartpole-v0
+```
 播放经过训练的 agent
 一旦训练完成，您可以通过执行以下命令来可视化经过训练的 agent:
-
+```python
 # execute from the root directory of the repository
 ./isaaclab.sh -p scripts/reinforcement_learning/sb3/play.py --task Isaac-Cartpole-v0 --num_envs 32 --use_last_checkpoint
+```
 上述命令将从 logs/sb3/Isaac-Cartpole-v0 目录加载最新的检查点。您也可以通过传递 --checkpoint 标志指定特定的检查点。
 
 
@@ -5619,6 +5631,7 @@ GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小�
 
 train.py
 
+```python
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
 # All rights reserved.
 #
@@ -5826,10 +5839,10 @@ if __name__ == "__main__":
     main()
     # close sim app
     simulation_app.close()
-
+```
 
 play.py
-
+```python
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
 # All rights reserved.
 #
@@ -6024,10 +6037,10 @@ if __name__ == "__main__":
     main()
     # close sim app
     simulation_app.close()
-
+```
 
 cli_args.py
-
+```python
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
 # All rights reserved.
 #
@@ -6119,10 +6132,11 @@ def update_rsl_rl_cfg(agent_cfg: RslRlOnPolicyRunnerCfg, args_cli: argparse.Name
         agent_cfg.neptune_project = args_cli.log_project_name
 
     return agent_cfg
-
+```
 
 Isaaclab.sh
 
+```python
 #!/usr/bin/env bash
 
 # Copyright (c) 2022-2025, The Isaac Lab Project Developers (https://github.com/isaac-sim/IsaacLab/blob/main/CONTRIBUTORS.md).
@@ -6669,7 +6683,7 @@ while [[ $# -gt 0 ]]; do
             ;;
     esac
 done
-
+```
   ```bash
   # 环境（示例）
   conda create -n isaaclab python=3.10 -y
