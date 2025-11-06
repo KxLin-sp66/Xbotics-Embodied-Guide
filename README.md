@@ -386,27 +386,27 @@
 #### 2.1 模仿学习（BC/DAgger）路线
 - 前置要求：MDP、监督学习基础
 - 周程：
-  - 第 1–2 周：运行 Imitation 库 BehaviorCloning 脚本，复现 CartPole 专家轨迹复现
-  - 第 3–4 周：PyBullet 机械臂对比 1D-CNN 与 MLP 的 BC 成功率；DAgger 用专家模型再标注并绘制策略漂移曲线
+  - 第 1–2 周：运行 [Imitation 库](https://github.com/HumanCompatibleAI/imitation?tab=readme-ov-file) Behavioral Cloning 脚本
+  - 第 3–4 周：把策略网络换成 1D-CNN 并在 PyBullet 机械臂上对比 BC 成功率；在 DAgger 里用“专家模型再标注”代替人工标注并画策略漂移曲线
   - 第 5–8 周：PyBullet Kuka 拾取方块：采集 500 条专家轨迹→BC→DAgger 两阶段训练，成功率≥75%，输出轨迹可视化+误差热力图+消融表
 - 里程碑：单任务成功率≥75%，BC/DAgger success-rate vs. epoch 单图对比
 - 常见坑：动作未归一化损失爆炸；专家轨迹长度不齐 RNN 打包 pad 错；DAgger 迭代间隔长策略漂移；观测含冗余 RGB 训练慢 5×；PyBullet 时间步与采集频率不一致动作重放失败
-- 延伸：BC-IMP/AggreVaTe；imitation/robomimic/LeRobot
+- 延伸：GAIL/AggreVaTe/[HumanPlus](https://humanoid-ai.github.io/)；[RoboMimic](https://github.com/ARISE-Initiative/robomimic)/[LeRobot](https://github.com/huggingface/lerobot)
 
 #### 2.2 强化学习（PPO/SAC+iLQR/MPPI）路线
 - 前置要求：MDP、策略梯度基础
 - 周程：
-  - 第 1–2 周：Stable-Baselines3 PPO 在 Gymnasium Pendulum-v1 复现
-  - 第 3–4 周：PyBullet 连续控制任务对比 SAC 与 PPO 回报；RLlib 并行 4 种子绘制学习曲线
+  - 第 1–2 周：运行 [Stable-Baselines3](https://github.com/DLR-RM/stable-baselines3) PPO demo
+  - 第 3–4 周：把算法换成 SAC 并在 PyBullet 连续控制任务里对比回报；用 RLlib 并行跑 4 种子画学习曲线
   - 第 5–8 周：Meta-World 单臂三任务（reach→pick→place）：SAC 预训练 2M 步→iLQR/MPPI 精调，平均成功率≥85%，输出收敛曲线+消融表
 - 里程碑：连续控制平均回报≥-120，三任务成功率≥85%，SAC/iLQR 对比单图
 - 常见坑：动作未 clip 致 NaN；奖励尺度 1e-3 太小 SAC 熵崩；iLQR 线性化步长太大发散；MPPI 采样不足噪声淹没梯度；PyBullet 240 Hz 与控制器 30 Hz 不匹配
-- 延伸：DDPG/TD3；SB3/RLlib/crocoddyl
+- 延伸：DDPG/TD3；[RLlib](https://github.com/ray-project/ray)/[Diffusion Policy](https://github.com/real-stanford/diffusion_policy)
 
 #### 2.3 视觉与多模态（2D/3D/CLIP/SigLIP）路线
 - 前置要求：CNN/点云基础、OpenCV/Open3D 环境、机器人学基础
 - 周程：
-  - 第 1–2 周：Detectron2 Mask R-CNN 在自定义 2D 数据集跑通
+  - 第 1–2 周：[Detectron2](https://github.com/facebookresearch/detectron2) Mask R-CNN 在自定义 2D 数据集跑通
   - 第 3–4 周：Open3D-ML PointNet 语义分割替换 backbone 并对比 mIoU；在 YCB-Video 上复现 PoseCNN-PyTorch 6D 姿态
   - 第 5–8 周：PyBullet 机械臂抓取闭环：Mask R-CNN 实例分割→PoseCNN 位姿→Dex-Net 评分→执行，成功率≥75%，输出可视化+误差表
 - 里程碑：单物体抓取成功率≥75%，2D/3D 掩码与 6D 姿态误差单图对比
@@ -416,8 +416,8 @@
 #### 2.4 规划与控制（RRT*/TrajOpt/MPC）路线
 - 前置要求：正逆运动学/Jacobian、ROS基础
 - 周程：
-  - 第1–2周：运行fan-ziqi/ModernRoboticsCpp_CN正逆运动学例程；在PyBullet中搭建6-DOF机械臂可视化
-  - 第3–4周：用PSO-LQR本地规划器插件(nobleo/psolqr_local_planner)生成关节空间轨迹；对比三次B样条平滑与RRT*路径曲率
+  - 第1–2周：运行[正逆运动学例程](https://github.com/fan-ziqi/ModernRoboticsCpp_CN)；在PyBullet中搭建6-DOF机械臂可视化
+  - 第3–4周：用[PSO-LQR本地规划器插件](https://github.com/mirzaim/Path-Tracking-PID?utm_source=chatgpt.com)生成关节空间轨迹；对比三次B样条平滑与RRT*路径曲率
   - 第5–8周：Meta-World单臂「pick-place」任务：TrajOpt生成任务空间轨迹→MPC跟踪，位置误差≤1 cm，输出轨迹/误差/力矩三图
 - 里程碑：轨迹位置误差≤1 cm，MPC与PID对比误差曲线单图
 - 常见坑：RRT*碰撞检测网格分辨率大漏检；TrajOpt约束Jacobian维度错；MPC采样周期>20 ms控制发散；PyBullet关节力矩传感器未使能；PSO初值范围过大收敛慢
