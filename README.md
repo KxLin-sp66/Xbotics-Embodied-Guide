@@ -3405,7 +3405,7 @@ UI Component Library 仪表等需要人看着操作的
 意思就是用 python 脚本来启动 isaac sim，不是用 gui。好处是不占用资源，因为界面渲染会占据大量资源。这个方式适合强化学习。
 先关闭 isaac sim
 
-强化学习
+**强化学习**
 
 <img width="553" height="48" alt="image" src="https://github.com/user-attachments/assets/848dc061-0fa5-4b3c-9c2b-291fb01dec7e" />
 
@@ -3413,7 +3413,7 @@ UI Component Library 仪表等需要人看着操作的
 
 这个案例是让小车靠近小球。
 
-普通应用
+**普通应用**
 
 ```Shell
 cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
@@ -3736,14 +3736,14 @@ debug 在 isaac sim 中跑的应用和 vscode 交互
 
 **核心 API**
 
-hello world
+
 工具栏选择 hello world，点击 containning folder，你就可以看到这个例子包含的代码文件
 
 <img width="554" height="335" alt="image" src="https://github.com/user-attachments/assets/c149f395-e2c2-415f-9b73-74931d15d671" />
 
 <img width="554" height="335" alt="image" src="https://github.com/user-attachments/assets/aa8d049c-1c8a-475d-9d66-8540abe85b92" />
 
-- world 是单例
+
 打开 hello_world.py
 重写代码
 
@@ -3836,12 +3836,13 @@ __init__
 
 **ROS 和 ROS2**
 
-ROS1
+**ROS1**
 参考文档：[https://docs.omniverse.nvidia.com/isaacsim/latest/ros_tutorials/tutorial_ros_turtlebot.html
 turtlebot3](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_tutorials/tutorial_ros_turtlebot.html
 turtlebot3) 链接：[https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
-- 导入 turtlebot3_burger
-进入 isaac sim 的工作空间
+
+导入 turtlebot3_burger，
+进入 isaac sim 的工作空间。
 
 ```Plain Text
 git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git turtlebot3
@@ -3858,7 +3859,7 @@ rosrun xacro xacro -o turtlebot3_burger.urdf turtlebot3_burger.urdf.xacro
 
 <img width="554" height="324" alt="image" src="https://github.com/user-attachments/assets/9ed1af7a-b813-4cc1-8716-4bb534749573" />
 
-发送速度指令
+发送速度指令。
 
 ```Plain Text
 rostopic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 0.2, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
@@ -3872,31 +3873,30 @@ rostopic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 0.0, y: 0.0, z: 0.0}, a
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 ```
 
-添加单线激光
-发布 odom
-先运行 roscore，再启动 isaac 模拟仿真。roscore 只要启动一次就可以了。不需要关掉。
+添加单线激光：发布 odom，先运行 roscore，再启动 isaac 模拟仿真。roscore 只要启动一次就可以了。不需要关掉。
 
 <img width="525" height="388" alt="image" src="https://github.com/user-attachments/assets/453d466c-a279-4f93-b2a6-17d714494461" />
 
 <img width="546" height="130" alt="image" src="https://github.com/user-attachments/assets/650300d0-ac55-424c-8aeb-404839846330" />
 
-发布 odom->base_link
-发布其他传感器的 link
+发布 odom->base_link，
+发布其他传感器的 link。
 
 <img width="554" height="490" alt="image" src="https://github.com/user-attachments/assets/841ff31e-f066-4568-9326-7ccce57d2ddb" />
 
 <img width="531" height="346" alt="image" src="https://github.com/user-attachments/assets/e9f0348c-f14f-4e40-b6cd-6f1bdde1fd06" />
 
-- 如果只写 targetPrims，那么生成的 tf 是 world->base_scan。
-- 本案例中，两者都要填写。base_footprint 不填写，它会报错
+如果只写 targetPrims，那么生成的 tf 是 world->base_scan。
+
+本案例中，两者都要填写。base_footprint 不填写，它会报错。
 
 <img width="531" height="346" alt="image" src="https://github.com/user-attachments/assets/a62fa1fe-5432-4724-9f67-865ff59d55cc" />
 <img width="539" height="272" alt="image" src="https://github.com/user-attachments/assets/c7e862db-1a3d-4b9c-a25e-b44f91f0438c" />
 
-导航--以 carter_warehouse 为例
+**导航--以 carter_warehouse 为例**
 [https://github.com/isaac-sim/IsaacSim-ros_workspaces](https://github.com/isaac-sim/IsaacSim-ros_workspaces)
 
-单线激光雷达
+- 单线激光雷达
 
 <img width="325" height="233" alt="image" src="https://github.com/user-attachments/assets/1e642928-e54a-4572-aa93-3a97cddf2533" />
 
@@ -3910,7 +3910,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 roslaunch carter_2dnav carter_navigation.launch
 ```
 
-多线激光雷达
+- 多线激光雷达
 
 <img width="553" height="242" alt="image" src="https://github.com/user-attachments/assets/ab1faf91-8336-4a60-8d9a-1b52bd0de9bf" />
 
@@ -3920,25 +3920,26 @@ Isaac/Samples/ROS/Scenario/rtx_lidar_carter_warehouse_navigation.usd
 roslaunch carter_2dnav carter_navigation_rtx.launch
 ```
 
-ROS2
+**ROS2**
+
 [https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html ](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html )
 
 官方 demo
 [https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html](https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html)
 
-（1）加载模型
+**（1）加载模型**
          Isaac Examples -> ROS2 -> Navigation
-（2）点击 PLAY 开始仿真
-（3）运行 launch 文件
+**（2）点击 PLAY 开始仿真**
+**（3）运行 launch 文件**
 
 ```Shell
 ros2 launch carter_navigation carter_navigation.launch.py
 ```
 
 机器人初始位置配置在文件carter_navigation_params.yaml 中，如果机器人位置不正确，点击 rviz 中 的2D Pose Estimate 按钮给一个方向。
-（4）导航
+**（4）导航**
 点击 rviz 中的 Navigation2 Goal 按钮，可以导航。
-（5）自动导航
+**（5）自动导航**
 
 ```Shell
 ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
@@ -3953,16 +3954,15 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 - goal_text_file_path: 用户自定义的静态目标点。每一行都必须有一个单独的目标位姿，格式是pose.x pose.y orientation.x orientation.y orientation.z orientation.w. 参考文档在isaac_ros_navigation_goal/assets/goals.txt. 此时的目标点类型也必须是 GoalReader.
 - initial_pose: 初始位姿 [pose.x, pose.y, pose.z, orientation.x, orientation.y, orientation.z, orientation.w].
 
-（6）注意的地方
+**（6）注意的地方**
 小车默认使用 RTX 雷达。
 小车上大部分相机都屏蔽 publish 图片，可以去_camera_render_product 节点使能对应相机。
-自制
 
 <img width="554" height="314" alt="image" src="https://github.com/user-attachments/assets/9cd756a3-05bf-4fe7-be82-044f20fa7f9d" />
 
 <img width="553" height="124" alt="image" src="https://github.com/user-attachments/assets/a6d9335d-a2f7-4339-9f8b-fbe6c02b6936" />
 
-- 设置 ROS_DOMAIN_ID 为 0 ，因为 isaac sim 默认是 0
+设置 ROS_DOMAIN_ID 为 0 ，因为 isaac sim 默认是 0
 模型导入、栅格地图生成
 
 <img width="554" height="383" alt="image" src="https://github.com/user-attachments/assets/b81e8e9b-0bfa-4171-984f-df64cfb07f12" />
@@ -3972,11 +3972,11 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 <img width="554" height="423" alt="image" src="https://github.com/user-attachments/assets/7bb5d6c3-f5d9-4cd4-8cd1-b4daa2b7113d" />
 
 模型导入之后，用 ariculation inspector 来观察是否导入正确。检查机器人行为是否符合预期。
-如果发送速度控制，机器人会震荡，那么需要用 Gain tuner 来调整。首先要把重力去掉来调试。kp 和 kd 设置为 100 来试试等。具体参考视频教程的 b 站内容。第一讲。
+如果发送速度控制，机器人会震荡，那么需要用 Gain tuner 来调整。首先要把重力去掉来调试。kp 和 kd 设置为 100 来试试等。具体参考视频教程的 b 站内容第一讲。
 
 <img width="552" height="302" alt="image" src="https://github.com/user-attachments/assets/6de92b41-c837-438c-a8c7-4584bc61adb5" />
 
-- 加载一个环境
+加载一个环境
 
 <img width="553" height="420" alt="image" src="https://github.com/user-attachments/assets/3a578bc0-f502-4962-a01c-9e6f903dc18e" />
 
@@ -4042,16 +4042,19 @@ ros2 run rqt_robot_steering rqt_robot_steering
 
 <img width="554" height="208" alt="image" src="https://github.com/user-attachments/assets/14e6f8ad-738b-4773-ba99-2d2b316d3d5e" />
 
-记得把 timestamp 和 context 也连接上，图片中忘记加了
-- 添加 raw transform tree  它表示的是 odom 到 base link
-- transform tree 表示的是 base link 到 lidar camera imu 的
+记得把 timestamp 和 context 也连接上，图片中忘记加了。
+
+添加 raw transform tree ，它表示的是 odom 到 base link。
+
+transform tree 表示的是 base link 到 lidar camera imu 的逻辑。
 
 <img width="553" height="319" alt="image" src="https://github.com/user-attachments/assets/1bbb6436-0fd8-498b-b4d1-56ccff6fc7b6" />
 
 <img width="554" height="332" alt="image" src="https://github.com/user-attachments/assets/7ecc91ef-1215-4498-82fc-1978275891fb" />
 
-运行后就会发布 odom 到 base link 的 tf
-- 添加 base link 本体的 tf
+运行后就会发布 odom 到 base link 的 tf。
+
+添加 base link 本体的 tf。
 
 <img width="553" height="474" alt="image" src="https://github.com/user-attachments/assets/2b159e56-3800-452c-98fc-46e503ca4638" />
 
@@ -4083,7 +4086,7 @@ rosdep install -i --from-path src --rosdistro foxy -y
 ```Shell
 ros2 launch carter_navigation carter_navigation.launch.py
 ```
-- 有个报错
+有个报错
 
 <img width="554" height="500" alt="image" src="https://github.com/user-attachments/assets/efa2ba2d-dfd0-45b7-ac07-5e3fb1ee39ad" />
 
@@ -4092,6 +4095,7 @@ ros2 launch carter_navigation carter_navigation.launch.py
 
 ##### 6.1.1.2 Isaac Lab入门
 **系统要求**
+
 一般要求：
 有关详细要求，请参阅 Isaac Sim 系统要求 。基本要求包括：
 
@@ -4121,6 +4125,7 @@ Isaac Sim 是针对特定的 Python 版本构建的 ，在安装 Isaac Lab 时�
 如果您在使用新的GPU或遇到驱动程序问题，请从 Unix Driver Archive <https://www.nvidia.com/en-us/drivers/unix/> 中安装最新的生产分支驱动程序，使用 .run 安装程序。
 
 **DGX Spark: 详细信息和限制**
+
 DGX Spark 是一款采用 aarch64 架构的独立机器学习设备。因此，Isaac Lab 的某些功能目前在 DGX Spark 上不受支持。最值得注意的是，该架构 需要 CUDA ≥ 13，因此需要 PyTorch 的 cu13 构建或更新版本。关于 Isaac Lab 的其他值得注意的限制包括…
 
 SkillGen 不支持开箱即用。这是因为 cuRobo 构建原生 CUDA/C++ 扩展，需要特定的工具和库版本，这些版本尚未经过验证可用于 DGX Spark。
@@ -4143,6 +4148,7 @@ Running Cosmos Transfer1 is not currently supported on the DGX Spark.
 您可以使用 Isaac Sim兼容性检查器 来自动检查您的系统是否满足运行Isaac Sim所需的要求。
 
 **选择安装方法**
+
 不同的工作流程需要不同的安装方法。使用此表格进行决定：
 
 <img width="819" height="259" alt="image" src="https://github.com/user-attachments/assets/8efc368a-b524-42a4-a480-319836d442a4" />
@@ -4497,28 +4503,36 @@ MuJoCo 是一个带有 C API 的 C/C++ 库，面向研究人员和开发者。�
 
 MuJoCo 可用于实现基于模型的计算，例如控制合成、状态估计、系统辨识、机构设计、通过逆动力学进行数据分析以及用于机器学习应用的并行采样。它也可以作为更传统的仿真器使用，包括用于游戏和交互式虚拟环境。
 
-主要特性
+**主要特性**
+
 MuJoCo 具有许多特性。在此我们概述最显著的几个。
 
-广义坐标结合现代接触动力学
+**广义坐标结合现代接触动力学**
+
 物理引擎传统上分为两类。机器人学和生物力学引擎使用广义坐标或关节坐标中的高效准确递归算法。然而，它们要么忽略接触动力学，要么依赖于需要非常小时间步长的早期弹簧-阻尼器方法。游戏引擎使用一种更现代的方法，通过求解优化问题来找到接触力。然而，它们通常诉诸于过度指定的笛卡尔表示，其中关节约束是数值施加的，当涉及复杂的运动学结构时，会导致不准确和不稳定。MuJoCo 是第一个结合了两者的优点（广义坐标仿真和基于优化的接触动力学）的通用引擎。其他仿真器最近已进行调整以使用 MuJoCo 的方法，但这通常与其所有功能不兼容，因为它们最初并非为此设计。习惯于游戏引擎的用户可能最初会觉得广义坐标违反直觉；请参阅下面的澄清部分。
 
-软性、凸性且解析可逆的接触动力学
+**软性、凸性且解析可逆的接触动力学**
+
 在现代接触动力学方法中，由摩擦接触产生的力或冲量通常定义为线性或非线性互补问题（LCP 或 NCP）的解，两者均为 NP-hard。MuJoCo 基于一种不同的接触物理公式，该公式可简化为凸优化问题，详情请参阅计算章节。我们的模型允许软接触和其他约束，并且具有唯一确定的逆，便于数据分析和控制应用。提供了多种优化算法选择，包括投影高斯-赛德尔方法（projected Gauss-Seidel method）的推广，可处理椭圆摩擦锥。求解器提供了摩擦接触（包括扭转摩擦和滚动摩擦）、无摩擦接触、关节和肌腱限制、关节和肌腱的干摩擦以及各种等式约束的统一处理方法。
 
-肌腱几何
+**肌腱几何**
+
 MuJoCo 可以模拟肌腱的 3D 几何形状——它们是遵守缠绕和经过点约束的最小路径长度弦。该机制类似于 OpenSim 中的机制，但实现了更受限的、封闭形式的缠绕选项集，以加快计算速度。它还提供了机器人学特有的结构，例如滑轮和耦合自由度。肌腱可用于驱动，也可用于对肌腱长度施加不等式或等式约束。
 
-通用驱动模型
+**通用驱动模型**
+
 在使用与模型无关的 API 的同时设计一个足够丰富的驱动模型是一项挑战。MuJoCo 通过采用一种抽象驱动模型来实现此目标，该模型可以具有不同类型的传动、力生成和内部动力学（即，使总体动力学成为三阶的状态变量）。这些组件可以实例化，以便以统一的方式模拟电机、气缸和液压缸、PD 控制器、生物肌肉和许多其他执行器。
 
-可重构计算流程
+**可重构计算流程**
+
 MuJoCo 有一个顶层步进函数 mj_step，它运行整个前向动力学并推进仿真状态。然而，在许多超出仿真的应用中，能够运行计算流程的选定部分是有益的。为此，MuJoCo 提供了大量标志，可以任意组合设置，允许用户根据需要重新配置流程，超出通过选项选择算法和算法参数。此外，许多底层函数可以直接调用。用户定义的回调函数可以实现自定义力场、执行器、碰撞例程和反馈控制器。
 
-模型编译
+**模型编译**
+
 如上所述，用户在一种称为 MJCF 的 XML 文件格式中定义 MuJoCo 模型。然后，该模型由内置编译器编译为低级数据结构 mjModel，该结构经过交叉索引和优化以用于运行时计算。编译后的模型也可以保存在二进制 MJB 文件中。
 
-模型与数据的分离
+**模型与数据的分离**
+
 MuJoCo 在运行时将仿真参数分为两个数据结构（C 结构体）
 
 mjModel 包含模型描述，并且期望保持不变。其中嵌入了包含仿真和可视化选项的其他结构体，这些选项偶尔需要更改，但这由用户完成。
@@ -4528,16 +4542,21 @@ mjData 包含所有动态变量和中间结果。它用作一个暂存区，所�
 mjModel 由编译器构建。mjData 在运行时根据 mjModel 构建。这种分离使得仿真多个模型以及每个模型的多个状态和控制变得容易，进而促进了采样和有限差分的多线程。顶层 API 函数反映了这种基本分离，其格式为
 
 void mj_step(const mjModel* m, mjData* d);
-交互式仿真与可视化
+
+**交互式仿真与可视化**
+
 原生的3D 可视化器提供网格和几何图元的渲染、纹理、反射、阴影、雾、透明度、线框、天空盒、立体可视化（在支持四缓冲 OpenGL 的显卡上）。此功能用于生成 3D 渲染，帮助用户深入了解物理仿真，包括自动生成的模型骨架、等效惯量盒、接触位置和法线、可分解为法向和切向分量的接触力、外部扰动力、局部坐标系、关节和执行器轴以及文本标签等视觉辅助。可视化器需要一个带有 OpenGL 渲染上下文的通用窗口，从而允许用户选择自己喜欢的 GUI 库。MuJoCo 分发的代码示例 simulate.cc 展示了如何使用 GLFW 库来实现这一点。一个相关的可用性特性是能够“深入”仿真，推动物体并查看物理响应。用户选择将施加外部力和力矩的刚体，并实时查看扰动及其动态结果的渲染。这可用于视觉调试模型、测试反馈控制器的响应或将模型配置到所需姿势。
 
-强大且直观的建模语言
+**强大且直观的建模语言**
+
 MuJoCo 拥有自己的建模语言，称为 MJCF。MJCF 的目标是提供对 MuJoCo 所有计算能力的访问，同时使用户能够快速开发新模型并进行实验。这主要得益于广泛的默认设置机制，该机制类似于 HTML 中内联的层叠样式表 (CSS)。虽然 MJCF 具有许多元素和属性，但用户在任何给定模型中只需要设置极少的参数。这使得 MJCF 文件比许多其他格式更短、更易读。
 
-复合柔性对象的自动生成
+**复合柔性对象的自动生成**
+
 MuJoCo 的软约束可用于模拟绳索、布料和可变形 3D 对象。这需要大量常规刚体、关节、肌腱和约束协同工作。建模语言具有高级宏，这些宏由模型编译器自动扩展为必要的标准模型元素集合。重要的是，这些生成的柔性对象能够与仿真的其余部分完全交互。
 
-模型实例
+**模型实例**
+
 在 MuJoCo 中有几种称为“模型”的实体。用户在 MJCF 或 URDF 编写的 XML 文件中定义模型。然后软件可以在不同的介质（文件或内存）和不同的描述级别（高或低）创建同一模型的多个实例。所有组合都是可能的。
 
 所有运行时计算均使用 mjModel 进行，该结构过于复杂，无法手动创建。这就是我们拥有两个建模级别的原因。高级别是为了用户方便而存在：其唯一目的是被编译成可执行计算的低级别模型。生成的 mjModel 可以加载并保存到二进制文件 (MJB) 中，但这些文件与版本相关且无法反编译，因此模型应始终维护为 XML 文件。
@@ -4552,7 +4571,8 @@ MuJoCo 的软约束可用于模拟绳索、布料和可变形 3D 对象。这需
 
 MJB 文件 → (模型加载器) → mjModel
 
-示例
+**示例**
+
 这是一个 MuJoCo MJCF 格式的简单模型。它定义了一个固定在世界上的平面、一个用于更好地照明物体并投射阴影的光源，以及一个具有 6 个自由度的浮动盒子（这就是“自由”关节的作用）。
 
 hello.xml:
@@ -4664,111 +4684,148 @@ MJCF 文件包含指定模型所需的最小信息。胶囊体由空间中的线
 除了以二进制 MJB 格式保存编译后的模型外，我们还可以将其保存为 MJCF 或人类可读的文本格式；分别参见 example_saved.xml 和 example_saved.txt。XML 版本与原始版本相似，而文本版本包含 mjModel 中的所有信息。将文本版本与 XML 版本进行比较，可以发现模型编译器为我们做了多少工作。
 
 **模型元素**
+
 本节简要描述了 MuJoCo 模型中可以包含的所有元素。稍后我们将更详细地解释底层计算、MJCF 中元素的指定方式以及它们在 mjModel 中的表示。
 
 **选项**
+
 每个模型都有以下列出的三组选项。它们总是包含在内。如果其值未在 XML 文件中指定，则使用默认值。这些选项的设计旨在允许用户在每个仿真时间步之前更改其值。但在一个时间步内，任何选项都不应更改。
 
-mjOption
+- mjOption
+
 此结构包含影响物理仿真的所有选项。它用于选择算法并设置其参数，启用和禁用仿真流程的不同部分，以及调整重力等系统级物理属性。
 
-mjVisual
+- mjVisual
+
 此结构包含所有可视化选项。还有其他 OpenGL 渲染选项，但这些选项与会话相关，不属于模型的一部分。
 
-mjStatistic
+- mjStatistic
+
 此结构包含由编译器计算的关于模型的统计信息：平均刚体质量、模型的空间范围等。包含此信息是为了提供信息，也因为可视化器使用它进行自动缩放。
 
 **资产**
+
 资产本身不是模型元素。模型元素可以引用它们，在这种情况下，资产会以某种方式改变引用元素的属性。一个资产可以被多个模型元素引用。由于包含资产的唯一目的是引用它，而引用只能通过名称完成，因此每个资产都有一个名称（如果适用，可以从文件名推断出来）。相比之下，常规元素的名称可以保持未定义。
 
 **网格**
+
 MuJoCo 可以从 OBJ 文件和二进制 STL 文件加载三角形网格。可以使用 MeshLab 等软件进行格式转换。虽然任何三角形集合都可以加载并可视化为网格，但碰撞检测器处理的是凸包。有编译时选项用于缩放网格，以及将原始几何形状拟合到网格。网格也可以用于自动推断惯性属性——通过将其视为三角锥体的并集并组合它们的质量和惯量。请注意，网格本身没有颜色，而是使用引用 geom 的材质属性进行着色。相比之下，所有空间属性都由网格数据确定。MuJoCo 支持 OBJ 和用于法线和纹理坐标的自定义二进制文件格式。网格也可以直接嵌入到 XML 中。
 
 **皮肤**
+
 蒙皮网格（或皮肤）是形状可以在运行时变形的网格。它们的顶点连接到刚体（在此上下文中称为骨骼），每个顶点可以属于多个骨骼，从而实现皮肤的平滑变形。蒙皮纯粹是可视化对象，不影响物理，但它们可以显著增强视觉真实感。蒙皮可以从自定义二进制文件加载，或直接嵌入到 XML 中，类似于网格。自动生成复合柔性对象时，模型编译器也会为这些对象生成蒙皮。
 
 **高度场**
+
 高度场可以从 PNG 文件加载（内部转换为灰度）或从稍后描述的自定义二进制格式文件加载。高度场是高程数据的矩形网格。编译器将数据归一化到 [0-1] 范围。高度场的实际空间范围由引用 geom 的尺寸参数确定。高度场只能从连接到 world body 的 geoms 引用。为了渲染和碰撞检测目的，网格矩形自动进行三角形划分，因此高度场被视为三角棱柱的并集。原则上，与此类复合对象的碰撞检测可以为单个 geom 对生成大量接触点。如果发生这种情况，仅保留前 64 个接触点。其基本原理是，高度场应用于模拟空间特征相对于仿真中其他对象较大的地形图，因此对于精心设计的模型，接触点的数量会很少。
 
 **纹理**
+
 纹理可以从 PNG 文件加载，或由编译器根据用户定义的程序参数合成。还可以选择在模型创建时将纹理留空并在运行时稍后更改它——以便在 MuJoCo 仿真中渲染视频或创建其他动态效果。可视化器支持两种纹理映射类型：2D 和立方体。2D 映射适用于平面和高度场。立方体映射对于“收缩包装”纹理到 3D 对象而无需指定纹理坐标非常有用。它也用于创建天空盒。立方体贴图的六个面可以从单独的图像文件加载，或从一个复合图像文件加载，或通过重复同一图像生成。与所有其他直接从模型元素引用的资产不同，纹理只能从另一个资产（即 material）引用，然后该资产再从模型元素引用。
 
 **材质**
+
 材质用于控制 geoms、sites 和肌腱的外观。这是通过从相应的模型元素引用材质来完成的。外观包括纹理映射以及与以下 OpenGL 光源交互的其他属性：RGBA、镜面反射、光泽度、发射。材质也可以用于使对象具有反射性。目前，反射仅在平面和盒子的 Z+ 面上渲染。请注意，模型元素也可以具有用于设置颜色的本地 RGBA 参数。如果同时指定了材质和本地 RGBA，则本地定义具有优先级。
 
 **运动学树**
+
 MuJoCo 仿真一组刚体的动力学，其运动通常受到约束。系统状态以关节坐标表示，刚体明确组织成运动学树。除顶层“世界”刚体外，每个刚体都有一个唯一的父级。不允许运动学环；如果需要环关节，应使用等式约束进行建模。因此，MuJoCo 模型的主干是由嵌套的 body 定义形成的一个或多个运动学树；孤立的浮动体算作一个树。下面列出的其他几个元素在 body 中定义并属于该 body。这与稍后列出的不能与单个 body 关联的独立元素形成对比。
 
 **刚体 (Body)**
+
 刚体具有质量和惯性属性，但没有任何几何属性。相反，几何形状（或 geoms）附加到刚体上。每个刚体有两个坐标系：用于定义它以及定位相对于它的其他元素的坐标系，以及一个以刚体质心为中心并与其主惯性轴对齐的惯性坐标系。因此，在该坐标系下，刚体惯性矩阵是对角的。在每个时间步，MuJoCo 递归计算前向运动学，得到全局笛卡尔坐标系中所有刚体的位置和方向。这为所有后续计算提供了基础。
 
 **关节 (Joint)**
+
 关节在刚体内定义。它们在刚体及其父级之间创建运动自由度 (DOFs)。如果没有关节，刚体就会焊接到其父级。这与使用过度指定笛卡尔坐标的游戏引擎相反，游戏引擎中关节是移除自由度而不是增加自由度。关节有四种类型：球形、滑动、铰链以及创建浮动刚体的“自由关节”。一个刚体可以有多个关节。通过这种方式，复合关节被自动创建，而无需定义虚拟刚体。球形和自由关节的姿态分量表示为单位四元数，MuJoCo 中的所有计算都遵循四元数的属性。
 
 **关节参考位姿**
+
 参考位姿是存储在 mjModel.qpos0 中的关节位置向量。它对应于模型处于初始配置时关节的数值。在我们之前的示例中，肘部以 90° 弯曲配置创建。但 MuJoCo 不知道肘部是什么，因此默认将其视为数值为 0 的关节配置。我们可以覆盖默认行为，使用 joint 的 ref 属性指定初始配置对应于 90°。所有关节的参考值被组装到向量 mjModel.qpos0 中。每当仿真重置时，关节配置 mjData.qpos 被设置为 mjModel.qpos0。在运行时，关节位置向量相对于参考位姿解释。特别是，由关节施加的空间变换量为 mjData.qpos - mjModel.qpos0。此变换是 mjModel 的 body 元素中存储的父子平移和旋转偏移之外的附加变换。ref 属性仅适用于标量关节（slide 和 hinge）。对于球形关节，保存在 mjModel.qpos0 中的四元数始终是 (1,0,0,0)，对应于空旋转。对于自由关节，浮动刚体的全局 3D 位置和四元数保存在 mjModel.qpos0 中。
 
 **弹簧参考位姿**
+
 这是所有关节和肌腱弹簧达到其静止长度的位姿。当关节配置偏离弹簧参考位姿时会产生弹簧力，并且力与偏离量呈线性关系。弹簧参考位姿保存在 mjModel.qpos_spring 中。对于滑动和铰链关节，弹簧参考位姿通过 springref 属性指定。对于球形和自由关节，弹簧参考位姿对应于初始模型配置。
 
 **自由度 (DOF)**
+
 自由度 (DOF) 与关节密切相关，但并非一一对应，因为球形和自由关节具有多个自由度。可以认为关节指定位置信息，而自由度指定速度和力信息。更正式地说，关节位置是系统配置流形上的坐标，而关节速度是流形在当前位置的切空间上的坐标。自由度具有与速度相关的属性，例如摩擦损失、阻尼、电枢惯量。作用在系统上的所有广义力都以自由度空间表示。相比之下，关节具有与位置相关的属性，例如限制和弹簧刚度。自由度并非由用户直接指定。相反，它们是由编译器根据关节创建的。
 
 **几何体 (Geom)**
+
 Geoms 是刚性连接到刚体的 3D 形状。多个 geoms 可以连接到同一个刚体上。考虑到 MuJoCo 仅支持凸 geom-geom 碰撞，以及创建非凸对象的唯一方法是将其表示为凸 geoms 的并集这一事实，这一点尤其有用。除了碰撞检测和随后的接触力计算之外，geoms 还用于渲染，以及在省略刚体质量和惯量时进行自动推断。MuJoCo 支持几种原始几何形状：平面、球体、胶囊体、椭球体、圆柱体、盒子。geom 也可以是网格或高度场；这通过引用相应的资产来实现。Geoms 具有许多影响仿真和可视化的材质属性。
 
 **定位点 (Site)**
+
 Sites 本质上是轻量级的 geoms。它们代表刚体坐标系内的关注位置。Sites 不参与碰撞检测或惯性属性的自动计算，但它们可以用于指定其他对象的空间属性，例如传感器、肌腱路径和滑块曲柄端点。Sites 也可以用于指定用户感兴趣的点（或更确切地说是坐标系）。
 
 **相机**
+
 可以在模型中定义多个相机。交互式可视化器中总有一个默认相机，用户可以使用鼠标自由移动它。然而，通常方便定义附加相机，这些相机要么固定在世界中，要么附加到某个刚体并随之移动。除了相机位置和姿态之外，用户还可以调整垂直视野和瞳距以进行立体渲染，以及创建立体虚拟环境所需的斜投影。在模拟具有不完美光学器件的真实相机时，可以分别为水平和垂直方向指定不同的焦距以及非中心主点。
 
 **光源**
+
 光源可以固定在 world body 上，也可以附加到移动的刚体上。可视化器提供了 OpenGL（固定功能）中的完整光照模型，包括环境光、漫反射和镜面反射分量、衰减和截止、位置光和方向光、雾。光源，或者更确切地说，被它们照亮的物体，也可以投射阴影。然而，与材质反射类似，每个投射阴影的光源都会增加一个渲染通道，因此应谨慎使用此功能。详细记录光照模型超出了本章的范围；请参阅OpenGL 文档。请注意，除了用户在运动学树中定义的光源外，还有一个随相机移动的默认头灯。其属性通过 mjVisual 选项进行调整。
 
 **独立元素**
+
 这里我们描述不属于单个刚体，因此在运动学树之外描述的模型元素。
 
 **肌腱 (Tendon)**
+
 肌腱是标量长度元素，可用于驱动、施加限制和等式约束，或创建弹簧-阻尼器和摩擦损失。肌腱有两种类型：固定肌腱和空间肌腱。固定肌腱是（标量）关节位置的线性组合。它们对于建模机械耦合非常有用。空间肌腱定义为通过一系列指定 site（或经过点）或缠绕指定 geoms 的最短路径。仅支持球体和圆柱体作为缠绕 geoms，圆柱体在缠绕时被视为具有无限长度。为了避免肌腱从缠绕 geom 的一侧突然跳到另一侧，用户还可以指定偏好的侧面。如果肌腱路径中有多个缠绕 geoms，它们必须由 sites 分开，以避免需要迭代求解器。空间肌腱也可以使用滑轮分成多个分支。
 
 **执行器 (Actuator)**
+
 MuJoCo 提供了一个灵活的执行器模型，包含三个可以独立指定的组件。它们共同决定了执行器如何工作。通过协调指定这些组件可以获得常见的执行器类型。这三个组件是传动、激活动力学和力生成。传动指定了执行器如何连接到系统的其余部分；可用类型有关节、肌腱和滑块曲柄。激活动力学可用于模拟气动或液压缸以及生物肌肉的内部激活状态；使用此类执行器会使整个系统动力学成为三阶的。力生成机制决定了作为执行器输入提供的标量控制信号如何映射到标量力，然后该力再通过从传动推断出的力臂映射到广义力。
 
 **传感器 (Sensor)**
+
 MuJoCo 可以生成仿真传感器数据，这些数据保存在全局数组 mjData.sensordata 中。结果不用于任何内部计算；而是提供给用户，用户可能需要它进行自定义计算或数据分析。可用的传感器类型包括触摸传感器、惯性测量单元 (IMU)、力矩传感器、关节和肌腱位置和速度传感器、执行器位置、速度和力传感器、运动捕捉标记点位置和四元数以及磁力计。其中一些需要额外的计算，而另一些则从 mjData 的相应字段复制。还有一个用户传感器，允许用户代码将任何其他关注量插入传感器数据数组中。MuJoCo 还具有离屏渲染功能，可以轻松模拟彩色和深度相机传感器。这不包含在标准传感器模型中，而是需要通过编程方式完成，如代码示例 simulate.cc 中所示。
 
 **等式约束 (Equality)**
+
 等式约束可以在运动学树结构和其中定义的关节/自由度已施加的约束之外施加额外的约束。它们可用于创建环关节，或一般地模拟机械耦合。施加这些约束的内部力与所有其他约束力一起计算。可用的等式约束类型有：在一点连接两个刚体（在运动学树外部创建球形关节）；将两个刚体焊接在一起；固定关节或肌腱的位置；通过三次多项式耦合两个关节或两个肌腱的位置；约束 flex（即可变形网格）的边长与其初始长度相等。
 
 **柔性体 (Flex)**
+
 Flexes 在 MuJoCo 3.0 中加入。它们代表可变形网格，可以是 1 维、2 维或 3 维的（因此其元素可以是胶囊体、三角形或四面体）。与刚性附加到单个刚体上的静态形状 geoms 不同，flex 的元素是可变形的：它们通过连接多个刚体构成，因此刚体的位置和姿态在运行时决定了 flex 元素的形状。这些可变形元素支持碰撞和接触力，并生成软性保持可变形实体形状的被动力和约束力。提供了自动化功能，可以从文件加载网格，构建对应于网格顶点的刚体，构建对应于网格面（或线或四面体，取决于维度）的 flex 元素，并获得相应的可变形网格。
 
 **接触对 (Contact pair)**
+
 MuJoCo 中的接触生成是一个复杂的过程。检查接触的 geom 对可以来自两个来源：自动邻近测试和其他统称为“动态”的过滤器，以及模型中提供的显式 geom 对列表。后者是一种单独的模型元素类型。由于接触涉及两个 geoms 的组合，显式指定允许用户以动态机制无法实现的方式定义接触参数。它对于微调接触模型也很有用，特别是添加被激进过滤方案移除的接触对。接触机制现已扩展到 flex 元素，可以在两个以上的刚体之间创建接触交互。然而，此类碰撞是自动化的，无法使用接触对进行微调。
 
 **接触排除 (Contact exclude)**
+
 这与接触对相反：它指定应从候选接触对生成中排除的刚体对（而不是 geoms 对）。它对于禁用因几何形状导致不希望的永久接触的刚体之间的接触非常有用。请注意，MuJoCo 还有其他机制来处理这种情况（特别是如果 geoms 属于同一个刚体或父子刚体，则它们不会发生碰撞），但有时这些自动化机制不够，显式排除变得必要。
 
 **自定义数值 (Custom numeric)**
+
 在 MuJoCo 仿真中有三种方式输入自定义数值。首先，可以在 XML 中定义全局数值字段。它们有一个名称和一个实数值数组。其次，可以通过元素特定的自定义数组扩展某些模型元素的定义。这通过在 XML 元素 size 中设置属性 nuser_XXX 来完成。第三，存在一个数组 mjData.userdata，它不用于任何 MuJoCo 计算。用户可以在其中存储自定义计算的结果；请记住，随时间变化的所有内容都应存储在 mjData 中，而不是 mjModel 中。
 
 **自定义文本 (Custom text)**
+
 自定义文本字段可以保存在模型中。它们可用于自定义计算——指定关键字命令或提供其他文本信息。但不要将其用于注释；在编译后的模型中保存注释没有好处。XML 有其自己的注释机制（被 MuJoCo 的解析器和编译器忽略），这更适合。
 
 **自定义元组 (Custom tuple)**
+
 自定义元组是 MuJoCo 模型元素的列表，可能包含其他元组。它们不被仿真器使用，但可用于指定用户代码所需的一组元素。例如，可以使用元组来定义用于自定义接触处理的刚体对。
 
 **关键帧 (Keyframe)**
+
 关键帧是仿真状态变量的快照。它包含关节位置、关节速度、执行器激活（如果存在）以及仿真时间的向量。模型可以包含一个关键帧库。它们对于将系统状态重置到关注点很有用。请注意，关键帧不用于在模型中存储轨迹数据；为此目的应使用外部文件。
 
 **澄清**
+
 读者可能拥有使用其他物理仿真器和相关约定，以及与 MuJoCo 不一致的通用编程实践经验。这可能会导致混淆。本节的目标是预先澄清最可能引起混淆的方面；它介于 FAQ 和精选主题教程之间。我们需要参考文档后面介绍的内容，但无论如何，下面的文本尽可能地独立和具有介绍性。
 
+
 **发散**
+
 仿真的发散发生在状态元素迅速趋向无穷大时。在 MuJoCo 中，这通常表现为 mjWARN_BADQACC 警告。发散是所有物理仿真的固有问题，不一定表明模型有问题或仿真器有错误，而更像是提示对于给定的积分器选择，时间步长过大。在物理仿真中，速度（大时间步长）和稳定性（小时间步长）之间总是存在权衡。一个针对速度进行良好调优的模型具有可能的最大不发散时间步长，这通常意味着它在极端条件下可能会发散。从这个意义上说，罕见的发散情况实际上可能表明模型调优良好。在所有情况下，都应该可以通过减小时间步长和/或切换到更稳定的积分器来防止发散。如果这不起作用，那么原因就不同了。例如，在刚体初始化时发生穿透的模型中，大的排斥力可能会将它们推开并导致发散。
 
 **单位未指定**
+
 MuJoCo 不指定基本的物理单位。用户可以选择他们认为合适的单位系统，只要它是一致的即可。为了理解这一点，考虑一个例子：一个重 1 千克、配备 1 牛顿推力器的 1 米飞船的动力学，与一个重 1 克、配备 1 达因推力器的 1 厘米飞船的动力学相同。这是因为 MKS 和 CGS 都是一致的单位系统。此特性允许用户根据需要缩放模型，这对于模拟非常小或非常大的物体、改进仿真的数值特性非常有用。
 
 话虽如此，仍鼓励用户使用 MKS，因为 MuJoCo 在两个地方使用了类似 MKS 的默认值
@@ -4782,6 +4839,7 @@ geom density（用于推断刚体质量和惯性）的默认值为 1000，这对
 角度：虽然在 MJCF 中可以使用度数指定角度（实际上度数是默认值），但所有角量在 mjModel 和 mjData 中都以弧度表示。因此，例如，如果我们使用 MKS，则由陀螺仪报告的角速度单位为 rad/s，而铰链关节的刚度单位为 Nm/rad。
 
 **令人惊讶的碰撞**
+
 MuJoCo 默认排除具有直接父子关系的刚体对所属 geoms 之间的碰撞。例如，考虑上面示例部分中的手臂模型：即使胶囊体 geoms 发生穿透，肘部也没有发生碰撞，因为前臂是上臂的直接子级。
 
 然而，如果父级是静态刚体，即 world body 或相对于 world body 没有自由度的刚体，则此排除不适用。此行为在碰撞检测部分中有详细说明，可以防止物体穿过地板或墙壁。然而，这种行为经常导致以下情况
@@ -4793,18 +4851,21 @@ MuJoCo 默认排除具有直接父子关系的刚体对所属 geoms 之间的碰
 使用碰撞过滤来显式禁用不希望的碰撞，可以通过设置相关的 contype 和 conaffinity 属性，或使用接触排除指令来实现。
 
 **非面向对象**
+
 面向对象编程是一种非常有用的抽象，构建在更基础（且更接近硬件）的数据结构与操作它们的功能的概念之上。对象是与一个语义实体对应的数据结构和函数的集合，因此它们之间比与应用程序其余部分具有更强的依赖关系。我们在此不使用它的原因是，依赖结构使得自然的实体是整个物理仿真器。我们没有对象，而是少数数据结构和大量操作它们的功能。
 
 我们仍然使用一种分组方式，但它与面向对象的方法不同。我们将模型（mjModel）与数据（mjData）分开。它们都是数据结构。模型包含描述被建模物理系统恒定属性所需的一切，而数据包含随时间变化的状态以及内部计算的可重用中间结果。所有顶层函数都期望将指向 mjModel 和 mjData 的指针作为参数。通过这种方式，我们避免了污染工作空间并干扰多线程的全局变量，但我们这样做的方式与面向对象编程实现相同效果的方式不同。
 
 **软性与滑动**
+
 正如我们将在计算章节中详细解释的那样，MuJoCo 基于接触和其他约束物理的数学模型。该模型本质上是软性的，即对约束施加更大的力总是会导致更大的加速度，因此逆动力学可以唯一确定。这是期望的，因为它产生了一个凸优化问题，并使得依赖于逆动力学的分析成为可能；此外，我们在实践中需要建模的大多数接触都具有一定的软性。然而，一旦我们允许软约束，我们就有效地创建了一种新的动力学——即变形动力学——现在我们必须指定这些动力学如何表现。这需要对接触和其他约束进行详细的参数化，涉及属性 solref 和 solimp，这些属性可以按约束设置，稍后将进行描述。
 
 这种软模型的另一个常见令人困惑的方面是无法避免渐进接触滑动。类似地，摩擦关节在重力作用下会逐渐屈服。这并不是因为求解器无法阻止滑动（达到摩擦锥或摩擦损失极限），而是因为它最初并没有试图阻止滑动。回想一下，对给定约束施加更大的力必须导致更大的加速度。如果要完全抑制滑动，就必须违反这个关键属性。因此，如果您在仿真中看到渐进滑动，直观的解释可能是摩擦力不足，但这在 MuJoCo 中很少见。相反，需要调整 solref 和 solimp 参数向量以减小这种效应。增加约束阻抗（solimp 的前两个元素）以及全局 mjModel.opt.impratio 设置会特别有效。这种调整通常需要更小的时间步长来保持仿真稳定，因为它们使非线性动力学更难以数值积分。牛顿求解器通常更精确，也能减少滑动。
 
 对于希望完全抑制滑动的情况，主求解器之后运行一个第二个 noslip 求解器。它通过忽略约束软性来更新摩擦维度的接触力。然而，当使用此选项时，MuJoCo 不再求解其设计的凸优化问题，仿真可能会变得不够鲁棒。因此，使用带有椭圆摩擦锥和较大 impratio 值的牛顿求解器是减少滑动的推荐方法。有关更详细的建议，请参阅建模章节中的防止滑动。
 
-类型、名称、ID
+**类型、名称、ID**
+
 如前所述，MuJoCo 支持大量的模型元素。每种元素类型在 mjModel 中都有相应的部分列出其各种属性。例如，关节限制数据在数组中
 ```Shell
 mjtNum* jnt_range;             // joint limits       (njnt x 2
@@ -4824,6 +4885,7 @@ if (jntid >= 0)
 如果未找到名称，函数将返回 -1，这就是为什么应该始终检查 id >= 0 的原因。
 
 **刚体 (Bodies)、几何体 (geoms)、定位点 (sites)**
+
 Bodies、geoms 和 sites 是 MuJoCo 元素，大致对应于物理世界中的刚体。那么为什么它们是分开的呢？原因在此解释，既有语义上的，也有计算上的。
 
 首先是相似之处。Bodies、geoms 和 sites 都附有空间坐标系（尽管 bodies 还有一个坐标系，其中心位于刚体重心并与惯性主轴对齐）。这些坐标系的位置和姿态在每个时间步长通过前向运动学从 mjData.qpos 计算得出。前向运动学的结果在 mjData 中可用，bodies 的结果是 xpos、xquat 和 xmat，geoms 的结果是 geom_xpos 和 geom_xmat，sites 的结果是 site_xpos 和 site_xmat。
@@ -4857,6 +4919,7 @@ Sites 是轻量级的 geoms。它们具有相同的外观属性，但不能参�
 注意红色的盒子。这是刚体惯性属性的等效惯量盒渲染，由 MuJoCo 内部生成。盒子位于 geoms 上方，但不在 sites 上方。这是因为仅使用 geoms（自动）推断了 body 的惯性属性。如果我们恰好知道后者，当然可以直接指定。但通常更方便的是让模型编译器根据附加到 body 的 geoms 推断这些 body 属性，使用均匀密度假设（geom 密度可以在 XML 中指定；默认是水的密度）。
 
 **关节坐标**
+
 MuJoCo 与游戏引擎的关键区别之一在于 MuJoCo 在广义坐标或关节坐标下运行，而大多数游戏引擎在笛卡尔坐标下运行。这两种方法的区别可以概括如下
 
 关节坐标：
@@ -4916,6 +4979,7 @@ PyBullet 是一个快速且易于使用的用于机器人模拟和机器学习�
 除了物理模拟之外，还有渲染绑定，具有 CPU 渲染器 (TinyRenderer) 和 OpenGL 3.x 渲染和可视化，并支持虚拟现实耳机，如 HTC Vive 和 Oculus Rift。 PyBullet 还具有执行碰撞检测查询（最近点、重叠对、光线交叉测试等）和添加调试渲染（调试行和文本）的功能。PyBullet 具有对共享内存、UDP 和 TCP 网络的跨平台内置客户端-服务器支持。 因此，您可以在连接到 Windows VR 服务器的 Linux 上运行 PyBullet。PyBullet 包装了新Bullet C-API，它被设计为独立于底层物理引擎和渲染引擎，因此我们可以轻松迁移到 Bullet 的更新版本，或者使用不同的物理引擎或渲染引擎。默认情况下，PyBullet 在 CPU 上使用 Bullet 2.x API。我们还将使用 OpenCL 公开在 GPU 上运行的 Bullet 3.x。还有一个类似于 PyBullet 的 C++ API，参见b3RobotSimulatorClientAPI。PyBullet 可以很容易地与 TensorFlow 和 OpenAI Gym 一起使用。 来自 Google Brain[1,2,3,4], X[1,2], Stanford AI Lab [1,2,3], OpenAI,INRIA [1] and many other labs 的研究人员都在使用 PyBullet. 如果您在研究中使用 PyBullet，请添加 引文.PyBullet 的安装就像 (sudo) pip install PyBullet (Python 2.x)、pip3 install PyBullet 一样简单。这将公开 PyBullet 模块以及 pybullet_envs Gym 环境。
 
 ##### 6.1.3.2 PyBullet入门
+
 这是我们一步一步讨论的 PyBullet 介绍脚本：
 
 ```python
@@ -4942,6 +5006,7 @@ p.disconnect()
 ```
 
 ##### 6.1.3.3 Pybullet资料汇总
+
 Pybullet官方文档 [https://pybullet.org/wordpress/](https://pybullet.org/wordpress/)
 
 Pybullet快速入门手册 [PyBullet Quickstart Guide.pdf](https://github.com/user-attachments/files/23336275/PyBullet.Quickstart.Guide.pdf)
@@ -4981,7 +5046,7 @@ Genesis的愿景与使命
 仿真在机器人研究中发挥了至关重要的作用，为训练机器人策略和生成数据提供了坚实的基础，借助不断增强的计算能力。然而，机器人研究人员长期以来受限于现有仿真平台的可用性问题和缺乏透明度。现有的GPU加速仿真器通常因为涉及复杂的数据驱动概念、复杂的API和软件堆栈，具有陡峭的学习曲线——这使得掌握这些仿真器对于研究人员，尤其是新入门的研究人员而言，成为一项艰巨的任务。此外，部分仿真器是封闭源代码的，限制了透明度，研究人员无法基于实际观察和反馈理解、控制或逐步改进底层的物理求解器。
 Genesis 项目应运而生，旨在应对这些挑战。我们的愿景是打造一个完全透明、用户友好的生态系统，让来自物理仿真和机器人学背景的贡献者们能够聚集在一起，共同创建一个高效、逼真的虚拟世界，用于机器人研究及更多应用。我们还意识到，计算机图形学领域持续开发了大量创新的算法，这些算法能够应用于仿真和渲染领域；然而，迄今为止，还没有一个协作性强的项目将这些算法结合起来，创建一个真实且计算驱动的虚拟世界，让具身智能和物理智能得以蓬勃发展。
 
-#### 6.1.4.2 Genesis基础
+##### 6.1.4.2 Genesis基础
 
 **安装**
 
@@ -5004,6 +5069,7 @@ Genesis 设计为跨平台支持，包括 CPU、CUDA GPU 和非 CUDA GPU 后端�
 | MacOS | Apple Silicon | ✅ | ✅ | ✅ | ✅ |
 
 **安装步骤**
+
 1. 通过 PyPI 安装 Genesis：
 pip install genesis-world
 2. 安装 PyTorch，请根据官方说明进行安装。
@@ -5191,7 +5257,6 @@ for i in range(1000):
 我们正在积极优化这一编译步骤，未来版本将通过并行编译和更快的内核序列化技术，极大提高这一过程的速度。
 
 **可视化和渲染**
-📸 可视化与渲染
 
 Genesis的可视化系统由场景的visualizer管理（即scene.visualizer）。可以通过两种方式来可视化场景：
 
@@ -5274,6 +5339,7 @@ scene.build()
 ```
 
 **渲染所有类型**
+
 ```Shell
 rgb, depth, segmentation, normal = cam.render(depth=True, segmentation=True, normal=True)
 ```
@@ -5402,11 +5468,8 @@ sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt update && sudo apt install gcc-11 g++-11
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 110
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110
-```
 
 #验证g++/gcc版本
-
-```Shell
 g++ --version
 gcc --version
 ```
@@ -5445,12 +5508,13 @@ python demo.py
 
 
 **FAQ 疑难解答**
+
 - 执行
 ```shell
 cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D
 ```
 
-```shell LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到Pybind错误，
+``` LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到Pybind错误，
 ```shell
 CMake Error at src/apps/CMakeLists.txt:12 (find_package):
 By not providing "Findpybind11.cmake" in CMAKE_MODULE_PATH this project has
@@ -5466,9 +5530,9 @@ of the following names:
 
 可能是遗漏执行pip install -e ".[render]"导致。或者也可以直接安装pybind：pip install "pybind11[global]"。
     
-- 执行```shell cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D```
+- 执行```cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D```
 
-```shell LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到CUDA运行时编译错误，
+```LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到CUDA运行时编译错误，
 ```shell
 /usr/bin/ld: CMakeFiles/luisa-cuda-nvrtc-standalone-compiler.dir/cuda_nvrtc_compiler.cpp.o: in function `main`:
 cuda_nvrtc_compiler.cpp:(.text.startup+0x173): undefined reference to `nvrtcGetOptiXIRSize`
@@ -5489,21 +5553,21 @@ sudo cp /var/cuda-repo-ubuntu2204-12-4-local/cuda-*-keyring.gpg /usr/share/keyri
 sudo apt-get update
 sudo apt-get -y install cuda-toolkit-12-4
 ```
-    设置二进制文件和运行时库路径：在```shell ~/.bashrc```中添加以下内容。注意最好将CUDA路径添加到最后，因为```shell /usr/local/cuda-12.4/bin```目录中也可能存在其他版本的gcc和g++，而gcc/g++11是构建所必需的），
+    设置二进制文件和运行时库路径：在```~/.bashrc```中添加以下内容。注意最好将CUDA路径添加到最后，因为```/usr/local/cuda-12.4/bin```目录中也可能存在其他版本的gcc和g++，而gcc/g++11是构建所必需的），
 ```shell
 PATH=${PATH:+${PATH}:}/usr/local/cuda-12.4/bin
 LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}/usr/local/cuda-12.4/lib64
 ```
-    最后重启终端或执行```shell source ~/.bashrc```。
+    最后重启终端或执行```source ~/.bashrc```。
     另一种错误类型是，
-	```shell
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_fatal_printf@GLIBC_PRIVATE`
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_audit_symbind_alt@GLIBC_PRIVATE`
-<your-env-path>/genesis-test1/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_exception_create@GLIBC_PRIVATE`
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `__nptl_change_stack_perm@GLIBC_PRIVATE`
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `__tunable_get_val@GLIBC_PRIVATE`
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_audit_preinit@GLIBC_PRIVATE`
-<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_find_dso_for_object@GLIBC_PRIVATE`
+```shell
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_fatal_printf@GLIBC_PRIVATE`
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_audit_symbind_alt@GLIBC_PRIVATE`
+	<your-env-path>/genesis-test1/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_exception_create@GLIBC_PRIVATE`
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `__nptl_change_stack_perm@GLIBC_PRIVATE`
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `__tunable_get_val@GLIBC_PRIVATE`
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_audit_preinit@GLIBC_PRIVATE`
+	<your-env-path>/bin/ld: /lib/x86_64-linux-gnu/libc.so.6: undefined reference to `_dl_find_dso_for_object@GLIBC_PRIVATE`
 ```
     这可能是由于conda环境中的CUDA工具包导致的。请执行以下操作并安装系统级的CUDA，
 ```shell
@@ -5514,7 +5578,7 @@ conda uninstall cuda-toolkit
 ```shell
 ls $CONDA_PREFIX/lib/libcudart.so # 你应该有这个文件
 ```
-#在你的```shell ~/.bashrc```中添加
+#在你的```~/.bashrc```中添加
 ```shell
 LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}/usr/local/cuda-12.4/lib64
 ```
@@ -5523,9 +5587,9 @@ LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}/usr/local/cuda-12.4/lib6
 rm -r build
 ```
 
-- 执行```shell cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D```
+- 执行```cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D```
 
-```shell LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到编译器错误，
+```LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON```时遇到编译器错误，
 ```shell
 CMake Error at /snap/cmake/1435/share/cmake-3.31/Modules/CMakeDetermineCCompiler.cmake:49 (message):
 Could not find compiler set in environment variable CC:
@@ -5549,7 +5613,7 @@ which gcc
 which g++
 echo $PATH # 例如，/usr/local/cuda-12.4/bin/gcc（版本=10.5）不应该排在/usr/bin/gcc（版本=11）之前
 ```
-- 运行```shell examples/rendering/demo.py```时出现导入错误，
+- 运行```examples/rendering/demo.py```时出现导入错误，
 ```shell
 [Genesis] [11:29:47] [ERROR] Failed to import LuisaRenderer. ImportError: /home/tsunw/miniconda3/envs/genesis-test1/bin/../lib/libstdc++.so.6: version `GLIBCXX_3.4.30` not found (required by /home/tsunw/workspace/Genesis/genesis/ext/LuisaRender/build/bin/liblc-core.so)
 ```
