@@ -3928,8 +3928,11 @@ roslaunch carter_2dnav carter_navigation_rtx.launch
 [https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html](https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html)
 
 **（1）加载模型**
+
          Isaac Examples -> ROS2 -> Navigation
+		 
 **（2）点击 PLAY 开始仿真**
+
 **（3）运行 launch 文件**
 
 ```Shell
@@ -3937,9 +3940,13 @@ ros2 launch carter_navigation carter_navigation.launch.py
 ```
 
 机器人初始位置配置在文件carter_navigation_params.yaml 中，如果机器人位置不正确，点击 rviz 中 的2D Pose Estimate 按钮给一个方向。
+
 **（4）导航**
+
 点击 rviz 中的 Navigation2 Goal 按钮，可以导航。
+
 **（5）自动导航**
+
 
 ```Shell
 ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
@@ -3955,6 +3962,7 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 - initial_pose: 初始位姿 [pose.x, pose.y, pose.z, orientation.x, orientation.y, orientation.z, orientation.w].
 
 **（6）注意的地方**
+
 小车默认使用 RTX 雷达。
 小车上大部分相机都屏蔽 publish 图片，可以去_camera_render_product 节点使能对应相机。
 
@@ -3976,7 +3984,7 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 
 <img width="552" height="302" alt="image" src="https://github.com/user-attachments/assets/6de92b41-c837-438c-a8c7-4584bc61adb5" />
 
-加载一个环境
+**加载一个环境**
 
 <img width="553" height="420" alt="image" src="https://github.com/user-attachments/assets/3a578bc0-f502-4962-a01c-9e6f903dc18e" />
 
@@ -3990,7 +3998,7 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 
 调整完，计算之后，点击可视化，保存 jpg 和 yaml。 
 
-激光雷达导入
+**激光雷达导入**
 
 <img width="554" height="302" alt="image" src="https://github.com/user-attachments/assets/8f818691-5ea4-477b-b008-4fed00c53a50" />
 
@@ -4012,7 +4020,7 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 
 这个 domian id 是跟你自己电脑设置的 bashrc 相关。如果没设置，就不用管它
 
-轮速订阅
+**轮速订阅**
 
 <img width="553" height="322" alt="image" src="https://github.com/user-attachments/assets/3ef21214-a568-4461-ae6f-575cec33a789" />
 
@@ -4036,7 +4044,7 @@ constant token 组合两个关节名字，成为 array，发给 ariculation cont
 ros2 run rqt_robot_steering rqt_robot_steering
 测试一下小车能不能跑
 
-添加 odom
+**添加 odom**
 
 <img width="553" height="292" alt="image" src="https://github.com/user-attachments/assets/453f659a-cfa0-4eaa-b6e9-c9cda2f713fb" />
 
@@ -4065,7 +4073,7 @@ ros2 run tf2_tools view_frames.py
 sudo apt install python3-rosinstall-generator python3-wstool build-essential python3-rosinstall python3-rosdep
 ```
 
-创建工作空间
+**创建工作空间**
 
 ```Shell
 cd /home/yab/.local/share/ov/pkg/isaac-sim-4.0.0
@@ -5162,7 +5170,9 @@ for i in range(1000):
 
 这就是完整的代码脚本！这样的示例只需要不到 10 行代码，并且已经封装了创建仿真实验所需的所有步骤。
 如果你想深入了解，可以继续往下看，我们将一步一步地进行讲解：
-1. 初始化
+
+**1. 初始化**
+
 第一步是导入 genesis 并初始化它：
 ```python
 import genesis as gs
@@ -5186,7 +5196,9 @@ gs.init(
     logger_verbose_time = False
 )
 ```
-2. 创建场景
+
+**2. 创建场景**
+
 在 Genesis 中，所有的物体、机器人、相机等都放置在一个 Scene 中：
 scene = gs.Scene()
 一个 Scene 对象包装了一个仿真器对象，它处理所有底层的物理求解器；同时，它还包含一个可视化器对象，用来管理与可视化相关的概念。有关更多的详细信息和 API，请参考 Scene 文档。
@@ -5206,7 +5218,9 @@ scene = gs.Scene(
 )
 ```
 这个例子设置了每一步仿真时间为 0.01s，配置了重力，并设置了交互式查看器的初始相机位置。
-4. 加载物体到场景中
+
+**3. 加载物体到场景中**
+
 在这个示例中，我们加载了一个平面和一个 Franta 机械臂到场景中：
 ```Shell
 plane = scene.add_entity(gs.morphs.Plane())
@@ -5243,7 +5257,7 @@ franka = scene.add_entity(
 ```
 当加载外部文件时，需要通过 file 参数指定文件位置。在解析时，我们不仅会根据当前工作目录解析相对路径，还会在 genesis/assets 内部资产目录中查找。所以在这个例子中，我们会从 genesis/assets/xml/franka_emika_panda/panda.xml 路径加载 Franka 模型。
 
-4. 构建场景并开始仿真
+**4. 构建场景并开始仿真**
 完成以上步骤后，我们可以开始仿真。注意，在开始仿真前，我们需要先调用 scene.build() 来构建场景：
 ```Shell
 scene.build()
@@ -5252,7 +5266,7 @@ for i in range(1000):
 ```
 调用 scene.build() 后，Genesis 会进行 GPU 内核的即时编译，为仿真准备好数据。完成后，会弹出一个交互式查看器来可视化仿真场景。查看器提供了各种键盘快捷键来录制视频、截图、切换不同的可视化模式等。
 
-6. 内核编译和缓存
+**5. 内核编译和缓存**
 由于 Genesis 使用即时编译（JIT）技术，每次创建一个包含新配置的场景时（即不同的机器人类型、物体数量等），都会重新编译 GPU 内核。Genesis 支持自动缓存已编译的内核：第一次运行后（只要正常退出或使用 ctrl + c 终止），如果场景配置保持不变，后续运行会加载缓存的内核，以加速场景创建过程。
 我们正在积极优化这一编译步骤，未来版本将通过并行编译和更快的内核序列化技术，极大提高这一过程的速度。
 
@@ -5263,7 +5277,6 @@ Genesis的可视化系统由场景的visualizer管理（即scene.visualizer）�
 1. 使用独立线程运行的交互式查看器
 2. 手动添加相机并渲染图像
 
-查看器
 
 连接显示器后可使用交互式查看器来查看场景。Genesis用不同的options组来配置场景中的组件。可以通过以下方式配置:
 
@@ -5350,8 +5363,9 @@ rgb, depth, segmentation, normal = cam.render(depth=True, segmentation=True, nor
 
 下面演示如何移动相机并录制视频:
 
-#开始录制
 ```Shell
+
+#开始录制
 cam.start_recording()
 
 import numpy as np
@@ -5365,11 +5379,8 @@ for i in range(120):
     )
     
     cam.render()
-```
 
 #停止录制并保存视频
-
-```Shell
 cam.stop_recording(save_to_filename='video.mp4', fps=60)
 ```
 
@@ -5494,7 +5505,8 @@ sudo apt-get install xorg-dev libglu1-mesa-dev # RandR头文件
 cd genesis/ext/LuisaRender
 cmake -S . -B build -D CMAKE_BUILD_TYPE=Release -D PYTHON_VERSIONS=3.9 -D LUISA_COMPUTE_DOWNLOAD_NVCOMP=ON
 ```
-#记得检查python版本
+- 记得检查python版本
+
 ```Shell
 cmake --build build -j $(nproc)
 ```
@@ -5578,7 +5590,7 @@ conda uninstall cuda-toolkit
 ```shell
 ls $CONDA_PREFIX/lib/libcudart.so # 你应该有这个文件
 ```
-#在你的```~/.bashrc```中添加
+- 在你的```~/.bashrc```中添加
 ```shell
 LD_LIBRARY_PATH=${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}/usr/local/cuda-12.4/lib64
 ```
@@ -5753,18 +5765,18 @@ for i in range(200):
 <img width="553" height="100" alt="image" src="https://github.com/user-attachments/assets/7f810d41-f371-4a19-aedd-b2b53c5043e6" />
 
 安装方法如下:
-参考🛠️ Installation
+
 1. 依据系统及python版本下载whl文件,下载地址[https://github.com/ompl/ompl/releases/tag/prerelease](https://github.com/ompl/ompl/releases/tag/prerelease)
 
 <img width="554" height="402" alt="image" src="https://github.com/user-attachments/assets/b0949ee6-2ba8-40e7-97aa-095096fb29ce" />
 
-3. 进入whl下载目录并打开终端,执行下列命令
+2. 进入whl下载目录并打开终端,执行下列命令
 conda activate genesis所在环境名称
 pip install ompl-1.6.0-cp310-cp310-manylinux_2_28_x86_64.whl
 
 <img width="554" height="103" alt="image" src="https://github.com/user-attachments/assets/3d5945e4-32b4-4927-b1cd-faf7f4a7f963" />
 
-4. 程序顺利运行
+3. 程序顺利运行
 
 更多：
 [https://yv6uc1awtjc.feishu.cn/wiki/EEqAwFLo5iUdn5kD95OcAOtZnhf](https://yv6uc1awtjc.feishu.cn/wiki/EEqAwFLo5iUdn5kD95OcAOtZnhf)
@@ -5994,13 +6006,13 @@ conda install cudatoolkit
 使用 580 驱动程序和 CUDA 13，我们目前无法启用 CUDA 来计算奖励。代码会自动回退到 CPU，导致性能略慢。
 
 
-Isaac-AutoMate-Disassembly-Direct-v0: 初始状态下插头已插入插座，底层控制器会将插头拔出并移至随机位置。这个过程完全由脚本控制，不涉及任何学习策略，因此不需要进行策略训练或评估。这些结果轨迹可作为逆向学习（即装配学习）的示范数据。运行指定任务的拆卸模式: ```shell python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_disassembly_w_id.py --assembly_id=ASSEMBLY_ID --disassembly_dir=DISASSEMBLY_DIR```. 所有生成的轨迹存储在本地文件夹 DISASSEMBLY_DIR 中。
+Isaac-AutoMate-Disassembly-Direct-v0: 初始状态下插头已插入插座，底层控制器会将插头拔出并移至随机位置。这个过程完全由脚本控制，不涉及任何学习策略，因此不需要进行策略训练或评估。这些结果轨迹可作为逆向学习（即装配学习）的示范数据。运行指定任务的拆卸模式: ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_disassembly_w_id.py --assembly_id=ASSEMBLY_ID --disassembly_dir=DISASSEMBLY_DIR```. 所有生成的轨迹存储在本地文件夹 DISASSEMBLY_DIR 中。
 
 Isaac-AutoMate-Assembly-Direct-v0: 目标是将插头插入插座。你可以使用这个环境通过强化学习训练策略，或评估预训练模型。
 
-要训练装配策略，我们运行命令 ```shell python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --train ```。我们可以通过可选参数自定义训练流程: 使用 --headless 以无界面模式运行（不打开GUI窗口）， --max_iterations=MAX_ITERATIONS 设置训练迭代次数， --num_envs=NUM_ENVS 设置训练时的并行环境数量， --seed=SEED 指定随机种子。训练过程中，策略检查点会自动保存在 logs/rl_games/Assembly/test 目录下。
+要训练装配策略，我们运行命令 ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --train ```。我们可以通过可选参数自定义训练流程: 使用 --headless 以无界面模式运行（不打开GUI窗口）， --max_iterations=MAX_ITERATIONS 设置训练迭代次数， --num_envs=NUM_ENVS 设置训练时的并行环境数量， --seed=SEED 指定随机种子。训练过程中，策略检查点会自动保存在 logs/rl_games/Assembly/test 目录下。
 
-要评估一个装配策略，我们运行命令 ```shell python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --checkpoint=CHECKPOINT --log_eval ```。评估结果存储在 evaluation_{ASSEMBLY_ID}.h5 。
+要评估一个装配策略，我们运行命令 ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --checkpoint=CHECKPOINT --log_eval ```。评估结果存储在 evaluation_{ASSEMBLY_ID}.h5 。
 
 <img width="872" height="500" alt="image" src="https://github.com/user-attachments/assets/556970ff-dba3-4da1-84b5-bfba6989851f" />
 
@@ -6027,6 +6039,7 @@ Isaac-Forge-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
 <img width="876" height="742" alt="image" src="https://github.com/user-attachments/assets/91ac4a06-863c-4756-b5f9-2cf45aa35fcc" />
 
 **运动**
+
 **基于四足运动任务的环境**
 
 <img width="875" height="608" alt="image" src="https://github.com/user-attachments/assets/e0e30d43-52f5-485a-a133-785b6501409c" />
