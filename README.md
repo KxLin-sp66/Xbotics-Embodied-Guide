@@ -2403,19 +2403,18 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 **贡献者**：@charlie
 
 ### 目录（Table of Contents）
-- [6.1 平台对比：Isaac Lab / MuJoCo / PyBullet / Genesis / Gazebo)
-- [6.2 任务基准：单胳膊/双臂/移动操作/装配)
-- [6.3 资产与场景：USD/URDF 导入、相机布局、光照与碰撞)
-- [6.4 日志与回放：录制、重放、评测)
-- [6.5 **样板：Isaac Lab 最小上手（可复制运行）**)
+- [6.1 Isaac Lab)
+- [6.2 MuJoCo)
+- [6.3 PyBullet)
+- [6.4 Genesis)
+- [6.5 Gazebo)
 
 ---
 
-### 6.1 平台对比：Isaac Lab / MuJoCo / PyBullet / Genesis / Gazebo
 在具身智能的研究与开发中，仿真平台扮演着极其重要的角色。这个板块涵盖了常见的仿真工具与平台，帮助您构建虚拟环境并进行模型训练。
 
-#### 6.1.1 Isaac Lab
-##### 6.1.1.1 Isaac Sim 入门
+### 6.1 Isaac Lab
+#### 6.1.1 Isaac Sim 入门
 
 原文：https://www.yuque.com/g/ryanji-wtpey/aumvf4/yyhruy8kts47s34v/collaborator/join?token=szoLcoWDy2LLWj5t&source=doc_collaborator# 《🌮【仿真】isaac sim》
 copy：
@@ -3254,7 +3253,7 @@ ros2 launch carter_navigation carter_navigation.launch.py
 先启动 isaac sim，再启动 launch 文件
 一般重定位是没有的，所以需要自己手动发一个 2d pose
 
-##### 6.1.1.2 Isaac Lab入门
+#### 6.1.2 Isaac Lab入门
 **系统要求**
 
 一般要求：
@@ -3611,7 +3610,7 @@ Isaac Lab 资产托管在 AWS S3 云存储 上。 加载时间可能会因您的
 
 如果您的网络连接速度慢或不稳定，或者部署环境处于脱机状态，则这将特别有用。
 
-##### 6.1.1.3 Isaac资料汇总
+#### 6.1.3 Isaac资料汇总
 
 **文档**
 
@@ -3655,8 +3654,8 @@ AI 仓库：使用 Isaac Sim 和 Isaac ROS 实现视觉导航
 ](https://developer.nvidia.com/blog/accelerate-ai-enabled-robotics-with-advanced-simulation-and-perception-tools-in-nvidia-isaac-platform/
 )
 
-#### 6.1.2 MuJoCo
-##### 6.1.2.1 MuJoCo 简介
+### 6.2 MuJoCo
+#### 6.2.1 MuJoCo 简介
 
 MuJoCo 是 Multi-Joint dynamics with Contact（多关节动力学与接触）的缩写。它是一个通用物理引擎，旨在促进机器人学、生物力学、图形和动画、机器学习以及其他需要对与环境互动的铰接结构进行快速准确仿真的领域的研究和开发。它最初由 Roboti LLC 开发，于 2021 年 10 月被 DeepMind 收购并免费提供，并于 2022 年 5 月开源。MuJoCo 代码库可在 GitHub 上的 google-deepmind/mujoco 仓库中获取。
 
@@ -4114,8 +4113,8 @@ MuJoCo 与游戏引擎的关键区别之一在于 MuJoCo 在广义坐标或关�
 
 自由关节始终在物体坐标系中定义，但计算上更有利的做法是将此坐标系与物体的惯性对齐。在 freejoint/align 属性的文档中阅读更多关于此选项的信息。
 
-#### 6.1.2.2 MuJoCo入门
-##### 6.1.2.3 MuJoCo资料汇总
+### 6.2.2 MuJoCo入门
+#### 6.2.3 MuJoCo资料汇总
 
 MuJoCo官网 [https://mujoco.org/](https://mujoco.org/)
 robosuite [https://robosuite.ai/docs/overview.html](https://robosuite.ai/docs/overview.html)
@@ -4130,8 +4129,8 @@ RoboCasa [https://github.com/TianxingChen/Embodied-AI-Guide/blob/main/Docs.qq.co
 
 RoboHive [https://github.com/vikashplus/robohive](https://github.com/vikashplus/robohive)
 
-#### 6.1.3 PyBullet
-##### 6.1.3.1 PyBullet简介
+### 6.3 PyBullet
+#### 6.3.1 PyBullet简介
 
 PyBullet 是一个快速且易于使用的用于机器人模拟和机器学习，专注于仿真到现实转换的 Python 模块. 使用 PyBullet，您可以从 URDF、SDF、MJCF 和其他文件格式加载关节体. PyBullet 提供正向动力学模拟、反向动力学计算、正向和反向运动学、碰撞检测和射线交叉查询功能。Bullet Physics SDK 中包括 PyBullet 机器人示例，例如模拟Minitaur 四足机器人、使用 TensorFlow 推理运行的类人机器人和抓取物体的 KUKA 机械臂。 简化坐标多体、刚体和可变形体由统一的 LCP 约束求解器处理，
 
@@ -4139,7 +4138,7 @@ PyBullet 是一个快速且易于使用的用于机器人模拟和机器学习�
 
 除了物理模拟之外，还有渲染绑定，具有 CPU 渲染器 (TinyRenderer) 和 OpenGL 3.x 渲染和可视化，并支持虚拟现实耳机，如 HTC Vive 和 Oculus Rift。 PyBullet 还具有执行碰撞检测查询（最近点、重叠对、光线交叉测试等）和添加调试渲染（调试行和文本）的功能。PyBullet 具有对共享内存、UDP 和 TCP 网络的跨平台内置客户端-服务器支持。 因此，您可以在连接到 Windows VR 服务器的 Linux 上运行 PyBullet。PyBullet 包装了新Bullet C-API，它被设计为独立于底层物理引擎和渲染引擎，因此我们可以轻松迁移到 Bullet 的更新版本，或者使用不同的物理引擎或渲染引擎。默认情况下，PyBullet 在 CPU 上使用 Bullet 2.x API。我们还将使用 OpenCL 公开在 GPU 上运行的 Bullet 3.x。还有一个类似于 PyBullet 的 C++ API，参见b3RobotSimulatorClientAPI。PyBullet 可以很容易地与 TensorFlow 和 OpenAI Gym 一起使用。 来自 Google Brain[1,2,3,4], X[1,2], Stanford AI Lab [1,2,3], OpenAI,INRIA [1] and many other labs 的研究人员都在使用 PyBullet. 如果您在研究中使用 PyBullet，请添加 引文.PyBullet 的安装就像 (sudo) pip install PyBullet (Python 2.x)、pip3 install PyBullet 一样简单。这将公开 PyBullet 模块以及 pybullet_envs Gym 环境。
 
-##### 6.1.3.2 PyBullet入门
+#### 6.3.2 PyBullet入门
 
 这是我们一步一步讨论的 PyBullet 介绍脚本：
 
@@ -4166,7 +4165,7 @@ print(cubePos,cubeOrn)
 p.disconnect()
 ```
 
-##### 6.1.3.3 Pybullet资料汇总
+#### 6.3.3 Pybullet资料汇总
 
 Pybullet官方文档 [https://pybullet.org/wordpress/](https://pybullet.org/wordpress/)
 
@@ -4175,9 +4174,9 @@ Pybullet快速入门手册 [PyBullet Quickstart Guide.pdf](https://github.com/us
 Pybullet快速入门手册（中文版） [PyBullet 快速入门手册（机翻版）.pdf](https://github.com/user-attachments/files/23336274/PyBullet.pdf)
 
 
-#### 6.1.4 Genesis
+### 6.4 Genesis
 
-##### 6.1.4.1 Genesis简介
+#### 6.4.1 Genesis简介
 
 <img width="553" height="338" alt="image" src="https://github.com/user-attachments/assets/d9f0338a-b88c-480e-ba4c-c0bb647216cd" />
 
@@ -4207,7 +4206,7 @@ Genesis的愿景与使命
 仿真在机器人研究中发挥了至关重要的作用，为训练机器人策略和生成数据提供了坚实的基础，借助不断增强的计算能力。然而，机器人研究人员长期以来受限于现有仿真平台的可用性问题和缺乏透明度。现有的GPU加速仿真器通常因为涉及复杂的数据驱动概念、复杂的API和软件堆栈，具有陡峭的学习曲线——这使得掌握这些仿真器对于研究人员，尤其是新入门的研究人员而言，成为一项艰巨的任务。此外，部分仿真器是封闭源代码的，限制了透明度，研究人员无法基于实际观察和反馈理解、控制或逐步改进底层的物理求解器。
 Genesis 项目应运而生，旨在应对这些挑战。我们的愿景是打造一个完全透明、用户友好的生态系统，让来自物理仿真和机器人学背景的贡献者们能够聚集在一起，共同创建一个高效、逼真的虚拟世界，用于机器人研究及更多应用。我们还意识到，计算机图形学领域持续开发了大量创新的算法，这些算法能够应用于仿真和渲染领域；然而，迄今为止，还没有一个协作性强的项目将这些算法结合起来，创建一个真实且计算驱动的虚拟世界，让具身智能和物理智能得以蓬勃发展。
 
-##### 6.1.4.2 Genesis基础
+#### 6.4.2 Genesis基础
 
 **安装**
 
@@ -4934,7 +4933,7 @@ pip install ompl-1.6.0-cp310-cp310-manylinux_2_28_x86_64.whl
 更多：
 [https://yv6uc1awtjc.feishu.cn/wiki/EEqAwFLo5iUdn5kD95OcAOtZnhf](https://yv6uc1awtjc.feishu.cn/wiki/EEqAwFLo5iUdn5kD95OcAOtZnhf)
 
-6.1.4.3 仿真示例
+#### 6.4.3 仿真示例
 
 <img width="553" height="312" alt="image" src="https://github.com/user-attachments/assets/734a7d45-3c59-4ff8-87da-3393a85af27c" />
 
@@ -5053,7 +5052,7 @@ for i in range(1000):
 小技巧
 FPS日志记录： 默认情况下，Genesis记录器将在终端显示实时仿真速度。你可以在创建场景时设置show_FPS=False来禁用此行为。
 
-##### 6.1.4.4 Genesis资料汇总
+#### 6.4.4 Genesis资料汇总
 
 今日刷屏的Genesis有效信源整合 - 强化学徒的文章 - 知乎
 [https://zhuanlan.zhihu.com/p/13603265800](https://zhuanlan.zhihu.com/p/13603265800)
@@ -5078,7 +5077,7 @@ genesis中文文档[https://genesis-world.readthedocs.io/zh-cn](https://genesis-
 
 
 
-#### 6.1.5 Gazebo
+### 6.5 Gazebo
 
 ### 6.2 任务基准：单胳膊/双臂/移动操作/装配
 
