@@ -2403,32 +2403,29 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 **贡献者**：@charlie
 
 ### 目录（Table of Contents）
-- [6.1 Isaac Lab)
-- [6.2 MuJoCo)
-- [6.3 PyBullet)
-- [6.4 Genesis)
-- [6.5 Gazebo)
+- [6.1 Isaac Lab](#61-isaac-lab)
+- [6.2 MuJoCo](#62-mujoco)
+- [6.3 PyBullet](#63-pybullet)
+- [6.4 Genesis](#64-genesis)
+- [6.5 Gazebo](#65-gazebo)
 
 ---
 
 在具身智能的研究与开发中，仿真平台扮演着极其重要的角色。这个板块涵盖了常见的仿真工具与平台，帮助您构建虚拟环境并进行模型训练。
 
 ### 6.1 Isaac Lab
-#### 6.1.1 Isaac Sim 入门
 
-原文：https://www.yuque.com/g/ryanji-wtpey/aumvf4/yyhruy8kts47s34v/collaborator/join?token=szoLcoWDy2LLWj5t&source=doc_collaborator# 《🌮【仿真】isaac sim》
-copy：
+#### 1、 Isaac Sim 入门
 
+##### 1.1 安装
 
-**安装**
-
-系统安装要求：
+###### 系统安装要求
 
 [https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html](https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html)
 
 <img width="553" height="326" alt="image" src="https://github.com/user-attachments/assets/e5e55c06-d693-40c2-b97e-42e1f4e9a5f9" />
 
-【omniverse】的下载与安装：
+###### 【omniverse】的下载与安装
 
 下载[https://developer.nvidia.cn/omniverse](https://developer.nvidia.cn/omniverse)，需要邮箱注册。
 
@@ -2447,18 +2444,18 @@ copy：
 <img width="554" height="132" alt="image" src="https://github.com/user-attachments/assets/f7af056e-a545-40dd-9de5-a254a376517a" />
 
 
-【Isaac Sim】的安装：
+###### 【Isaac Sim】的安装
 
 官网 [https://developer.nvidia.com/isaac/sim](https://developer.nvidia.com/isaac/sim)
  
 <img width="554" height="296" alt="image" src="https://github.com/user-attachments/assets/7a9c847c-4cf0-4e5e-8567-4b043b26b466" />
 
-prerequisite 系统要求
+###### prerequisite 系统要求
 
 <img width="553" height="468" alt="image" src="https://github.com/user-attachments/assets/c1ee2d2f-8ef1-4903-bea6-10f4b73b179b" />
 
 
-安装 Isaac sim：
+###### 安装 Isaac sim
 - 点击 exchange 交易所，找到 isaac sim
 
 <img width="554" height="327" alt="image" src="https://github.com/user-attachments/assets/36dd62c7-59be-469b-86fb-41387876ccfa" />
@@ -2483,18 +2480,20 @@ prerequisite 系统要求
 <img width="553" height="325" alt="image" src="https://github.com/user-attachments/assets/9afedb3c-725c-467d-867a-80389a334f62" />
 
 
-**GR00T**
+###### GR00T
 
 [https://developer.nvidia.com/project-GR00T?ncid=so-yout-261862-vt48 ](https://developer.nvidia.com/project-GR00T?ncid=so-yout-261862-vt48 )
 
-**基本结构**
+
+
+
+##### 1.2 基本操作教程
+
+###### 基本结构
 
 <img width="554" height="97" alt="image" src="https://github.com/user-attachments/assets/94bcc8aa-dbac-4510-955f-9340dc8a39b8" />
 
-**基本操作教程**
-
-- menu bar 工具栏：
-左侧栏：
+###### menu bar 工具栏
 
 <img width="78" height="378" alt="image" src="https://github.com/user-attachments/assets/537407e9-725c-4c7c-972a-0f838394d3cc" />
 
@@ -2504,17 +2503,16 @@ prerequisite 系统要求
 时间戳：window->extensions
 时间戳是一个扩展程序，允许开发人员查看和修改可滚动和可自定义时间线的设置。默认情况下，时间线处于禁用状态，要启用它，请转到窗口 > 扩展，在搜索栏中输入omni.anim.window.timeline，然后单击切换按钮。然后，在屏幕底部，会出现时间线小部件。当您按下“播放”按钮时，时间线标记开始移动，并在时间线上循环。模拟的开始/停止进度也可以在默认布局底部的时间线上查看。
 
-- helloworld 入门：
-启动 Isaac Sim launcher
-加载了一个地板
+###### helloworld 入门
+启动 Isaac Sim launcher，加载了一个地板
 
 <img width="552" height="302" alt="image" src="https://github.com/user-attachments/assets/6b708c67-473c-4be7-825b-a399c621706a" />
 
 <img width="553" height="418" alt="image" src="https://github.com/user-attachments/assets/fb92324a-6085-420f-af4b-12b8a7d85845" />
 
-- 退出当前项目：点击 File，点击 New，dont save 即可。
+退出当前项目：点击 File，点击 New，dont save 即可。
 
-- 机械臂 demo 
+###### 机械臂 demo 
 
 <img width="554" height="299" alt="image" src="https://github.com/user-attachments/assets/b6f18784-98ad-4091-9e21-187593720262" />
 
