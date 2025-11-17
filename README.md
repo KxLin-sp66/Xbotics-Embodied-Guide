@@ -1630,12 +1630,7 @@ SigLIP（Sigmoid Loss for Language–Image Pre-training）于 2023 年提出，�
 
 
 * iLQR（Iterative Linear Quadratic Regulator）是一种轨迹优化方法：从初始猜测的轨迹出发，对系统动力学线性化、对成本函数二次近似，然后通过一次向后-向前的 Riccati 回传计算增益与改进轨迹。 ([来源](https://underactuated.mit.edu/trajopt.html?utm_source=chatgpt.com "Ch. 10 - Trajectory Optimization - Underactuated Robotics"))
-* 具体流程：
-  1. 给定系统 (\\dot x = f(x,u))，初始轨迹 ((x\_0(t),u\_0(t)))。
-  2. 在该轨迹附近线性化动力学，二次化成本。
-  3. 通过 LQR 回传得到增益序列 (K(t))、feed-forward (k(t))。
-  4. 向前模拟得到新的轨迹。
-  5. 重复直到收敛。
+
 
 ### 2.2 优势与局限
 
