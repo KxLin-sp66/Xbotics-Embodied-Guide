@@ -2594,13 +2594,13 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 
 [https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html](https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html)
 
-<img width="553" height="326" alt="image" src="https://github.com/user-attachments/assets/e5e55c06-d693-40c2-b97e-42e1f4e9a5f9" />
+见【图6-1】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 【omniverse】的下载与安装
 
 下载[https://developer.nvidia.cn/omniverse](https://developer.nvidia.cn/omniverse)，需要邮箱注册。
 
-<img width="552" height="245" alt="image" src="https://github.com/user-attachments/assets/69d738b4-5cbe-4fe8-bbc7-b1b2870c03df" />
+见【图6-2】(详见 files/formulas/第六节/第六章-图片.md)
 
 
 之后点击该网站[https://docs.omniverse.nvidia.com/install-guide/latest/index.html](https://docs.omniverse.nvidia.com/install-guide/latest/index.html)
@@ -2612,43 +2612,53 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
   - 或者不用命令行，右键APPImage -> permissions -> allow execution as file
 - 注册账户yanaibo1214@gmail.com
 
-<img width="554" height="132" alt="image" src="https://github.com/user-attachments/assets/f7af056e-a545-40dd-9de5-a254a376517a" />
+见【图6-3】(详见 files/formulas/第六节/第六章-图片.md)
+
+
 
 
 ###### 【Isaac Sim】的安装
 
 官网 [https://developer.nvidia.com/isaac/sim](https://developer.nvidia.com/isaac/sim)
- 
-<img width="554" height="296" alt="image" src="https://github.com/user-attachments/assets/7a9c847c-4cf0-4e5e-8567-4b043b26b466" />
+
+见【图6-4】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 ###### prerequisite 系统要求
 
-<img width="553" height="468" alt="image" src="https://github.com/user-attachments/assets/c1ee2d2f-8ef1-4903-bea6-10f4b73b179b" />
+见【图6-5】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 ###### 安装 Isaac sim
 - 点击 exchange 交易所，找到 isaac sim
 
-<img width="554" height="327" alt="image" src="https://github.com/user-attachments/assets/36dd62c7-59be-469b-86fb-41387876ccfa" />
+见【图6-6】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 版本选择 2023.1.1 或者 2023.1.0
 
 - 安装 cache
 
-<img width="553" height="327" alt="image" src="https://github.com/user-attachments/assets/b60c636a-5814-46bd-92ba-db0d29eb7896" />
+见【图6-7】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 安装完毕之后，进入 Nucleus 注册账户
 
-<img width="553" height="326" alt="image" src="https://github.com/user-attachments/assets/0420a89e-228e-4fa3-a76f-5a0df784522e" />
+见【图6-8】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 点击 设置 。必须有 Cache 出来才算装上了，并且都是 RUNNING 状态
 假如 Cache 是 Stop 状态，就换一个版本 2023.1.0  去图书馆卸载 Cache 再重新安装
 
-<img width="554" height="533" alt="image" src="https://github.com/user-attachments/assets/1cd37149-cb18-4e6d-a331-8300d51a0400" />
+见【图6-9】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 同时点击文件夹，可以打开浏览器看到文件内容
 
-<img width="553" height="325" alt="image" src="https://github.com/user-attachments/assets/9afedb3c-725c-467d-867a-80389a334f62" />
+见【图6-10】(详见 files/formulas/第六节/第六章-图片.md)
+
+
 
 
 ###### GR00T
@@ -2662,11 +2672,12 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 
 ###### 基本结构
 
-<img width="554" height="97" alt="image" src="https://github.com/user-attachments/assets/94bcc8aa-dbac-4510-955f-9340dc8a39b8" />
+见【图6-11】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 ###### menu bar 工具栏
 
-<img width="78" height="378" alt="image" src="https://github.com/user-attachments/assets/537407e9-725c-4c7c-972a-0f838394d3cc" />
+见【图6-12】(详见 files/formulas/第六节/第六章-图片.md)
 
 1 是选择 2 是移动 3 是旋转。 搭配使用：先选择物体，再拖动它。快捷键 QWER。WW按两下会显示自身坐标系，按一下就是世界坐标系
 
@@ -2677,17 +2688,18 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 ###### helloworld 入门
 启动 Isaac Sim launcher，加载了一个地板
 
-<img width="552" height="302" alt="image" src="https://github.com/user-attachments/assets/6b708c67-473c-4be7-825b-a399c621706a" />
+见【图6-13】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="553" height="418" alt="image" src="https://github.com/user-attachments/assets/fb92324a-6085-420f-af4b-12b8a7d85845" />
+见【图6-14】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 退出当前项目：点击 File，点击 New，dont save 即可。
 
 ###### 机械臂 demo 
 
-<img width="554" height="299" alt="image" src="https://github.com/user-attachments/assets/b6f18784-98ad-4091-9e21-187593720262" />
+见【图6-15】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="552" height="291" alt="image" src="https://github.com/user-attachments/assets/99cd9a40-624e-4ace-aff6-d4930881011d" />
+见【图6-16】(详见 files/formulas/第六节/第六章-图片.md)
 
 - 抓取：右侧的 stage 场景中点击 target cube，将它拖到任意一个机械臂可能到达的地方，点击左侧 Task Controls 中的 Follow Target 按钮的 start，机械臂就开始运动了。
 
@@ -2697,26 +2709,29 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 
 - extensions 创建
 
-<img width="554" height="847" alt="image" src="https://github.com/user-attachments/assets/3de623f3-db43-45cb-bd1e-3511cb9ee33f" />
+见【图6-17】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="349" alt="image" src="https://github.com/user-attachments/assets/924dfe1b-b0a4-4f47-95ec-1e704db522fd" />
+见【图6-18】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 Configuration Tooling Template 配置工具类；
 Loaded Scenario template 办公室等场景的模版；
 Scripting Template 脚本模版，例如工厂流水线式工作，第一步、第二步、第三步固定；
 UI Component Library 仪表等需要人看着操作的
 
-<img width="554" height="438" alt="image" src="https://github.com/user-attachments/assets/af0f30af-dfec-4a4e-b4fb-56f05f9ddc79" />
+见【图6-19】(详见 files/formulas/第六节/第六章-图片.md)
 
 打开扩展编辑页面。
 
-见【图6-1，6-2，6-3】(详见 files/images/第六节.md)
+见【图6-20，6-21，6-22】(详见 files/images/第六节.md)
 
 添加你自己创建的 extensions，添加完成之后点击自己的 extensions，可以查看信息
-<img width="554" height="342" alt="image" src="https://github.com/user-attachments/assets/8cae57c8-7f2b-4bde-8fee-171fcd2bc528" />
+见【图6-23】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 同时，在任务栏也会出现一个条目 title，点击它的下拉菜单，加载扩展（extension）
-<img width="553" height="189" alt="image" src="https://github.com/user-attachments/assets/36fe24a8-3164-476e-84b9-de1befe2bde0" />
+见【图6-24】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 -standalone 应用-python 创建：
 意思就是用 python 脚本来启动 isaac sim，不是用 gui。好处是不占用资源，因为界面渲染会占据大量资源。这个方式适合强化学习。
@@ -2724,9 +2739,9 @@ UI Component Library 仪表等需要人看着操作的
 
 ###### 强化学习
 
-<img width="553" height="48" alt="image" src="https://github.com/user-attachments/assets/848dc061-0fa5-4b3c-9c2b-291fb01dec7e" />
+见【图6-25】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="391" alt="image" src="https://github.com/user-attachments/assets/b7d7d861-2356-4b52-8257-49aad8ecb66f" />
+见【图6-26】(详见 files/formulas/第六节/第六章-图片.md)
 
 这个案例是让小车靠近小球。
 
@@ -2742,7 +2757,8 @@ cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
 
 执行之后等待一下，
 
-<img width="554" height="361" alt="image" src="https://github.com/user-attachments/assets/4886e780-ca32-43ed-bcf8-b40af78246df" />
+见【图6-27】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 或者
 
@@ -2755,67 +2771,78 @@ cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
 
 设置全局场景属性及物理属性：
 
-<img width="554" height="391" alt="image" src="https://github.com/user-attachments/assets/8ca19faf-716b-4dd9-b711-a04960bab965" />
-<img width="554" height="970" alt="image" src="https://github.com/user-attachments/assets/8450ba7d-a188-43da-a07d-98707595f345" />
+见【图6-28，6-29】(详见 files/formulas/第六节/第六章-图片.md)
+
+
 
 添加地面：
 
-<img width="554" height="970" alt="image" src="https://github.com/user-attachments/assets/96eadb61-6df5-463c-a4fe-87e6bad6b050" />
-<img width="553" height="422" alt="image" src="https://github.com/user-attachments/assets/b0d86ea9-f59b-4805-affb-31c2013e6b5c" />
+见【图6-30，6-31】(详见 files/formulas/第六节/第六章-图片.md)
+
+
 
 添加灯光：
 
-<img width="553" height="397" alt="image" src="https://github.com/user-attachments/assets/0e63dd55-883d-4cb9-96a2-81d5816e81ef" />
+见【图6-32】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 ###### 制作一个简易小车入门
 
 添加和抓取形状，并给物体添加物理属性：(刚体，碰撞体，预设属性)
 
-<img width="554" height="305" alt="image" src="https://github.com/user-attachments/assets/fec64f34-5e15-4aa2-b7fd-765b79ab296b" />
+见【图6-33】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 如果添加了，那么开始仿真之后，它就会像真实世界中的物体倒地。
 
-<img width="554" height="446" alt="image" src="https://github.com/user-attachments/assets/4c715f73-5ca4-4aaf-b503-3df69bd2ff4c" />
+见【图6-34】(详见 files/formulas/第六节/第六章-图片.md)
 
 如果 enable 取消勾选，物体就不会倒地。（测试碰撞属性同上）
 
-<img width="554" height="353" alt="image" src="https://github.com/user-attachments/assets/77c49919-f17d-4431-80d9-1762cdc9d11e" />
+见【图6-35】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 编辑物理属性比如摩擦力：
 
-<img width="517" height="931" alt="image" src="https://github.com/user-attachments/assets/ed305eb8-f00f-4d5b-abb6-21cdce28c35b" />
+见【图6-36】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="544" alt="image" src="https://github.com/user-attachments/assets/c3bf7613-ca0f-4180-8ef3-c9dcf2d2da10" />
+见【图6-37】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 编辑物理属性比如颜色和反射率：
 
 首先选择你要改变的物体，再点击颜色设置
 
-<img width="554" height="805" alt="image" src="https://github.com/user-attachments/assets/d3c499db-2f05-4cf8-bf36-820a225fdeac" />
+见【图6-38】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 再选中车体，选择 material：
 
-<img width="553" height="369" alt="image" src="https://github.com/user-attachments/assets/2b2bd375-2155-4b5f-8651-ea7b27de906f" />
+见【图6-39】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 建立图元 prim：
 
-<img width="554" height="392" alt="image" src="https://github.com/user-attachments/assets/4122fca8-659f-452e-b8c8-0cf693923071" />
+见【图6-40】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="654" alt="image" src="https://github.com/user-attachments/assets/0b07a58e-9d3b-4e85-9c9c-10257af0fefd" />
+
+见【图6-41】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 添加关节：
 - 选中 body 和 left wheel，然后 create 一个 revolute joint
 - 此时会出现一个绿色的圆圈，调整它的 axis，使得圆圈的朝向和轮子旋转的方向一致即可
 - 点击开始仿真按钮，按住 shift 按键，单击车子任意部位，即可拖动它运动
 
-<img width="517" height="827" alt="image" src="https://github.com/user-attachments/assets/c256563a-1818-4952-b856-d3a529331171" />
+见【图6-42】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 添加驱动：
 - 同时选中两个关节，添加角度驱动器
 
-<img width="554" height="579" alt="image" src="https://github.com/user-attachments/assets/7577c2b6-716d-4383-9266-32110f127354" />
+见【图6-43】(详见 files/formulas/第六节/第六章-图片.md)
 
 - 位置控制：对于位置控制关节，设置高刚度和相对低或零阻尼。
 - 速度控制：对于速度控制器关节，设置高阻尼和零刚度。
@@ -2823,11 +2850,12 @@ cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
 
 添加关节根：
 
-<img width="525" height="806" alt="image" src="https://github.com/user-attachments/assets/18050bfb-ca3b-41bc-93c0-dbd0db892c5f" />
+见【图6-44】(详见 files/formulas/第六节/第六章-图片.md)
 
 添加相机和传感器:
 
-<img width="553" height="348" alt="image" src="https://github.com/user-attachments/assets/d596f142-e013-4be2-ace8-64812a981d39" />
+见【图6-45】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 添加激光雷达:
 
@@ -2837,13 +2865,13 @@ cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
 
 [https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_rigging_robot.html#isaac-sim-app-tutorial-advanced-rigging-robot](https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_rigging_robot.html#isaac-sim-app-tutorial-advanced-rigging-robot)
 
-<img width="554" height="223" alt="image" src="https://github.com/user-attachments/assets/37ef5874-df69-453a-b0ec-c2f6be8269ec" />
+见【图6-46】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 调用外部 python 编译器
 
 通过调用外部的编辑器来操作 isaac sim，或者通过 WINDOW EXTENSIONS
 
-<img width="554" height="466" alt="image" src="https://github.com/user-attachments/assets/f9ff95f9-45c8-4c2d-9cdd-7ef2eb42d9c0" />
+见【图6-47】(详见 files/formulas/第六节/第六章-图片.md)
 
 - 打开一个新的 terminal，输入 telnet localhost 8223
 - 输入代码，回车
@@ -2871,22 +2899,25 @@ Isaac Sim VS Code Edition：
 
 先要在 vscode 中安装插件。在 4.0.0 中快速打开 vscode 的方法是在扩展管理中使能扩展插件，如下
 
-<img width="452" height="510" alt="image" src="https://github.com/user-attachments/assets/c79e4034-6bfe-4e82-afb0-fd211aa2d3f3" />
+见【图6-48】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 在更早的版本，则打开 Isaac Sim App Selector
 
-<img width="553" height="506" alt="image" src="https://github.com/user-attachments/assets/a89c2b16-cd27-4458-815e-0ca921717f99" />
+见【图6-49】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 详情见链接[https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector](https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector)
 点击
 
-<img width="554" height="657" alt="image" src="https://github.com/user-attachments/assets/89c0ef10-0c41-4ebe-b9e4-087a5284e47f" />
+
 
 创建一个空的 python 脚本，输入代码，点击左侧的运行按钮，得到一个球体
 
-<img width="554" height="661" alt="image" src="https://github.com/user-attachments/assets/abf6ed14-06b6-4c8c-ad4b-e4d99c7a8de4" />
+见【图6-51】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="552" height="343" alt="image" src="https://github.com/user-attachments/assets/40338c83-1504-4f66-9c6a-a2fd118cd342" />
+见【图6-52】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 更多细节可以参考[https://marketplace.visualstudio.com/items?itemName=NVIDIA.isaacsim-vscode-edition](https://marketplace.visualstudio.com/items?itemName=NVIDIA.isaacsim-vscode-edition)
 
@@ -2896,16 +2927,19 @@ Isaac Sim VS Code Edition：
 
 详情见链接[https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector](https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector)
 
-<img width="554" height="535" alt="image" src="https://github.com/user-attachments/assets/346c8b14-a4fc-4c21-888d-ddd87c04d15a" />
+见【图6-53】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - vscode 中要先安装 isaac 插件 Isaac Sim VS Code Edition
 - 打开之后，我们测试一个 demo，文件目录如下，加一个断点。
 
-<img width="554" height="657" alt="image" src="https://github.com/user-attachments/assets/e6b0d1e3-0453-40e0-958a-344df1a6da02" />
+见【图6-54】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 点击左侧的 run and debug 按钮，点击 debug 即可。或者按 F5 也可以
 
-<img width="554" height="621" alt="image" src="https://github.com/user-attachments/assets/fdb8612a-f631-41f4-b22a-e8f5ba0e8a32" />
+见【图6-55】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 传参数
 更改一下 launch.json 和 python 文件
@@ -3015,22 +3049,26 @@ for i in range(100):
 kit.close()  # Cleanup application
 ```
 
-<img width="554" height="282" alt="image" src="https://github.com/user-attachments/assets/4219cfbd-ec58-43b4-a8e1-67b9d84e9c6d" />
+见【图6-56】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 debug 在 isaac sim 中跑的应用和 vscode 交互
 - 运行 isaac sim
 -  在 isaac sim 顶部工具栏的窗口，扩展中搜索 omni.kit.debug.vscode，使能它，然后可以看到一行红字“VS Code Debugger Unattached”
 
-<img width="553" height="227" alt="image" src="https://github.com/user-attachments/assets/8fe14b19-9537-46c8-a94e-656172f4e9b2" />
+见【图6-57】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 - 运行你刚刚的 vscode，点击 debug 的按钮旁边的下拉菜单
 
-<img width="554" height="566" alt="image" src="https://github.com/user-attachments/assets/f3a9dc09-692e-4120-a79f-1074b34f04c8" />
+见【图6-58】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 这时候红色字变蓝色了
 - 上一步能成功，原因在于 vscode 和 isaac sim 之间配置了相同的 ip 和端口
 
-<img width="396" height="277" alt="image" src="https://github.com/user-attachments/assets/b69fdfc3-9652-4e4e-857d-9d59846f2bc3" />
+见【图6-59】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 想要更改参数，在 app selector 中添加即可
 
@@ -3055,9 +3093,11 @@ debug 在 isaac sim 中跑的应用和 vscode 交互
 
 工具栏选择 hello world，点击 containning folder，你就可以看到这个例子包含的代码文件
 
-<img width="554" height="335" alt="image" src="https://github.com/user-attachments/assets/c149f395-e2c2-415f-9b73-74931d15d671" />
+见【图6-60】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="335" alt="image" src="https://github.com/user-attachments/assets/aa8d049c-1c8a-475d-9d66-8540abe85b92" />
+
+见【图6-61】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 打开 hello_world.py,重写代码
@@ -3167,12 +3207,13 @@ git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git turtlebo
 rosrun xacro xacro -o turtlebot3_burger.urdf turtlebot3_burger.urdf.xacro
 ```
 
-<img width="553" height="297" alt="image" src="https://github.com/user-attachments/assets/f47a4efb-cfb0-4459-96f3-6017df3a5dde" />
+见【图6-62】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="553" height="297" alt="image" src="https://github.com/user-attachments/assets/98c7f31c-fd39-4b2c-9a06-fffe4d4900c4" />
+见【图6-63】(详见 files/formulas/第六节/第六章-图片.md)
 
 
-<img width="554" height="324" alt="image" src="https://github.com/user-attachments/assets/9ed1af7a-b813-4cc1-8716-4bb534749573" />
+见【图6-64】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 发送速度指令。
 
@@ -3190,34 +3231,35 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 添加单线激光：发布 odom，先运行 roscore，再启动 isaac 模拟仿真。roscore 只要启动一次就可以了。不需要关掉。
 
-<img width="525" height="388" alt="image" src="https://github.com/user-attachments/assets/453d466c-a279-4f93-b2a6-17d714494461" />
+见【图6-65】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="546" height="130" alt="image" src="https://github.com/user-attachments/assets/650300d0-ac55-424c-8aeb-404839846330" />
+
+见【图6-66】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 发布 odom->base_link，
 发布其他传感器的 link。
 
-<img width="554" height="490" alt="image" src="https://github.com/user-attachments/assets/841ff31e-f066-4568-9326-7ccce57d2ddb" />
+见【图6-67】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="531" height="346" alt="image" src="https://github.com/user-attachments/assets/e9f0348c-f14f-4e40-b6cd-6f1bdde1fd06" />
+
+见【图6-68】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 如果只写 targetPrims，那么生成的 tf 是 world->base_scan。
 
 本案例中，两者都要填写。base_footprint 不填写，它会报错。
 
-<img width="531" height="346" alt="image" src="https://github.com/user-attachments/assets/a62fa1fe-5432-4724-9f67-865ff59d55cc" />
-<img width="539" height="272" alt="image" src="https://github.com/user-attachments/assets/c7e862db-1a3d-4b9c-a25e-b44f91f0438c" />
+见【图6-69，6-70】(详见 files/formulas/第六节/第六章-图片.md)
+
+
 
 ###### 导航--以 carter_warehouse 为例
 [https://github.com/isaac-sim/IsaacSim-ros_workspaces](https://github.com/isaac-sim/IsaacSim-ros_workspaces)
 
 - 单线激光雷达
 
-<img width="325" height="233" alt="image" src="https://github.com/user-attachments/assets/1e642928-e54a-4572-aa93-3a97cddf2533" />
-
-<img width="552" height="181" alt="image" src="https://github.com/user-attachments/assets/54912f37-0250-463e-b855-509f0c056c48" />
-
-<img width="554" height="291" alt="image" src="https://github.com/user-attachments/assets/fbd4e1d2-88c3-4a5d-806b-9d01d237a781" />
+见【图6-71，6-72，6-73】(详见 files/formulas/第六节/第六章-图片.md)
 
 占据栅格的高度范围为0.1-0.62
 
@@ -3227,7 +3269,8 @@ roslaunch carter_2dnav carter_navigation.launch
 
 - 多线激光雷达
 
-<img width="553" height="242" alt="image" src="https://github.com/user-attachments/assets/ab1faf91-8336-4a60-8d9a-1b52bd0de9bf" />
+见【图6-74】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 Isaac/Samples/ROS/Scenario/rtx_lidar_carter_warehouse_navigation.usd
 
@@ -3281,79 +3324,79 @@ ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
 小车默认使用 RTX 雷达。
 小车上大部分相机都屏蔽 publish 图片，可以去_camera_render_product 节点使能对应相机。
 
-<img width="554" height="314" alt="image" src="https://github.com/user-attachments/assets/9cd756a3-05bf-4fe7-be82-044f20fa7f9d" />
+见【图6-75】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="553" height="124" alt="image" src="https://github.com/user-attachments/assets/a6d9335d-a2f7-4339-9f8b-fbe6c02b6936" />
+
+见【图6-76】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 设置 ROS_DOMAIN_ID 为 0 ，因为 isaac sim 默认是 0
 模型导入、栅格地图生成
 
-<img width="554" height="383" alt="image" src="https://github.com/user-attachments/assets/b81e8e9b-0bfa-4171-984f-df64cfb07f12" />
-
-<img width="553" height="398" alt="image" src="https://github.com/user-attachments/assets/407389e5-9da7-4361-be7d-fac83a6b3077" />
-
-<img width="554" height="423" alt="image" src="https://github.com/user-attachments/assets/7bb5d6c3-f5d9-4cd4-8cd1-b4daa2b7113d" />
+见【图6-77，6-78，6-79】(详见 files/formulas/第六节/第六章-图片.md)
 
 模型导入之后，用 ariculation inspector 来观察是否导入正确。检查机器人行为是否符合预期。
 如果发送速度控制，机器人会震荡，那么需要用 Gain tuner 来调整。首先要把重力去掉来调试。kp 和 kd 设置为 100 来试试等。具体参考视频教程的 b 站内容第一讲。
 
-<img width="552" height="302" alt="image" src="https://github.com/user-attachments/assets/6de92b41-c837-438c-a8c7-4584bc61adb5" />
+见【图6-80】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 **加载一个环境**
 
-<img width="553" height="420" alt="image" src="https://github.com/user-attachments/assets/3a578bc0-f502-4962-a01c-9e6f903dc18e" />
+见【图6-81】(详见 files/formulas/第六节/第六章-图片.md)
 
 这需要网络下载，等待一下，选择最简单的 simple_warehouse 和 ware_extras
 
-<img width="554" height="336" alt="image" src="https://github.com/user-attachments/assets/d68c63dd-b228-4598-bf5a-b07e1417e03f" />
-
-<img width="553" height="565" alt="image" src="https://github.com/user-attachments/assets/aca04050-df9c-4c1a-830d-4de7ce07fd65" />
-
-<img width="554" height="220" alt="image" src="https://github.com/user-attachments/assets/c5dd0551-4a92-4741-94d9-8a17e34ec32b" />
+见【图6-82，6-83，6-84】(详见 files/formulas/第六节/第六章-图片.md)
 
 调整完，计算之后，点击可视化，保存 jpg 和 yaml。 
 
 **激光雷达导入**
 
-<img width="554" height="302" alt="image" src="https://github.com/user-attachments/assets/8f818691-5ea4-477b-b008-4fed00c53a50" />
+见【图6-85】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="799" alt="image" src="https://github.com/user-attachments/assets/c2ef501a-69f1-4add-aafd-85e8d808b96d" />
+见【图6-86】(详见 files/formulas/第六节/第六章-图片.md)
 
 雷达是 PhysX Lidar
 
-<img width="553" height="383" alt="image" src="https://github.com/user-attachments/assets/2ab9dc73-b9c0-41a2-961a-91d02e858a5a" />
+见【图6-87】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="553" height="383" alt="image" src="https://github.com/user-attachments/assets/1aa6ac84-829f-4cae-85e8-0c8c143ed904" />
+见【图6-88】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 把它拖上来
 
-<img width="553" height="266" alt="image" src="https://github.com/user-attachments/assets/01b340a1-afb0-434a-ba26-c58c7242d385" />
+见【图6-89】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="302" alt="image" src="https://github.com/user-attachments/assets/ac70645f-e7a9-49b5-8490-24d1bd8192c9" />
 
-<img width="554" height="309" alt="image" src="https://github.com/user-attachments/assets/cbd709e5-9a10-4607-92da-0dd3b3493577" />
+见【图6-90】(详见 files/formulas/第六节/第六章-图片.md)
+
+
+见【图6-91】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 这个 domian id 是跟你自己电脑设置的 bashrc 相关。如果没设置，就不用管它
 
 **轮速订阅**
 
-<img width="553" height="322" alt="image" src="https://github.com/user-attachments/assets/3ef21214-a568-4461-ae6f-575cec33a789" />
-
-<img width="554" height="728" alt="image" src="https://github.com/user-attachments/assets/5247ca60-8aa0-4384-b890-db54c266b9c8" />
+见【图6-92，6-93】(详见 files/formulas/第六节/第六章-图片.md)
 
 订阅节点输出的角速度和线速度都是 3 维向量，需要一个中间转化模块，输出一维值。
 角速度输出的是 z 分量，线速度输出的是 x 分量。
 
-<img width="554" height="279" alt="image" src="https://github.com/user-attachments/assets/4a9f34d0-8d65-4de4-96a2-d306965b05c8" />
+见【图6-94】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 把差速控制器连接给本体上的左右关节电机
 
-<img width="554" height="385" alt="image" src="https://github.com/user-attachments/assets/474dbd11-bd17-40ed-9f7e-09b6a5e1f24b" />
+见【图6-95】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 constant token 组合两个关节名字，成为 array，发给 ariculation controller 中的 jointNames。array 是可以增加 input 的。
 另外 twist 的输出要连接 controller 的输入。
 
-<img width="554" height="225" alt="image" src="https://github.com/user-attachments/assets/f8885742-293c-4ed4-8da3-d3ad74b3ce28" />
+见【图6-96】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 每个 constant token 赋值两个 joint 名字
 ros2 run rqt_robot_steering rqt_robot_steering
@@ -3361,9 +3404,10 @@ ros2 run rqt_robot_steering rqt_robot_steering
 
 **添加 odom**
 
-<img width="553" height="292" alt="image" src="https://github.com/user-attachments/assets/453f659a-cfa0-4eaa-b6e9-c9cda2f713fb" />
+见【图6-97】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="208" alt="image" src="https://github.com/user-attachments/assets/14e6f8ad-738b-4773-ba99-2d2b316d3d5e" />
+见【图6-98】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 记得把 timestamp 和 context 也连接上，图片中忘记加了。
 
@@ -3371,18 +3415,21 @@ ros2 run rqt_robot_steering rqt_robot_steering
 
 transform tree 表示的是 base link 到 lidar camera imu 的逻辑。
 
-<img width="553" height="319" alt="image" src="https://github.com/user-attachments/assets/1bbb6436-0fd8-498b-b4d1-56ccff6fc7b6" />
+见【图6-99】(详见 files/formulas/第六节/第六章-图片.md)
 
-<img width="554" height="332" alt="image" src="https://github.com/user-attachments/assets/7ecc91ef-1215-4498-82fc-1978275891fb" />
+见【图6-100】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 运行后就会发布 odom 到 base link 的 tf。
 
 添加 base link 本体的 tf。
 
-<img width="553" height="474" alt="image" src="https://github.com/user-attachments/assets/2b159e56-3800-452c-98fc-46e503ca4638" />
+见【图6-101】(详见 files/formulas/第六节/第六章-图片.md)
 
+
+见【图6-102】(详见 files/formulas/第六节/第六章-图片.md)
 ros2 run tf2_tools view_frames.py
-<img width="552" height="148" alt="image" src="https://github.com/user-attachments/assets/aa7e30d6-056b-4f39-ac3b-04d499c64bde" />
+
 
 ```Shell
 sudo apt install python3-rosinstall-generator python3-wstool build-essential python3-rosinstall python3-rosdep
@@ -3403,7 +3450,8 @@ rosdep install -i --from-path src --rosdistro foxy -y
 ```
 代码在第 3 节的链接中
 
-<img width="553" height="262" alt="image" src="https://github.com/user-attachments/assets/b24f27e8-6341-4e2a-90ba-b6dd3615c8e4" />
+见【图6-103】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 ```Shell
@@ -3411,7 +3459,8 @@ ros2 launch carter_navigation carter_navigation.launch.py
 ```
 有个报错
 
-<img width="554" height="500" alt="image" src="https://github.com/user-attachments/assets/efa2ba2d-dfd0-45b7-ac07-5e3fb1ee39ad" />
+见【图6-104】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 先启动 isaac sim，再启动 launch 文件
 一般重定位是没有的，所以需要自己手动发一个 2d pose
@@ -3475,7 +3524,8 @@ Running Cosmos Transfer1 is not currently supported on the DGX Spark.
 
 不同的工作流程需要不同的安装方法。使用此表格进行决定：
 
-<img width="819" height="259" alt="image" src="https://github.com/user-attachments/assets/8efc368a-b524-42a4-a480-319836d442a4" />
+见【图6-105】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 ###### 后续步骤
@@ -3787,9 +3837,8 @@ Isaac Lab 资产托管在 AWS S3 云存储 上。 加载时间可能会因您的
 ###### 经典
 
 基于 IsaacGymEnvs 实现的 MuJoCo 风格环境的经典环境。
-<img width="819" height="572" alt="image" src="https://github.com/user-attachments/assets/ceb5b2c9-edef-4a22-8e30-45b65840ca7b" />
-<img width="819" height="524" alt="image" src="https://github.com/user-attachments/assets/bf50f301-0c46-4502-ab4d-f1f23754a3b1" />
 
+见【图6-106，6-107】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 操作臂
 
@@ -3803,14 +3852,7 @@ Isaac-Lift-Cube-Franka-IK-Abs-v0: Franka机械臂绝对IK控制
 
 Isaac-Lift-Cube-Franka-IK-Rel-v0: Franka机械臂相对IK控制
 
-<img width="785" height="703" alt="image" src="https://github.com/user-attachments/assets/96d2c64d-9192-40bb-bd51-33c433ef4ee9" />
-<img width="792" height="478" alt="image" src="https://github.com/user-attachments/assets/5e8b1723-e46e-4c37-aef6-ad02ad686b53" />
-<img width="875" height="542" alt="image" src="https://github.com/user-attachments/assets/0c2e2116-19e1-41b2-a9b4-eecd112c7c28" />
-<img width="878" height="601" alt="image" src="https://github.com/user-attachments/assets/409fc01c-1490-4340-a370-0f11d8896ffd" />
-<img width="872" height="767" alt="image" src="https://github.com/user-attachments/assets/304d50e4-7386-416c-8b85-fbcae4ad14b5" />
-<img width="875" height="565" alt="image" src="https://github.com/user-attachments/assets/165a27f6-4e8e-4538-863a-0bd169d555f6" />
-<img width="875" height="338" alt="image" src="https://github.com/user-attachments/assets/075e7193-3e1b-4642-a419-b9e9a4589702" />
-
+见【图6-108，6-109，6-110，6-111，6-112，6-113，6-114】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 富接触操控
 
@@ -3824,7 +3866,8 @@ Isaac-Factory-GearMesh-Direct-v0: 与Franka机械臂啮合的齿轮
 
 Isaac-Factory-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
 
-<img width="875" height="743" alt="image" src="https://github.com/user-attachments/assets/c294b29c-f5b7-4b6c-8b89-02edd1e880e9" />
+见【图6-115】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 ###### 自动装配
@@ -3861,7 +3904,8 @@ Isaac-AutoMate-Assembly-Direct-v0: 目标是将插头插入插座。你可以使
 
 要评估一个装配策略，我们运行命令 ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --checkpoint=CHECKPOINT --log_eval ```。评估结果存储在 evaluation_{ASSEMBLY_ID}.h5 。
 
-<img width="872" height="500" alt="image" src="https://github.com/user-attachments/assets/556970ff-dba3-4da1-84b5-bfba6989851f" />
+见【图6-116】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 ###### FORGE
 
@@ -3883,24 +3927,17 @@ Isaac-Forge-GearMesh-Direct-v0: 与Franka机械臂啮合的齿轮
 
 Isaac-Forge-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
 
-<img width="876" height="742" alt="image" src="https://github.com/user-attachments/assets/91ac4a06-863c-4756-b5f9-2cf45aa35fcc" />
+见【图6-117】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 运动
 
 基于四足运动任务的环境
 
-<img width="875" height="608" alt="image" src="https://github.com/user-attachments/assets/e0e30d43-52f5-485a-a133-785b6501409c" />
-<img width="877" height="561" alt="image" src="https://github.com/user-attachments/assets/8e994e60-c203-47bc-8351-7c6ef2ddbd50" />
-<img width="874" height="559" alt="image" src="https://github.com/user-attachments/assets/ff5eb580-dbd5-4066-aa83-0f7439bb0c58" />
-<img width="873" height="557" alt="image" src="https://github.com/user-attachments/assets/cc1b91d6-cbe1-4868-b2be-a784b90a28ee" />
-<img width="870" height="559" alt="image" src="https://github.com/user-attachments/assets/11a3dc4b-fb75-4280-be68-4a042b8ef149" />
-<img width="875" height="560" alt="image" src="https://github.com/user-attachments/assets/67396204-eeb1-44a7-893c-5dd5b6790036" />
-<img width="879" height="376" alt="image" src="https://github.com/user-attachments/assets/eee9efc4-b6f4-484b-86a1-9960d167a29b" />
+见【图6-118,6-119,6-120,6-121,6-122,6-123,6-124】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 导航
 
-<img width="878" height="232" alt="image" src="https://github.com/user-attachments/assets/b19c2bd9-9f94-43aa-9900-83ecf88c670a" />
-
+见【图6-125】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### Others
 
@@ -3908,8 +3945,7 @@ Isaac-Forge-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
 
 为了评估，脚本的命令行输入 --real-time 允许环境和智能体之间的交互循环在可能的情况下实时运行。
 
-<img width="877" height="439" alt="image" src="https://github.com/user-attachments/assets/e4fa59d3-93ab-466f-aa07-221331aba4f9" />
-
+见【图6-126】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 空间展示
 
@@ -3919,40 +3955,30 @@ cartpole_showcase 文件夹包含示例任务（基于 Cartpole 和 Cartpole-Cam
 
 下表总结了 Cartpole 和 Cartpole-Camera 任务中展示的不同观测空间与动作空间的组合。在训练和评估的任务名称中，用 <OBSERVATION> 和 <ACTION> 替换相应的观测空间和动作空间。
 
-<img width="783" height="600" alt="image" src="https://github.com/user-attachments/assets/db025a0a-627a-4c5a-ab24-890a12259780" />
+见【图6-127】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 ##### 3.2 多智能体
 
 备注：真正的多智能体训练仅在 skrl 库中可用，更多信息请参见 多智能体文档 。它支持 IPPO 和 MAPPO 算法，可以通过在训练/回放脚本中添加命令行输入 --algorithm IPPO 或 --algorithm MAPPO 来激活。如果这些环境与其他库一起运行或没有 IPPO 或 MAPPO 标志，它们将在后台转换为单智能体环境。
 
 ###### 经典
-<img width="874" height="232" alt="image" src="https://github.com/user-attachments/assets/b61a141e-2aa4-4c5d-bd75-547c23716ac0" />
+
+见【图6-128】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 ###### 操作臂
 
 基于固定机械臂操作任务的环境。
 
-<img width="874" height="233" alt="image" src="https://github.com/user-attachments/assets/34f08534-6e5e-4070-8190-610f4f63fc01" />
-
-
+见【图6-129】(详见 files/formulas/第六节/第六章-图片.md)
 
 ###### 综合环境列表
 
 对于在 推理任务名称 下列出不同任务名称的环境，请在运行 play.py 或任何推理工作流时使用提供的推理任务名称。这些任务提供了更适合推理的配置，包括从已训练好的检查点读取数据，并禁用训练时使用的运行时扰动。
 
-<img width="877" height="729" alt="image" src="https://github.com/user-attachments/assets/08574079-d3da-4c6f-8cb7-60219aa02639" />
-<img width="874" height="712" alt="image" src="https://github.com/user-attachments/assets/11f6182d-87ad-4d9d-9d2e-f4171082f232" />
-<img width="872" height="764" alt="image" src="https://github.com/user-attachments/assets/83b91138-a7b5-4352-bd13-58fe94092b03" />
-<img width="873" height="801" alt="image" src="https://github.com/user-attachments/assets/e3c81740-15cc-4775-b18c-6e1d247ae3f4" />
-<img width="874" height="821" alt="image" src="https://github.com/user-attachments/assets/4ac1d9c2-7346-4979-bbdf-ab77b2560a16" />
-<img width="871" height="728" alt="image" src="https://github.com/user-attachments/assets/e48d6ebf-b0f5-4b35-8a15-7a7b1f2df3e4" />
-<img width="874" height="767" alt="image" src="https://github.com/user-attachments/assets/02ef9230-8afb-4ad6-a679-2f5b9d08b3ca" />
-<img width="875" height="838" alt="image" src="https://github.com/user-attachments/assets/b1f30522-0267-46c4-95f1-91a13743aae8" />
-<img width="875" height="792" alt="image" src="https://github.com/user-attachments/assets/544cff94-5f06-4d97-bb21-b9cf54f5c55e" />
-<img width="873" height="768" alt="image" src="https://github.com/user-attachments/assets/53a84670-9af8-4d11-938d-7ccf2c516f0d" />
-<img width="873" height="280" alt="image" src="https://github.com/user-attachments/assets/49a4c774-1f66-4e4b-9b14-f0cfacc811ab" />
-
+见【图6-130,6-131,6-132,6-133,6-134,6-135,6-136,6-137,6-138,6-139,6-140】(详见 files/formulas/第六节/第六章-图片.md)
 
 #### 4、资产与场景：USD/URDF 导入、相机布局、光照与碰撞
 ##### 4.1 USD/URDF 导入
@@ -3962,10 +3988,7 @@ cartpole_showcase 文件夹包含示例任务（基于 Cartpole 和 Cartpole-Cam
 
 里面收集的资料也比较多，都分类整理了，有机械臂，双足，双臂，飞行器，执行器，仿人，四足，轮式等。实际上github上有很多awesome类型的项目，这些作者都有着极大的专注与热情，能省去自己找资料的麻烦，推荐感兴趣的去给他们点个免费的star。
 
-<img width="1138" height="991" alt="image" src="https://github.com/user-attachments/assets/99ae23a8-af87-4a00-a3f0-cade61d33391" />
-<img width="1260" height="1153" alt="image" src="https://github.com/user-attachments/assets/83ef113a-fc4e-42f9-b672-19e50b9e84d6" />
-<img width="961" height="1065" alt="image" src="https://github.com/user-attachments/assets/c6c20490-e4ff-41a9-805d-a0411f0d9831" />
-<img width="961" height="1065" alt="image" src="https://github.com/user-attachments/assets/1700a71c-f80d-41eb-84b6-ff88556a77df" />
+见【图6-141,6-142,6-143,6-144】(详见 files/formulas/第六节/第六章-图片.md)
 
 最近在Github上找一个机械臂的URDF文件时，发现一个很好的仓库。这应该是目前整理的最好最全的关于工业机械臂的URDF文件的仓库了，地址如下：
 
@@ -3977,7 +4000,8 @@ github.com/Daniella1/urdf_files_dataset](https://github.com/Daniella1/urdf_files
 
 机器人仿真软件/工具很多，通产每个仿真软件中的机器人模型都有自己原生的文件格式，下面表格所示为几种不同仿真软件原生模型的文件格式以及它们对URDF文件描述的机器人模型的支持性。可以看到，绝大部分的仿真软件都是支持导入URDF格式描述的机器人模型的。
 
-<img width="775" height="459" alt="image" src="https://github.com/user-attachments/assets/def5a6a8-281a-49d1-a1a9-7097d1be6abf" />
+见【图6-145】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 不同机器人仿真工具对URDF文件的支持
 
@@ -3996,7 +4020,8 @@ URDF，全称是Unified Robot Description Format，统一机器人描述格式�
 **模型（model）**
 创建一个URDF文件的最小要求是机器人的名称和一个连杆。如下所示的URDF文件示例，它表示了一个2自由度的平面连杆机构，外观使用简单的几何形状：方块和圆柱，这个示例文件中有3个连杆和2个关节：
 
-<img width="1135" height="540" alt="image" src="https://github.com/user-attachments/assets/8c95c4c2-38c7-4264-8eb6-9e5d6baff963" />
+见【图6-146】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 简单的平面3连杆机构
 
@@ -4006,7 +4031,8 @@ URDF，全称是Unified Robot Description Format，统一机器人描述格式�
 
 连杆是可以使用关节进行连接的刚体，连杆有惯量（inertial）、视觉（visual）和碰撞（collision）等属性。惯性特性描述了连杆的质量、质心位置以及惯性矩。可视化特性和碰撞特性稍后再说。URDF中连杆只能是刚体，而不能是可形变的物体（在这一定程度上限制了URDF的应用范围，像涉及柔性体的机器人就不能用URDF文件直接表示）。
 
-<img width="1505" height="698" alt="image" src="https://github.com/user-attachments/assets/a2f666ad-4683-4e26-aee4-08e9c823baeb" />
+见【图6-147】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 更通用的连杆属性
 
@@ -4024,7 +4050,8 @@ URDF，全称是Unified Robot Description Format，统一机器人描述格式�
 平面关节（planar）：允许在垂直于轴的平面中运动。
 关节也有很多可以编辑的属性：
 
-<img width="887" height="798" alt="image" src="https://github.com/user-attachments/assets/4bdb9c40-4aac-452b-8b36-6e5dd57250c1" />
+见【图6-148】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 **关节属性**
 
@@ -4041,7 +4068,8 @@ URDF，全称是Unified Robot Description Format，统一机器人描述格式�
 
 一个URDF机器人模型通常包含描述机器人拓扑结构的URDF文件以及描述机器人物理外观网格文件组成。URDF文件本身（具有.urdf文件扩展名）和URDF文件中所引用的网格对象（作为link的属性）所组成的文件集，通常称为URDF包。如下所示的URDF文件包，包含了名为myrobot.urdf的URDF文件，以及mesh文件夹中网格对象。URDF文件是指使用相对路径生成的不同链接的几何网格文件。
 
-<img width="753" height="249" alt="image" src="https://github.com/user-attachments/assets/123e8480-fed5-430c-bdc7-8be4b0d6f6e7" />
+见【图6-149】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 **Xacro文件**
 
@@ -4060,8 +4088,8 @@ Using Xacro to Clean Up a URDF File
 **（4）URDF数据库**
 
 对于大多数工业机械臂，由于其结构参数与特征都是固定的，因此在使用不同的软件工具进行算法仿真的时候，除非是初期的学习，通常都没必要自己再手动建模一遍，都是找现成的URDF文件，因为绝大多数机器人仿真软件都支持URDF格式文件的导入。前面提到的Understanding URDF: A Dataset and Analysis这篇文章中，作者规范地整理了超过300个不同来源的公开的URDF模型。
-<img width="781" height="263" alt="image" src="https://github.com/user-attachments/assets/e560d938-e36f-4922-9804-5f791ba1ca70" />
-<img width="648" height="828" alt="image" src="https://github.com/user-attachments/assets/db6329a8-2554-4523-8274-a7205ad25914" />
+
+见【图6-150,6-151】(详见 files/formulas/第六节/第六章-图片.md)
 
 补充数据库资源：
 [https://github.com/robot-descriptions/awesome-robot-descriptions
@@ -4350,7 +4378,7 @@ hello.xml:
 
 内置的 OpenGL 可视化器将此模型渲染为
 
-<img width="787" height="694" alt="image" src="https://github.com/user-attachments/assets/2a6b255b-a5a6-45c6-921b-315deaed2ab6" />
+见【图6-152】(详见 files/formulas/第六节/第六章-图片.md)
 
 如果对该模型进行仿真，盒子会落到地面上。不带渲染的被动动力学基本仿真代码如下所示。
 
@@ -4672,7 +4700,8 @@ Sites 是轻量级的 geoms。它们具有相同的外观属性，但不能参�
 
 此模型由 OpenGL 可视化器渲染为
 
-<img width="271" height="359" alt="image" src="https://github.com/user-attachments/assets/8edc6ea5-1430-4827-aebb-26806340a4c7" />
+见【图6-153】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 注意红色的盒子。这是刚体惯性属性的等效惯量盒渲染，由 MuJoCo 内部生成。盒子位于 geoms 上方，但不在 sites 上方。这是因为仅使用 geoms（自动）推断了 body 的惯性属性。如果我们恰好知道后者，当然可以直接指定。但通常更方便的是让模型编译器根据附加到 body 的 geoms 推断这些 body 属性，使用均匀密度假设（geom 密度可以在 XML 中指定；默认是水的密度）。
 
@@ -4734,7 +4763,8 @@ RoboHive [https://github.com/vikashplus/robohive](https://github.com/vikashplus/
 
 PyBullet 是一个快速且易于使用的用于机器人模拟和机器学习，专注于仿真到现实转换的 Python 模块. 使用 PyBullet，您可以从 URDF、SDF、MJCF 和其他文件格式加载关节体. PyBullet 提供正向动力学模拟、反向动力学计算、正向和反向运动学、碰撞检测和射线交叉查询功能。Bullet Physics SDK 中包括 PyBullet 机器人示例，例如模拟Minitaur 四足机器人、使用 TensorFlow 推理运行的类人机器人和抓取物体的 KUKA 机械臂。 简化坐标多体、刚体和可变形体由统一的 LCP 约束求解器处理，
 
-<img width="1260" height="240" alt="image" src="https://github.com/user-attachments/assets/706e1844-a8e3-4527-8c50-1b1a9903475d" />
+见【图6-154】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 除了物理模拟之外，还有渲染绑定，具有 CPU 渲染器 (TinyRenderer) 和 OpenGL 3.x 渲染和可视化，并支持虚拟现实耳机，如 HTC Vive 和 Oculus Rift。 PyBullet 还具有执行碰撞检测查询（最近点、重叠对、光线交叉测试等）和添加调试渲染（调试行和文本）的功能。PyBullet 具有对共享内存、UDP 和 TCP 网络的跨平台内置客户端-服务器支持。 因此，您可以在连接到 Windows VR 服务器的 Linux 上运行 PyBullet。PyBullet 包装了新Bullet C-API，它被设计为独立于底层物理引擎和渲染引擎，因此我们可以轻松迁移到 Bullet 的更新版本，或者使用不同的物理引擎或渲染引擎。默认情况下，PyBullet 在 CPU 上使用 Bullet 2.x API。我们还将使用 OpenCL 公开在 GPU 上运行的 Bullet 3.x。还有一个类似于 PyBullet 的 C++ API，参见b3RobotSimulatorClientAPI。PyBullet 可以很容易地与 TensorFlow 和 OpenAI Gym 一起使用。 来自 Google Brain[1,2,3,4], X[1,2], Stanford AI Lab [1,2,3], OpenAI,INRIA [1] and many other labs 的研究人员都在使用 PyBullet. 如果您在研究中使用 PyBullet，请添加 引文.PyBullet 的安装就像 (sudo) pip install PyBullet (Python 2.x)、pip3 install PyBullet 一样简单。这将公开 PyBullet 模块以及 pybullet_envs Gym 环境。
 
@@ -4778,7 +4808,8 @@ Pybullet快速入门手册（中文版） [PyBullet 快速入门手册（机翻�
 
 #### 1、Genesis简介
 
-<img width="553" height="338" alt="image" src="https://github.com/user-attachments/assets/d9f0338a-b88c-480e-ba4c-c0bb647216cd" />
+见【图6-155】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 Genesis 基于一个重新设计并从零开始构建的通用物理引擎，整合了多种物理求解器及其耦合，形成一个统一的框架。这个核心物理引擎进一步通过一个生成性代理框架得到增强，后者旨在实现完全自动化的数据生成，适用于机器人学及其他领域。目前，我们正在开源底层物理引擎和仿真平台，生成性框架将在不久的将来发布。它是一个为通用机器人/具身智能/物理智能应用设计的物理平台。它同时具备以下多个功能：
 - 一个从零开始重新构建的通用物理引擎，能够模拟多种材料和物理现象。
@@ -5479,7 +5510,9 @@ franka.set_dofs_force_range(
     np.array([ 87,  87,  87,  87,  12,  12,  12,  100,  100]),
 )
 ```
-<img width="553" height="369" alt="image" src="https://github.com/user-attachments/assets/d53bb94e-57b5-4a28-aaf1-f584d9c28f51" />
+
+见【图6-156】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 接下来，让我们将机器人末端执行器移动到一个预抓取姿态。这可以通过两个步骤完成：
   - 使用逆向运动学（IK）来求解给定目标末端执行器姿态下的关节位置
@@ -5545,19 +5578,23 @@ for i in range(200):
 
 注意:
 在Genesis中，运动规划使用OMPL库。遇到如下报错说明OMPL未安装
-<img width="553" height="100" alt="image" src="https://github.com/user-attachments/assets/7f810d41-f371-4a19-aedd-b2b53c5043e6" />
+
+见【图6-157】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 安装方法如下:
 
 1. 依据系统及python版本下载whl文件,下载地址[https://github.com/ompl/ompl/releases/tag/prerelease](https://github.com/ompl/ompl/releases/tag/prerelease)
 
-<img width="554" height="402" alt="image" src="https://github.com/user-attachments/assets/b0949ee6-2ba8-40e7-97aa-095096fb29ce" />
+见【图6-158】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 2. 进入whl下载目录并打开终端,执行下列命令
 conda activate genesis所在环境名称
 pip install ompl-1.6.0-cp310-cp310-manylinux_2_28_x86_64.whl
 
-<img width="554" height="103" alt="image" src="https://github.com/user-attachments/assets/3d5945e4-32b4-4927-b1cd-faf7f4a7f963" />
+见【图6-159】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 3. 程序顺利运行
 
@@ -5566,7 +5603,9 @@ pip install ompl-1.6.0-cp310-cp310-manylinux_2_28_x86_64.whl
 
 #### 3、仿真示例
 ###### 构建仿真代码
-<img width="553" height="312" alt="image" src="https://github.com/user-attachments/assets/734a7d45-3c59-4ff8-87da-3393a85af27c" />
+
+见【图6-160】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 
 使用GPU加速仿真的最大优势是能够实现场景级别的并行性，这样我们可以在成千上万个环境中同时训练机器人。
@@ -5678,7 +5717,8 @@ for i in range(1000):
 
 在配备RTX 4090和14900K的桌面上运行上述脚本可以实现未来的仿真速度——每秒超过4300万帧，这比实时快430,000倍。
 
-<img width="554" height="102" alt="image" src="https://github.com/user-attachments/assets/e27d2313-7e41-4afc-bc47-9966c295e7fe" />
+见【图6-161】(详见 files/formulas/第六节/第六章-图片.md)
+
 
 小技巧
 FPS日志记录： 默认情况下，Genesis记录器将在终端显示实时仿真速度。你可以在创建场景时设置show_FPS=False来禁用此行为。
