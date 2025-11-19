@@ -2585,7 +2585,7 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 在具身智能的研究与开发中，仿真平台扮演着极其重要的角色。这个板块涵盖了常见的仿真工具与平台，帮助您构建虚拟环境并进行模型训练。
 
 ### 6.1 Isaac Lab
-
+更详细见【6.1.1-Isaac Sim入门.md，6.1.2-Isaac Lab入门.md，6.1.3-Isaac Lab 任务及日志.md】(详见 files/foundations/6.1.1-Isaac Sim入门.md，files/foundations/6.1.2-Isaac Lab入门.md，files/foundations/6.1.3-Isaac Lab 任务及日志.md)
 #### 1、Isaac Sim 概述
 
 **NVIDIA Isaac Sim** 是一款基于 NVIDIA Omniverse 构建的机器人仿真工具，它通过物理精确的模拟，帮助开发者在虚拟环境中训练、测试和验证机器人算法。其核心价值在于：
@@ -2872,7 +2872,7 @@ cfg_light.func("/World/lightDistant", cfg_light)
 
 
 ### 6.2 MuJoCo
-
+更详细见【6.2-MuJoCo.md】(详见 files/foundations/6.2-MuJoCo.md)
 #### 1、 MuJoCo 核心概览
 MuJoCo（Multi-Joint dynamics with Contact）是一个**通用物理引擎**，旨在促进机器人学、生物力学、图形和动画、机器学习以及其他需要快速准确仿真 articulated structures 与环境交互的研究和开发。它以其**速度、精度和建模能力**的独特组合而闻名。
 
@@ -3015,6 +3015,7 @@ MuJoCo也被工业界所采用。例如，宇树机器人开源了其强化学�
 
 
 ### 6.3 PyBullet
+更详细见【6.3-PyBullet.md】(详见 files/foundations/6.3-PyBullet.md)
 #### 1、 核心概览
 PyBullet 是一个快速、易用的 Python 机器人仿真模块，专注于仿真到现实的转换。基于强大的 Bullet Physics SDK，为机器人学和机器学习研究提供完整的仿真解决方案。
 
@@ -3142,7 +3143,7 @@ text_id = p.addUserDebugText("Hello PyBullet!", [0, 0, 2], textColorRGB=[1, 1, 1
 
 
 ### 6.4 Genesis
-
+更详细见【6.4-Genesis.md】(详见 files/foundations/6.4-Genesis.md)
 #### 1、 Genesis 核心概览
 Genesis 是一个开源、基于 GPU 并行加速的生成式物理引擎，由卡内基梅隆大学联合 20 多所高校与研究机构共同开发。它专为机器人、具身 AI 和物理 AI 应用设计，旨在打造一个高度逼真、完全透明、用户友好的仿真生态系统。
 
@@ -3298,7 +3299,7 @@ franka.control_dofs_position(
 [后空翻代码](https://github.com/ziyanx02/Genesis-backflip)
 
 ### 6.5 Gazebo
-
+更详细见【6.5-Gazebo.md】(详见 files/foundations/6.5-Gazebo.md)
 #### 1、 Gazebo 核心概览
 Gazebo 是一个开源、功能强大的 3D 机器人仿真环境，由开源机器人基金会（OSRF）开发维护。它提供了一个逼真的物理引擎、传感器模拟和3D可视化环境，广泛应用于机器人研究、教育和工业开发。
 
