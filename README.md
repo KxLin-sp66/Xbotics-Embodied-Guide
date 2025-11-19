@@ -2586,1699 +2586,282 @@ Meta在《LIMA: Less Is More for Alignment》中证实：​**1万份高质量�
 
 ### 6.1 Isaac Lab
 
-#### 1、Isaac Sim 入门
+#### 1、Isaac Sim 概述
 
-##### 1.1 安装
+**NVIDIA Isaac Sim** 是一款基于 NVIDIA Omniverse 构建的机器人仿真工具，它通过物理精确的模拟，帮助开发者在虚拟环境中训练、测试和验证机器人算法。其核心价值在于：
 
-###### 系统安装要求
+**生成合成数据**：创建大量带标注的训练数据。
+
+**软件在环测试**：在仿真中验证完整的机器人软件栈。
+
+**机器人学习**：通过 Isaac Lab（轻量级版本）进行强化学习训练。
+
+#### 2、安装与配置
+##### 2.1 安装
+
+###### 系统要求
 
 [https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html](https://docs.omniverse.nvidia.com/platform/latest/common/technical-requirements.html)
 
-见【图6-1】(详见 files/formulas/第六节/第六章-图片.md)
+**- 操作系统**：Ubuntu 22.04 (推荐) 或 Windows 11。
 
-###### 【omniverse】的下载与安装
+**- 内存**：≥ 32 GB RAM。
 
-下载[https://developer.nvidia.cn/omniverse](https://developer.nvidia.cn/omniverse)，需要邮箱注册。
+**- 显卡**：NVIDIA GPU，≥ 8 GB VRAM (推荐 16 GB 以上)。
 
-见【图6-2】(详见 files/formulas/第六节/第六章-图片.md)
+**- 驱动**：使用最新的 NVIDIA 生产分支驱动程序。
 
+##### 2.2 安装步骤
 
-之后点击该网站[https://docs.omniverse.nvidia.com/install-guide/latest/index.html](https://docs.omniverse.nvidia.com/install-guide/latest/index.html)
+###### 安装 Omniverse Launcher：
 
-选择你的安装方式[https://docs.omniverse.nvidia.com/install-guide/latest/workstation-install.html](https://docs.omniverse.nvidia.com/install-guide/latest/workstation-install.html)
-- 下载 omniverse launcher
-- linux 安装方法: 
-  - 给权限，命令行 ./xxxx
-  - 或者不用命令行，右键APPImage -> permissions -> allow execution as file
-- 注册账户yanaibo1214@gmail.com
+- 从 [NVIDIA Omniverse 官网](https://developer.nvidia.cn/omniverse) 下载 Launcher。
 
-见【图6-3】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-
-###### 【Isaac Sim】的安装
-
-官网 [https://developer.nvidia.com/isaac/sim](https://developer.nvidia.com/isaac/sim)
-
-见【图6-4】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-###### prerequisite 系统要求
-
-见【图6-5】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-###### 安装 Isaac sim
-- 点击 exchange 交易所，找到 isaac sim
-
-见【图6-6】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 版本选择 2023.1.1 或者 2023.1.0
-
-- 安装 cache
-
-见【图6-7】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 安装完毕之后，进入 Nucleus 注册账户
-
-见【图6-8】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 点击 设置 。必须有 Cache 出来才算装上了，并且都是 RUNNING 状态
-假如 Cache 是 Stop 状态，就换一个版本 2023.1.0  去图书馆卸载 Cache 再重新安装
-
-见【图6-9】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 同时点击文件夹，可以打开浏览器看到文件内容
-
-见【图6-10】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-
-###### GR00T
-
-[https://developer.nvidia.com/project-GR00T?ncid=so-yout-261862-vt48 ](https://developer.nvidia.com/project-GR00T?ncid=so-yout-261862-vt48 )
-
-
-
-
-##### 1.2 基本操作教程
-
-###### 基本结构
-
-见【图6-11】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-###### menu bar 工具栏
-
-见【图6-12】(详见 files/formulas/第六节/第六章-图片.md)
-
-1 是选择 2 是移动 3 是旋转。 搭配使用：先选择物体，再拖动它。快捷键 QWER。WW按两下会显示自身坐标系，按一下就是世界坐标系
-
-项目栏：这里可以打开代码
-时间戳：window->extensions
-时间戳是一个扩展程序，允许开发人员查看和修改可滚动和可自定义时间线的设置。默认情况下，时间线处于禁用状态，要启用它，请转到窗口 > 扩展，在搜索栏中输入omni.anim.window.timeline，然后单击切换按钮。然后，在屏幕底部，会出现时间线小部件。当您按下“播放”按钮时，时间线标记开始移动，并在时间线上循环。模拟的开始/停止进度也可以在默认布局底部的时间线上查看。
-
-###### helloworld 入门
-启动 Isaac Sim launcher，加载了一个地板
-
-见【图6-13】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-14】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-退出当前项目：点击 File，点击 New，dont save 即可。
-
-###### 机械臂 demo 
-
-见【图6-15】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-16】(详见 files/formulas/第六节/第六章-图片.md)
-
-- 抓取：右侧的 stage 场景中点击 target cube，将它拖到任意一个机械臂可能到达的地方，点击左侧 Task Controls 中的 Follow Target 按钮的 start，机械臂就开始运动了。
-
-- 堆码垛 demo：manuplation simple stack。
-
-- 机器人种类：UR10 Franka jetbot realsense 等。
-
-- extensions 创建
-
-见【图6-17】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-18】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-Configuration Tooling Template 配置工具类；
-Loaded Scenario template 办公室等场景的模版；
-Scripting Template 脚本模版，例如工厂流水线式工作，第一步、第二步、第三步固定；
-UI Component Library 仪表等需要人看着操作的
-
-见【图6-19】(详见 files/formulas/第六节/第六章-图片.md)
-
-打开扩展编辑页面。
-
-见【图6-20，6-21，6-22】(详见 files/images/第六节.md)
-
-添加你自己创建的 extensions，添加完成之后点击自己的 extensions，可以查看信息
-见【图6-23】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-同时，在任务栏也会出现一个条目 title，点击它的下拉菜单，加载扩展（extension）
-见【图6-24】(详见 files/formulas/第六节/第六章-图片.md)
-
-
--standalone 应用-python 创建：
-意思就是用 python 脚本来启动 isaac sim，不是用 gui。好处是不占用资源，因为界面渲染会占据大量资源。这个方式适合强化学习。
-先关闭 isaac sim
-
-###### 强化学习
-
-见【图6-25】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-26】(详见 files/formulas/第六节/第六章-图片.md)
-
-这个案例是让小车靠近小球。
-
-###### 普通应用
-
-```Shell
-cd /home/yab/.local/share/ov/pkg/isaac-sim-2023.1.1
+- 在 Linux 上，授予执行权限：
+```bash
+	sudo chmod +x omniverse-launcher-linux.AppImage
+	./omniverse-launcher-linux.AppImage
 ```
+###### 安装 Isaac Sim：
 
-```Shell
+- 在 Omniverse Launcher 的 "EXCHANGE" 页面找到 Isaac Sim，点击安装。
+
+- 选择稳定版本（如 2023.1.1 或 2023.1.0）。
+
+###### 配置 Nucleus：
+
+- 在 "NUCLEUS" 页面添加本地 Nucleus 设备，创建管理员账户。
+
+###### 验证安装：
+
+- 在 "LIBRARY" 中启动 Isaac Sim，确保所有服务（如 Cache）状态为 "RUNNING"。
+
+#### 3、 核心概念与基本操作
+##### 3.1 界面导览
+**- 菜单栏**：文件管理、窗口控制。
+
+**- 视口控制**：
+
+``` Q ```：选择模式。
+
+``` W ```：移动模式（双击切换世界/自身坐标系）。
+
+``` E ```：旋转模式。
+
+**- Stage**：场景的层级结构，用于管理所有对象。
+
+**- 时间轴**：控制仿真播放（通过 Window > Extensions 启用 omni.anim.window.timeline）。
+
+##### 3.2 入门示例
+**- Hello World**：启动后默认加载一个地面场景。
+
+**- 机械臂 Demo**：
+
+- 通过 "Isaac Examples" 加载机械臂案例。
+
+- 在 Stage 中选择目标物体，使用 "Task Controls" 中的 "Follow Target" 让机械臂运动。
+
+**- 扩展创建**：
+
+通过 ```Window > Extensions``` 创建和管理自定义扩展，封装特定功能。
+
+##### 3.3 运行模式
+**- GUI 模式**：通过 Launcher 启动，进行交互式仿真。
+
+**- Standalone 模式**：通过命令行运行 Python 脚本，适合无头仿真（如强化学习）。
+
+```bash
 ./python.sh standalone_examples/api/omni.isaac.franka/follow_target_with_rmpflow.py
 ```
 
-执行之后等待一下，
+#### 4、 场景与机器人构建
+##### 4.1 Stage 配置
+**- 物理属性**：设置重力、物理材质。
 
-见【图6-27】(详见 files/formulas/第六节/第六章-图片.md)
+**- 添加对象**：地面、灯光、几何图元。
 
+**- 物理材质**：调整摩擦系数、颜色、反射率。
 
-或者
+##### 4.2 制作简易小车
+**- 创建车身与轮子**：添加立方体和圆柱体。
 
-```Shell
-./python.sh standalone_examples/api/omni.isaac.core/add_cubes.py
-```
+**- 添加关节**：在车身和轮子间创建 "Revolute Joint"，调整旋转轴。
 
+**- 添加驱动**：为关节添加角度驱动器，设置刚度和阻尼参数。
 
-###### stage 配置
+**- 添加传感器**：相机、激光雷达等。
 
-设置全局场景属性及物理属性：
+#### 5、 编程与调试
+##### 5.1 Python API
+**- 核心 API**：简化常用操作（如添加物体、设置物理属性）。
 
-见【图6-28，6-29】(详见 files/formulas/第六节/第六章-图片.md)
+**- 使用方式**：
 
+	**- 内置编辑器**：在 Isaac Sim 内直接编写 Python 脚本。
 
+	**- 外部编辑器**：通过 Telnet 连接 (```telnet localhost 8223```) 或使用 VSCode 插件。
 
-添加地面：
+##### 5.2 VSCode 调试
+- 安装 "Isaac Sim VS Code Edition" 插件。
 
-见【图6-30，6-31】(详见 files/formulas/第六节/第六章-图片.md)
+- 配置 ```launch.json```，指定 Python 解释器和参数。
 
+- 设置断点，实现交互式调试。
 
+#### 6、 ROS/ROS2 集成
+##### 6.1 ROS1 桥接
+**- 模型导入**：将 URDF 模型（如 TurtleBot3）导入 Isaac Sim。
 
-添加灯光：
+**- 控制与感知**：
 
-见【图6-32】(详见 files/formulas/第六节/第六章-图片.md)
+	- 通过 rostopic pub 发布 /cmd_vel 控制机器人。
 
+	- 配置 ROS Publisher 节点，发布传感器数据（如激光雷达、里程计）。
 
-###### 制作一个简易小车入门
+##### 6.2 ROS2 导航
+**- 官方 Demo**：通过 "Isaac Examples > ROS2 > Navigation" 加载导航示例。
 
-添加和抓取形状，并给物体添加物理属性：(刚体，碰撞体，预设属性)
+**- 运行流程**：
 
-见【图6-33】(详见 files/formulas/第六节/第六章-图片.md)
+（1）在 Isaac Sim 中点击 ```PLAY``` 开始仿真。
 
+（2）运行 Launch 文件：
 
-
-如果添加了，那么开始仿真之后，它就会像真实世界中的物体倒地。
-
-见【图6-34】(详见 files/formulas/第六节/第六章-图片.md)
-
-如果 enable 取消勾选，物体就不会倒地。（测试碰撞属性同上）
-
-见【图6-35】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-编辑物理属性比如摩擦力：
-
-见【图6-36】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-37】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-编辑物理属性比如颜色和反射率：
-
-首先选择你要改变的物体，再点击颜色设置
-
-见【图6-38】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-再选中车体，选择 material：
-
-见【图6-39】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-建立图元 prim：
-
-见【图6-40】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-41】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-添加关节：
-- 选中 body 和 left wheel，然后 create 一个 revolute joint
-- 此时会出现一个绿色的圆圈，调整它的 axis，使得圆圈的朝向和轮子旋转的方向一致即可
-- 点击开始仿真按钮，按住 shift 按键，单击车子任意部位，即可拖动它运动
-
-见【图6-42】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-添加驱动：
-- 同时选中两个关节，添加角度驱动器
-
-见【图6-43】(详见 files/formulas/第六节/第六章-图片.md)
-
-- 位置控制：对于位置控制关节，设置高刚度和相对低或零阻尼。
-- 速度控制：对于速度控制器关节，设置高阻尼和零刚度。
-对于车轮上的关节，速度控制更有意义，因此将两个车轮的阻尼设置为1e4*，并将目标速度设置为200。如果您使用的关节范围有限，则可以在“属性”选项卡的“原始 USD 属性”>“下限（上限）”下进行设置。按下“播放”即可看到模拟移动机器人启动。
-
-添加关节根：
-
-见【图6-44】(详见 files/formulas/第六节/第六章-图片.md)
-
-添加相机和传感器:
-
-见【图6-45】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-添加激光雷达:
-
-[https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_range_sensor_lidar.html#isaac-sim-app-tutorial-advanced-range-sensor-lidar](https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_range_sensor_lidar.html#isaac-sim-app-tutorial-advanced-range-sensor-lidar)
-
-更复杂的机器人:
-
-[https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_rigging_robot.html#isaac-sim-app-tutorial-advanced-rigging-robot](https://docs.omniverse.nvidia.com/isaacsim/latest/advanced_tutorials/tutorial_advanced_rigging_robot.html#isaac-sim-app-tutorial-advanced-rigging-robot)
-
-见【图6-46】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 调用外部 python 编译器
-
-通过调用外部的编辑器来操作 isaac sim，或者通过 WINDOW EXTENSIONS
-
-见【图6-47】(详见 files/formulas/第六节/第六章-图片.md)
-
-- 打开一个新的 terminal，输入 telnet localhost 8223
-- 输入代码，回车
-仅在空的 Stage 运行Isaac Sim Core API，并且只运行一次。
-
-原始 USD API 功能多样且详细，但很复杂，尤其是对于初学者来说。Isaac Sim 有一组核心 API，可简化机器人模拟器的一些常用操作。这些 API 抽象了默认参数设置。（设置舞台，添加具有物理和碰撞预设的长方体，设置物理和视觉材料属性）
-
-
-```python
-import numpy as np
-from omni.isaac.core.objects import DynamicCuboid
-from omni.isaac.core.objects.ground_plane import GroundPlane
-from omni.isaac.core.physics_context import PhysicsContext
-PhysicsContext()
-GroundPlane(prim_path="/World/groundPlane", size=10, color=np.array([0.5, 0.5, 0.5]))
-DynamicCuboid(prim_path="/World/cube",
-    position=np.array([-.5, -.2, 1.0]),
-    scale=np.array([.5, .5, .5]),
-    color=np.array([.2,.3,0.]))
-```
-
-###### 编辑器使用
-
-Isaac Sim VS Code Edition：
-
-先要在 vscode 中安装插件。在 4.0.0 中快速打开 vscode 的方法是在扩展管理中使能扩展插件，如下
-
-见【图6-48】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-在更早的版本，则打开 Isaac Sim App Selector
-
-见【图6-49】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-详情见链接[https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector](https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector)
-点击
-
-
-
-创建一个空的 python 脚本，输入代码，点击左侧的运行按钮，得到一个球体
-
-见【图6-51】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-52】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-更多细节可以参考[https://marketplace.visualstudio.com/items?itemName=NVIDIA.isaacsim-vscode-edition](https://marketplace.visualstudio.com/items?itemName=NVIDIA.isaacsim-vscode-edition)
-
-在 vscode 中debug 用 python 文件：
-
-- 打开 Isaac Sim App Selector
-
-详情见链接[https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector](https://docs.omniverse.nvidia.com/isaacsim/latest/reference_material/reference_user_interface.html#isaac-sim-app-selector)
-
-见【图6-53】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- vscode 中要先安装 isaac 插件 Isaac Sim VS Code Edition
-- 打开之后，我们测试一个 demo，文件目录如下，加一个断点。
-
-见【图6-54】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 点击左侧的 run and debug 按钮，点击 debug 即可。或者按 F5 也可以
-
-见【图6-55】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 传参数
-更改一下 launch.json 和 python 文件
-
-```Shell
-{
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "
-${file}",
-            "console": "integratedTerminal",
-            "env": {
-                "EXP_PATH": "$
-{workspaceFolder}/apps",
-                "RESOURCE_NAME": "IsaacSim"
-            },
-            "python": "
-${workspaceFolder}/kit/python/bin/python3",
-            "envFile": "$
-{workspaceFolder}/.vscode/.standalone_examples.env",
-            "preLaunchTask": "setup_python_env",
-            "args": ["--/persistent/isaac/asset_root/default=\"omniverse://my_server\""]
-        }
-        ,
-        {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "
-${file}",
-            "console": "integratedTerminal",
-            "env": {
-                "RESOURCE_NAME": "IsaacSim"
-            },
-            "python": "$
-{workspaceFolder}/kit/python/bin/python3",
-            "envFile": "
-${workspaceFolder}/.vscode/.standalone_examples.env",
-            "preLaunchTask": "setup_python_env"
-        },
-        {
-            "name": "Python: Attach (windows-x86_64/linux-x86_64)",
-            "type": "python",
-            "request": "attach",
-            "port": 3000,
-            "host": "localhost"
-        },
-        {
-            "name": "(Linux) isaac-sim",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "$
-{workspaceFolder}/kit/kit",
-            "args": ["
-${workspaceFolder}/apps/omni.isaac.sim.kit",
-                "--ext-folder", "$
-{workspaceFolder}/exts",
-                "--ext-folder", "
-${workspaceFolder}/apps"],
-            "stopAtEntry": false,
-            "cwd": "$
-{workspaceFolder}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
-        }
-    ]
-}
-```
-
-```python
-Copyright (c) 2020-2023, NVIDIA CORPORATION. All rights reserved.
-NVIDIA CORPORATION and its licensors retain all intellectual property
-and proprietary rights in and to this software, related documentation
-and any modifications thereto. Any use, reproduction, disclosure or
-distribution of this software and related documentation without an express
-license agreement from NVIDIA CORPORATION is strictly prohibited.
-import omni
-from omni.isaac.kit import SimulationApp
-# The most basic usage for creating a simulation app
-kit = SimulationApp()
-for i in range(100):
-kit.update()
-omni.kit.app.get_app().print_and_log("Hello World!")
-kit.close()  # Cleanup application
-The most basic usage for creating a simulation app
-kit = SimulationApp()
-import carb
-server_check = carb.settings.get_settings().get_as_string("/persistent/isaac/asset_root/default")
-print(server_check)
-for i in range(100):
-    kit.update()
-kit.close()  # Cleanup application
-```
-
-见【图6-56】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-debug 在 isaac sim 中跑的应用和 vscode 交互
-- 运行 isaac sim
--  在 isaac sim 顶部工具栏的窗口，扩展中搜索 omni.kit.debug.vscode，使能它，然后可以看到一行红字“VS Code Debugger Unattached”
-
-见【图6-57】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-- 运行你刚刚的 vscode，点击 debug 的按钮旁边的下拉菜单
-
-见【图6-58】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-这时候红色字变蓝色了
-- 上一步能成功，原因在于 vscode 和 isaac sim 之间配置了相同的 ip 和端口
-
-见【图6-59】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-想要更改参数，在 app selector 中添加即可
-
-```Shell
---/exts/omni.kit.debug.python/host="127.0.0.1"
---/exts/omni.kit.debug.python/port=3000
-```
-
-```Shell
-    {
-        "name": "Python: Attach (windows-x86_64/linux-x86_64)",
-        "type": "python",
-        "request": "attach",
-        "port": 3000,
-        "host": "127.0.0.1"
-    },
-```
-- 点击 isaac sim 中的 Break，那么断点就会在 vscode 中出现
-
-###### 核心 API
-
-
-工具栏选择 hello world，点击 containning folder，你就可以看到这个例子包含的代码文件
-
-见【图6-60】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-61】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-打开 hello_world.py,重写代码
-
-```python
-Copyright (c) 2020-2023, NVIDIA CORPORATION. All rights reserved.
-NVIDIA CORPORATION and its licensors retain all intellectual property
-and proprietary rights in and to this software, related documentation
-and any modifications thereto. Any use, reproduction, disclosure or
-distribution of this software and related documentation without an express
-license agreement from NVIDIA CORPORATION is strictly prohibited.
-from omni.isaac.examples.base_sample import BaseSample
-import numpy as np
-Can be used to create a new cube or to point to an already existing cube in stage.
-from omni.isaac.core.objects import DynamicCuboid
-Note: checkout the required tutorials at https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/overview.html
-class HelloWorld(BaseSample):
-    def 
-__init__
-(self) -> None:
-        super().
-__init__
-()
-        return
-    def setup_scene(self):
-        world = self.get_world()
-        world.scene.add_default_ground_plane()
-        fancy_cube = world.scene.add(
-            DynamicCuboid(
-                prim_path="/World/random_cube", # The prim path of the cube in the USD stage
-                name="fancy_cube", # The unique name used to retrieve the object from the scene later on
-                position=np.array([0, 0, 1.0]), # Using the current stage units which is in meters by default.
-                scale=np.array([0.5015, 0.5015, 0.5015]), # most arguments accept mainly numpy arrays.
-                color=np.array([0, 0, 1.0]), # RGB channels, going from 0-1
-            ))
-        return
-    async def setup_post_load(self):
-        return
-    async def setup_pre_reset(self):
-        return
-    async def setup_post_reset(self):
-        return
-    def world_cleanup(self):
-        return
-```
-
-重新开一个 stage，点击 load hello world
-添加打印信息，可以在 terminal 中显示
-
-```Shell
-from omni.isaac.examples.base_sample import BaseSample
-import numpy as np
-from omni.isaac.core.objects import DynamicCuboid
-class HelloWorld(BaseSample):
-    def 
-__init__
-(self) -> None:
-        super().
-__init__
-()
-        return
-    def setup_scene(self):
-        world = self.get_world()
-        world.scene.add_default_ground_plane()
-        fancy_cube = world.scene.add(
-            DynamicCuboid(
-                prim_path="/World/random_cube",
-                name="fancy_cube",
-                position=np.array([0, 0, 1.0]),
-                scale=np.array([0.5015, 0.5015, 0.5015]),
-                color=np.array([0, 0, 1.0]),
-            ))
-        return
-    async def setup_post_load(self):
-        self._world = self.get_world()
-        self._cube = self._world.scene.get_object("fancy_cube")
-        self._world.add_physics_callback("sim_step", callback_fn=self.print_cube_info) #callback names have to be unique
-        return
-    # here we define the physics callback to be called before each physics step, all physics callbacks must take
-    # step_size as an argument
-    def print_cube_info(self, step_size):
-        position, orientation = self._cube.get_world_pose()
-        linear_velocity = self._cube.get_linear_velocity()
-        # will be shown on terminal
-        print("Cube position is : " + str(position))
-        print("Cube's orientation is : " + str(orientation))
-        print("Cube's linear velocity is : " + str(linear_velocity))
-```
-
-[https://docs.omniverse.nvidia.com/isaacsim/latest/core_api_tutorials/tutorial_core_hello_world.html](https://docs.omniverse.nvidia.com/isaacsim/latest/core_api_tutorials/tutorial_core_hello_world.html)
-
-##### 1.3 ROS和ROS2
-
-###### ROS1
-参考文档：[https://docs.omniverse.nvidia.com/isaacsim/latest/ros_tutorials/tutorial_ros_turtlebot.html
-turtlebot3](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_tutorials/tutorial_ros_turtlebot.html
-turtlebot3) 链接：[https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/](https://emanual.robotis.com/docs/en/platform/turtlebot3/overview/)
-
-导入 turtlebot3_burger，
-进入 isaac sim 的工作空间。
-
-```Plain Text
-git clone -b noetic-devel https://github.com/ROBOTIS-GIT/turtlebot3.git turtlebot3
-```
-
-```Plain Text
-rosrun xacro xacro -o turtlebot3_burger.urdf turtlebot3_burger.urdf.xacro
-```
-
-见【图6-62】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-63】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-64】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-发送速度指令。
-
-```Plain Text
-rostopic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 0.2, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
-```
-
-```Plain Text
-rostopic pub /cmd_vel geometry_msgs/Twist '{linear:  {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
-```
-
-```Plain Text
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py
-```
-
-添加单线激光：发布 odom，先运行 roscore，再启动 isaac 模拟仿真。roscore 只要启动一次就可以了。不需要关掉。
-
-见【图6-65】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-66】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-发布 odom->base_link，
-发布其他传感器的 link。
-
-见【图6-67】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-68】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-如果只写 targetPrims，那么生成的 tf 是 world->base_scan。
-
-本案例中，两者都要填写。base_footprint 不填写，它会报错。
-
-见【图6-69，6-70】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-###### 导航--以 carter_warehouse 为例
-[https://github.com/isaac-sim/IsaacSim-ros_workspaces](https://github.com/isaac-sim/IsaacSim-ros_workspaces)
-
-- 单线激光雷达
-
-见【图6-71，6-72，6-73】(详见 files/formulas/第六节/第六章-图片.md)
-
-占据栅格的高度范围为0.1-0.62
-
-```Plain Text
-roslaunch carter_2dnav carter_navigation.launch
-```
-
-- 多线激光雷达
-
-见【图6-74】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-Isaac/Samples/ROS/Scenario/rtx_lidar_carter_warehouse_navigation.usd
-
-```Plain Text
-roslaunch carter_2dnav carter_navigation_rtx.launch
-```
-
-###### ROS2
-
-[https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html ](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html )
-
-官方 demo
-[https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html](https://docs.omniverse.nvidia.com/isaacsim/latest/ros2_tutorials/tutorial_ros2_navigation.html)
-
-**（1）加载模型**
-
-         Isaac Examples -> ROS2 -> Navigation
-		 
-**（2）点击 PLAY 开始仿真**
-
-**（3）运行 launch 文件**
-
-```Shell
+```bash
 ros2 launch carter_navigation carter_navigation.launch.py
 ```
 
-机器人初始位置配置在文件carter_navigation_params.yaml 中，如果机器人位置不正确，点击 rviz 中 的2D Pose Estimate 按钮给一个方向。
+（3）在 RViz 中使用 "2D Pose Estimate" 设置初始位置，"Navigation2 Goal" 指定目标点。
 
-**（4）导航**
+#### 7、 Isaac Lab 入门
+##### 7.1 环境创建
+- 使用 Conda 创建虚拟环境：
 
-点击 rviz 中的 Navigation2 Goal 按钮，可以导航。
-
-**（5）自动导航**
-
-
-```Shell
-ros2 launch isaac_ros_navigation_goal isaac_ros_navigation_goal.launch.py
-```
-
-其中 launch 的参数如下：
-- goal_generator_type: 生成目标点的类型 RandomGoalGenerator 是随机生成； GoalReader 是用户自定义。
-- map_yaml_path: 地图路径。默认 isaac_ros_navigation_goal/assets/carter_warehouse_navigation.yaml. 此时的目标点类型是 RandomGoalGenerator.
-- iteration_count: 目标点被设置多少次.
-- action_server_name: 执行服务器的名字.
-- obstacle_search_distance_in_meters: 障碍物搜索距离.
-- goal_text_file_path: 用户自定义的静态目标点。每一行都必须有一个单独的目标位姿，格式是pose.x pose.y orientation.x orientation.y orientation.z orientation.w. 参考文档在isaac_ros_navigation_goal/assets/goals.txt. 此时的目标点类型也必须是 GoalReader.
-- initial_pose: 初始位姿 [pose.x, pose.y, pose.z, orientation.x, orientation.y, orientation.z, orientation.w].
-
-**（6）注意的地方**
-
-小车默认使用 RTX 雷达。
-小车上大部分相机都屏蔽 publish 图片，可以去_camera_render_product 节点使能对应相机。
-
-见【图6-75】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-76】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-设置 ROS_DOMAIN_ID 为 0 ，因为 isaac sim 默认是 0
-模型导入、栅格地图生成
-
-见【图6-77，6-78，6-79】(详见 files/formulas/第六节/第六章-图片.md)
-
-模型导入之后，用 ariculation inspector 来观察是否导入正确。检查机器人行为是否符合预期。
-如果发送速度控制，机器人会震荡，那么需要用 Gain tuner 来调整。首先要把重力去掉来调试。kp 和 kd 设置为 100 来试试等。具体参考视频教程的 b 站内容第一讲。
-
-见【图6-80】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-**加载一个环境**
-
-见【图6-81】(详见 files/formulas/第六节/第六章-图片.md)
-
-这需要网络下载，等待一下，选择最简单的 simple_warehouse 和 ware_extras
-
-见【图6-82，6-83，6-84】(详见 files/formulas/第六节/第六章-图片.md)
-
-调整完，计算之后，点击可视化，保存 jpg 和 yaml。 
-
-**激光雷达导入**
-
-见【图6-85】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-86】(详见 files/formulas/第六节/第六章-图片.md)
-
-雷达是 PhysX Lidar
-
-见【图6-87】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-88】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-把它拖上来
-
-见【图6-89】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-90】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-91】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-这个 domian id 是跟你自己电脑设置的 bashrc 相关。如果没设置，就不用管它
-
-**轮速订阅**
-
-见【图6-92，6-93】(详见 files/formulas/第六节/第六章-图片.md)
-
-订阅节点输出的角速度和线速度都是 3 维向量，需要一个中间转化模块，输出一维值。
-角速度输出的是 z 分量，线速度输出的是 x 分量。
-
-见【图6-94】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-把差速控制器连接给本体上的左右关节电机
-
-见【图6-95】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-constant token 组合两个关节名字，成为 array，发给 ariculation controller 中的 jointNames。array 是可以增加 input 的。
-另外 twist 的输出要连接 controller 的输入。
-
-见【图6-96】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-每个 constant token 赋值两个 joint 名字
-ros2 run rqt_robot_steering rqt_robot_steering
-测试一下小车能不能跑
-
-**添加 odom**
-
-见【图6-97】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-98】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-记得把 timestamp 和 context 也连接上，图片中忘记加了。
-
-添加 raw transform tree ，它表示的是 odom 到 base link。
-
-transform tree 表示的是 base link 到 lidar camera imu 的逻辑。
-
-见【图6-99】(详见 files/formulas/第六节/第六章-图片.md)
-
-见【图6-100】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-运行后就会发布 odom 到 base link 的 tf。
-
-添加 base link 本体的 tf。
-
-见【图6-101】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-见【图6-102】(详见 files/formulas/第六节/第六章-图片.md)
-ros2 run tf2_tools view_frames.py
-
-
-```Shell
-sudo apt install python3-rosinstall-generator python3-wstool build-essential python3-rosinstall python3-rosdep
-```
-
-**创建工作空间**
-
-```Shell
-cd /home/yab/.local/share/ov/pkg/isaac-sim-4.0.0
-mkdir -p ros2_workspace/src
-colcon build
-source install/setup.bash
-sudo apt install ros-foxy-pointcloud-to-laserscan
-```
-
-```Shell
-rosdep install -i --from-path src --rosdistro foxy -y
-```
-代码在第 3 节的链接中
-
-见【图6-103】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-```Shell
-ros2 launch carter_navigation carter_navigation.launch.py
-```
-有个报错
-
-见【图6-104】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-先启动 isaac sim，再启动 launch 文件
-一般重定位是没有的，所以需要自己手动发一个 2d pose
-
-#### 2、Isaac Lab入门
-##### 2.1 安装
-###### 系统要求
-
-**一般要求**
-有关详细要求，请参阅 Isaac Sim 系统要求 。基本要求包括：
-
-OS: Ubuntu 22.04 (Linux x64) 或 Windows 11 (x64)
-
-RAM: 32 GB 或更多
-
-GPU VRAM: 16 GB 或更多 (渲染工作流程可能需要额外的 VRAM)
-
-Isaac Sim 是针对特定的 Python 版本构建的 ，在安装 Isaac Lab 时，使用相同的 Python 版本至关重要。所需的 Python 版本如下：
-
-对于 Isaac Sim 5.X，所需的 Python 版本是 3.11。
-
-对于 Isaac Sim 4.X，所需的 Python 版本是 3.10。
-
-**驱动要求**
-除了在 Omniverse技术要求 中推荐的驱动程序之外，其他驱动程序可能可用，但尚未经过所有Omniverse测试的验证。
-
-使用 最新的NVIDIA生产分支驱动程序。
-
-在 Linux 上，建议使用版本 580.65.06 或更高版本，特别是在升级到 Ubuntu 22.04.5，内核为 6.8.0-48-generic 或更新版本时。
-
-在 Spark 上，建议使用版本 580.95.05 。
-
-在 Windows 上，建议使用版本 580.88 。
-
-如果您在使用新的GPU或遇到驱动程序问题，请从 Unix Driver Archive <https://www.nvidia.com/en-us/drivers/unix/> 中安装最新的生产分支驱动程序，使用 .run 安装程序。
-
-###### DGX Spark: 详细信息和限制
-
-DGX Spark 是一款采用 aarch64 架构的独立机器学习设备。因此，Isaac Lab 的某些功能目前在 DGX Spark 上不受支持。最值得注意的是，该架构 需要 CUDA ≥ 13，因此需要 PyTorch 的 cu13 构建或更新版本。关于 Isaac Lab 的其他值得注意的限制包括…
-
-SkillGen 不支持开箱即用。这是因为 cuRobo 构建原生 CUDA/C++ 扩展，需要特定的工具和库版本，这些版本尚未经过验证可用于 DGX Spark。
-
-扩展现实远程操作工具，例如 OpenXR 不受支持。这是由于尚未完全调查的编码性能限制。
-
-使用 JAX <[https://docs.jax.dev/en/latest/notebooks/thinking_in_jax.html](https://docs.jax.dev/en/latest/notebooks/thinking_in_jax.html)>_ 的 SKRL 训练尚未在 DGX Spark 上的 Isaac Lab 中经过明确验证或测试。JAX 仅为 Linux x86_64 提供预构建的 CUDA wheels，因此在 aarch64 系统（例如 DGX Spark）上默认仅在 CPU 上运行。GPU 支持需要从源代码构建 JAX，这在 Isaac Lab 中尚未经过验证。
-
-DGX Spark 不支持 Livestream 和 Hub Workstation Cache。
-
-多节点训练可能需要 Spark 机器之间的直接连接或额外的网络配置。
-
-由于 aarch64 上缺少非 DLSS 图像降噪器，DGX Spark 不支持 Isaac Lab Mimic 数据生成和视觉运动环境的策略推理。
-
-Running Cosmos Transfer1 is not currently supported on the DGX Spark.
-
-故障排除
-请参考 Linux故障排除 解决Linux安装问题。
-
-您可以使用 Isaac Sim兼容性检查器 来自动检查您的系统是否满足运行Isaac Sim所需的要求。
-
-###### 选择安装方法
-
-不同的工作流程需要不同的安装方法。使用此表格进行决定：
-
-见【图6-105】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-###### 后续步骤
-
-一旦您查看了安装方法，请继续阅读与您工作流程相匹配的指南：
-
-- 😃 使用 Isaac Sim Pip 包安装
-
-通过pip安装Isaac Sim，从源代码构建安装Isaac Lab。
-
-最适合初学者和大多数用户。
-
-- 使用 Isaac Sim 预编译二进制安装
-
-从其二进制软件包（网站下载）安装Isaac Sim。
-
-- 从源代码安装Isaac Lab。
-
-选择此选项，如果您不希望在 Isaac Sim 上使用 pip（例如在 Ubuntu 20.04 上）。
-
-- 使用 Isaac Sim 源代码安装
-
-从源码构建 Isaac Sim。
-
-从源代码安装Isaac Lab。
-
-只有在计划修改 Isaac Sim 本身时才建议使用。
-
-- 使用 Isaac Lab Pip 包安装
-
-安装 Isaac Sim 和 Isaac Lab 作为 pip 软件包。
-
-适用于使用自定义执行脚本构建 外部扩展 的高级用户。
-
-注意：这 不 包括训练或示例脚本。
-
-- 容器部署
-
-在 Docker 容器中安装 Isaac Sim 和 Isaac Lab。
-
-最适合希望在容器化环境中使用 Isaac Lab 的用户。
-
-各安装方式具体安装方法细则见官方文档[https://docs.robotsfan.com/isaaclab/source/setup/installation/index.html](https://docs.robotsfan.com/isaaclab/source/setup/installation/index.html)
-
-##### 2.2 快速入门 (推荐)
-###### 环境创建
-
-对于大多数用户来说，安装 Isaac Lab 最简单最快的方法是按照 使用 Isaac Sim Pip 包安装指南操作。
-
-这种方法将通过pip安装Isaac Sim，并通过其源代码安装Isaac Lab。如果您是Isaac Lab的新手，请从这里开始。
-
-首先定义我们的虚拟环境。
-
-```Shell
-conda
-# create a virtual environment named env_isaaclab with python3.11
+```bash
 conda create -n env_isaaclab python=3.11
-# activate the virtual environment
 conda activate env_isaaclab
 ```
 
-接下来，安装一个支持CUDA的PyTorch 2.7.0版本。
+- 安装 Isaac Lab：
 
-```Shell
-pip install -U torch==2.7.0 torchvision==0.22.0 --index-url https://download.pytorch.org/whl/cu128
-```
-
-在安装 Isaac Sim 之前，我们需要确保 pip 已经更新。要更新 pip，请运行
-
-```Shell
-pip install --upgrade pip
-```
-
-现在我们可以安装 Isaac Sim 包。
-```Shell
+```bash
 pip install "isaacsim[all,extscache]==5.1.0" --extra-index-url https://pypi.nvidia.com
-```
-
-最后，我们可以安装 Isaac Lab。要开始，使用以下命令克隆存储库
-```Shell
 git clone git@github.com:isaac-sim/IsaacLab.git
+cd IsaacLab
+./isaaclab.sh --install
 ```
 
+##### 7.2 训练与评估
 
-安装现在只需要简单地导航到存储库，然后使用带有 --install 标志的根脚本进行调用！
+**- 启动训练**：
 
-```Shell
-./isaaclab.sh --install # or "./isaaclab.sh -i"
-```
-
-###### 启动训练
-
-通过位于 isaaclab/scripts/reinforcement_learning 目录中的相应 train.py 和 play.py 脚本访问 Isaac Lab 的各个后端。调用这些脚本将需要一个 任务名称 和对应的 入口点 到 gymnasium API。例如
-
+```bash
 python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Ant-v0
-这将训练 mujoco 蚂蚁 “奔跑” 。您可以使用 --help 标志查看您可用的各种启动选项。请特别注意 --num_envs 选项和 --headless 标志，这两个在尝试开发和调试新环境时非常有用。在此级别指定的选项将自动覆盖代码中可能定义的任何配置等效项（只要这些定义是 @configclass 的一部分，请参阅下文）。
-
-列出可用环境
-上面， Isaac-Ant-v0 是任务名称， skrl``是使用的 RL 框架。 ``Isaac-Ant-v0 环境已经在 Gymnasium API 中注册，您可以通过调用 list_envs.py 脚本查看入口点是如何定义的，可以在 isaaclab/scripts/environments/lsit_envs.py 中找到。您应该会看到如下条目
-
-```Shell
-$> python scripts/environments/list_envs.py
-
-+--------------------------------------------------------------------------------------------------------------------------------------------+
-|  Available Environments in Isaac Lab
-+--------+----------------------+--------------------------------------------+---------------------------------------------------------------+
-| S. No. | Task Name            | Entry Point                                | Config
-.
-.
-.
-+--------+----------------------+--------------------------------------------+---------------------------------------------------------------+
-|   2    | Isaac-Ant-Direct-v0  |  isaaclab_tasks.direct.ant.ant_env:AntEnv  |  isaaclab_tasks.direct.ant.ant_env:AntEnvCfg
-+--------+----------------------+--------------------------------------------+---------------------------------------------------------------+
-.
-.
-.
-+--------+----------------------+--------------------------------------------+---------------------------------------------------------------+
-|   48   | Isaac-Ant-v0         | isaaclab.envs:ManagerBasedRLEnv            |   isaaclab_tasks.manager_based.classic.ant.ant_env_cfg:AntEnvCfg
-+--------+----------------------+--------------------------------------------+---------------------------------------------------------------+
 ```
 
-请注意，有两种不同的 Ant 任务，一种是用于 Direct 环境，另一种是用于 ManagerBased 环境。这是您可以在 Isaac Lab 立即使用的 两个主要工作流程 。Direct 工作流程将为您提供最快速通往用于强化学习的工作自定义环境的路径，但 Manager based 工作流程将为您的项目提供更广泛开发所需的模块化。出于本快速入门指南的目的，我们只会专注于 Direct 工作流程。
+**- 可视化训练结果**：
 
-###### 生成您自己的项目
-
-使用 Isaac Lab 开始新项目起初可能会让人望而生畏，但这就是为什么我们提供 模板生成器 ，通过命令行快速生成新项目的原因。
-
-```Shell
-./isaaclab.sh --new
-```
-
-这将根据您选择的设置为您创建一个新项目
-
-外部 vs 内部: 确定项目是作为 isaac lab 存储库的一部分构建，还是作为外部扩展加载的。
-
-Direct vs Manager: 直接任务主要包含环境定义中的所有实现细节，而基于 manager 的项目则意味着使用我们各种环境“部件”的模块化定义。
-
-框架: 您可以在这里选择多个选项。这决定了您打算在项目中本地使用的 RL 框架（您想要使用哪些特定算法实现进行训练）。
-
-创建后，导航到安装的项目并运行
-
-```Shell
-python -m pip install -e source/<given-project-name>
-```
-
-来完成安装过程并注册环境。在模板生成器创建的目录中，您将至少找到一个具有类似以下内容的 __init__.py 文件
-
-```python
-import gymnasium as gym
-
-gym.register(
-    id="Template-isaaclabtutorial_env-v0",
-    entry_point=f"{__name__}.isaaclabtutorial_env:IsaaclabtutorialEnv",
-    disable_env_checker=True,
-    kwargs={
-        "env_cfg_entry_point": f"{__name__}.isaaclabtutorial_env_cfg:IsaaclabtutorialEnvCfg",
-        "skrl_cfg_entry_point": f"{agents.__name__}.skrl_ppo_cfg:PPORunnerCfg",
-    },
-)
-```
-
-这是实际为将来使用注册环境的函数。请注意， entry_point 实际上只是环境定义的 python 模块路径。这就是为什么我们需要将项目安装为包: 模块路径 就是 gymnasium API 的入口点。
-
-###### 配置
-
-无论您在 Isaac Lab 中要做什么，您都需要处理**配置** 。所有配置类都可以通过它们的类定义上方的 @configclass 装饰器和缺少 __init__ 函数来识别。例如，考虑下面这个关于 cartpole 环境 的配置类。
-
-```python
-@configclass
-class CartpoleEnvCfg(DirectRLEnvCfg):
-    # env
-    decimation = 2
-    episode_length_s = 5.0
-    action_scale = 100.0  # [N]
-    action_space = 1
-    observation_space = 4
-    state_space = 0
-
-    # simulation
-    sim: SimulationCfg = SimulationCfg(dt=1 / 120, render_interval=decimation)
-
-    # robot
-    robot_cfg: ArticulationCfg = CARTPOLE_CFG.replace(prim_path="/World/envs/env_.*/Robot")
-    cart_dof_name = "slider_to_cart"
-    pole_dof_name = "cart_to_pole"
-
-    # scene
-    scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=4096, env_spacing=4.0, replicate_physics=True)
-
-    # reset
-    max_cart_pos = 3.0  # the cart is reset if it exceeds that position [m]
-    initial_pole_angle_range = [-0.25, 0.25]  # the range in which the pole angle is sampled from on reset [rad]
-
-    # reward scales
-    rew_scale_alive = 1.0
-    rew_scale_terminated = -2.0
-    rew_scale_pole_pos = -1.0
-    rew_scale_cart_vel = -0.01
-    rew_scale_pole_vel = -0.005
-```
-
-请注意，整个类定义只是一组值字段和其他配置。配置类对于在训练过程中需要关心向量化的任何内容都是必不可少的。 如果您想要能够将环境复制成千上万次，并且异步地管理每个数据，您需要以某种方式 “标记” 哪些场景部分对这个复制过程（向量化）是重要的。 这就是配置类的作用！
-
-在这种情况下，该类定义了整个训练环境的配置！请注意 InteractiveSceneCfg 中的 num_envs 变量。这实际上会被 train.py 脚本内部的 CLI 参数所覆盖。配置提供了一条通往配置层次结构中的任何变量的直接路径，从而轻松修改在启动时由环境“配置”的任何内容。
-
-###### 机器人
-
-在 Isaac Lab 中，机器人完全被定义为配置的实例。如果您检查 source/isaaclab_assets/isaaclab_assets/robots ，您将看到许多文件，每个文件都包含了有关所讨论机器人的配置。这些单独的文件的目的是更好地定义所有不同机器人的范围，但没有任何阻止您 向您的项目添加新的机器人 ，甚至添加到 isaaclab 存储库中！例如，考虑以下配置中的 Dofbot
-
-```python
-import isaaclab.sim as sim_utils
-from isaaclab.actuators import ImplicitActuatorCfg
-from isaaclab.assets.articulation import ArticulationCfg
-from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
-
-DOFBOT_CONFIG = ArticulationCfg(
-    spawn=sim_utils.UsdFileCfg(
-        usd_path=f"{ISAAC_NUCLEUS_DIR}/Robots/Dofbot/dofbot.usd",
-        rigid_props=sim_utils.RigidBodyPropertiesCfg(
-            disable_gravity=False,
-            max_depenetration_velocity=5.0,
-        ),
-        articulation_props=sim_utils.ArticulationRootPropertiesCfg(
-            enabled_self_collisions=True, solver_position_iteration_count=8, solver_velocity_iteration_count=0
-        ),
-    ),
-    init_state=ArticulationCfg.InitialStateCfg(
-        joint_pos={
-            "joint1": 0.0,
-            "joint2": 0.0,
-            "joint3": 0.0,
-            "joint4": 0.0,
-        },
-        pos=(0.25, -0.25, 0.0),
-    ),
-    actuators={
-        "front_joints": ImplicitActuatorCfg(
-            joint_names_expr=["joint[1-2]"],
-            effort_limit_sim=100.0,
-            velocity_limit_sim=100.0,
-            stiffness=10000.0,
-            damping=100.0,
-        ),
-        "joint3_act": ImplicitActuatorCfg(
-            joint_names_expr=["joint3"],
-            effort_limit_sim=100.0,
-            velocity_limit_sim=100.0,
-            stiffness=10000.0,
-            damping=100.0,
-        ),
-        "joint4_act": ImplicitActuatorCfg(
-            joint_names_expr=["joint4"],
-            effort_limit_sim=100.0,
-            velocity_limit_sim=100.0,
-            stiffness=10000.0,
-            damping=100.0,
-        ),
-    },
-)
-```
-
-这完全定义了 dofbot！您可以将此内容复制到一个 .py 文件中并将其作为模块导入，以便在自己的 lab sims 中使用 dofbot。您将在定义带有状态的事物的任何配置中看到的一个常见特征是 InitialStateCfg 的存在。请记住，配置是指明向量化的信息， InitialStateCfg 描述了机器人在每个环境中创建时的关节状态。 ImplicitActuatorCfg 使用由关节时间决定的默认执行模型来定义机器人的关节。并不是所有关节都需要被执行，但如果您不打算使用这些未定义的关节，您将会收到警告。如果您不打算使用这些未定义的关节，您通常可以忽略它们。
-
-###### Apps 和 Sims
-
-使用仿真意味着启动 Isaac Sim 应用程序以提供仿真上下文。如果您没有运行由标准工作流程定义的任务，则需要负责创建应用程序、管理上下文并通过时间推进仿真。 这是 “第三个工作流程” : 一个 独立 应用程序，这是我们为框架、演示、基准测试等编写的脚本所谓的事情…
-
-独立工作流程使您可以完全控制应用程序中的一切和仿真上下文。在 Isaac Sim 文档 中详细讨论了开发独立应用程序，但有几点值得着重，因为它们可以非常有用。
-
-```python
-import argparse
-
-from isaaclab.app import AppLauncher
-# add argparse arguments
-parser = argparse.ArgumentParser(
-    description="This script demonstrates adding a custom robot to an Isaac Lab environment."
-)
-parser.add_argument("--num_envs", type=int, default=1, help="Number of environments to spawn.")
-# append AppLauncher cli args
-AppLauncher.add_app_launcher_args(parser)
-# parse the arguments
-args_cli = parser.parse_args()
-
-# launch omniverse app
-app_launcher = AppLauncher(args_cli)
-simulation_app = app_launcher.app
-```
-
-AppLauncher 是任何 Isaac Sim 应用程序的入口点，如 Isaac Lab！ 许多 Isaac Lab 和 Isaac Sim 模块直到应用程序启动之后才能导入！ 这是在上面的代码的倒数第二行执行的，当构造 AppLauncher 时。 app_launcher.app 是我们访问套件应用程序框架的接口；广泛的中介代码将仿真与扩展管理系统、GUI 等等绑定在一起。在独立工作流程中，这个界面，通常被称为 simulation_app 主要用于检查仿真是否正在运行，并在仿真结束后清理。
-
-
-###### 资产缓存
-
-Isaac Lab 资产托管在 AWS S3 云存储 上。 加载时间可能会因您的 网络连接 和 地理位置 而异，在某些情况下，每次运行可能需要几分钟才能加载资产。 为了提高性能或支持 离线工作流 ，我们建议启用 资产缓存 。
-
-缓存的资产被存储在本地，减少重复下载。
-
-如果您的网络连接速度慢或不稳定，或者部署环境处于脱机状态，则这将特别有用。
-
-#### 3、IsaacLab 任务基准
-以下列表包含在 Isaac Lab 中可用的所有 RL 和 IL 任务实现。尽管我们尽量保持此列表最新，您仍可以通过运行以下命令获取最新的环境列表:
-
-```shell
-./isaaclab.sh -p scripts/environments/list_envs.py
-```
-
-##### 3.1 单一智能体
-
-###### 经典
-
-基于 IsaacGymEnvs 实现的 MuJoCo 风格环境的经典环境。
-
-见【图6-106，6-107】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 操作臂
-
-基于固定机械臂操作任务的环境。
-
-对于许多这些任务，我们包括具有不同手臂动作空间的配置。例如，对于 lift-cube 环境:
-
-Isaac-Lift-Cube-Franka-v0: Franka机械臂关节位置控制
-
-Isaac-Lift-Cube-Franka-IK-Abs-v0: Franka机械臂绝对IK控制
-
-Isaac-Lift-Cube-Franka-IK-Rel-v0: Franka机械臂相对IK控制
-
-见【图6-108，6-109，6-110，6-111，6-112，6-113，6-114】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 富接触操控
-
-基于富接触操控的环境，例如销钉插入、齿轮啮合和螺母螺栓紧固。
-
-这些任务共享相同的任务配置和控制选项。您可以通过指定任务名称在它们之间切换。例如:
-
-Isaac-Factory-PegInsert-Direct-v0: 使用Franka机械臂进行销钉插入
-
-Isaac-Factory-GearMesh-Direct-v0: 与Franka机械臂啮合的齿轮
-
-Isaac-Factory-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
-
-见【图6-115】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-###### 自动装配
-
-基于100种不同装配任务的环境，每个任务都涉及将插头插入插座的操作。这些任务共享相同的配置框架，但通过零部件的几何形状和物理属性实现差异化。
-
-可通过指定对应的资产ID切换不同任务，可用资产ID包括:
-
-‘00004’, ‘00007’, ‘00014’, ‘00015’, ‘00016’, ‘00021’, ‘00028’, ‘00030’, ‘00032’, ‘00042’, ‘00062’, ‘00074’, ‘00077’, ‘00078’, ‘00081’, ‘00083’, ‘00103’, ‘00110’, ‘00117’, ‘00133’, ‘00138’, ‘00141’, ‘00143’, ‘00163’, ‘00175’, ‘00186’, ‘00187’, ‘00190’, ‘00192’, ‘00210’, ‘00211’, ‘00213’, ‘00255’, ‘00256’, ‘00271’, ‘00293’, ‘00296’, ‘00301’, ‘00308’, ‘00318’, ‘00319’, ‘00320’, ‘00329’, ‘00340’, ‘00345’, ‘00346’, ‘00360’, ‘00388’, ‘00410’, ‘00417’, ‘00422’, ‘00426’, ‘00437’, ‘00444’, ‘00446’, ‘00470’, ‘00471’, ‘00480’, ‘00486’, ‘00499’, ‘00506’, ‘00514’, ‘00537’, ‘00553’, ‘00559’, ‘00581’, ‘00597’, ‘00614’, ‘00615’, ‘00638’, ‘00648’, ‘00649’, ‘00652’, ‘00659’, ‘00681’, ‘00686’, ‘00700’, ‘00703’, ‘00726’, ‘00731’, ‘00741’, ‘00755’, ‘00768’, ‘00783’, ‘00831’, ‘00855’, ‘00860’, ‘00863’, ‘01026’, ‘01029’, ‘01036’, ‘01041’, ‘01053’, ‘01079’, ‘01092’, ‘01102’, ‘01125’, ‘01129’, ‘01132’, ‘01136’.
-
-我们同时提供拆卸与装配两种任务环境。
-
-###### 注意
-
-建议使用 CUDA 与 570 驱动程序运行 AutoMate 环境。如果在架构为 x86_64 的 Linux 上使用 Nvidia 驱动程序 570 运行，我们按照以下步骤安装 CUDA 12.8。这允许在 AutoMate 环境中使用 CUDA 计算奖励。如果您有不同的操作系统或架构，请参阅 CUDA installation page 获取其他说明。
-
-```shell
-wget https://developer.download.nvidia.com/compute/cuda/12.8.0/local_installers/cuda_12.8.0_570.86.10_linux.run
-sudo sh cuda_12.8.0_570.86.10_linux.run --toolkit
-```
-使用 conda 时，可以通过以下命令安装 CUDA 工具包:
-
-```shell
-conda install cudatoolkit
-```
-使用 580 驱动程序和 CUDA 13，我们目前无法启用 CUDA 来计算奖励。代码会自动回退到 CPU，导致性能略慢。
-
-
-Isaac-AutoMate-Disassembly-Direct-v0: 初始状态下插头已插入插座，底层控制器会将插头拔出并移至随机位置。这个过程完全由脚本控制，不涉及任何学习策略，因此不需要进行策略训练或评估。这些结果轨迹可作为逆向学习（即装配学习）的示范数据。运行指定任务的拆卸模式: ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_disassembly_w_id.py --assembly_id=ASSEMBLY_ID --disassembly_dir=DISASSEMBLY_DIR```. 所有生成的轨迹存储在本地文件夹 DISASSEMBLY_DIR 中。
-
-Isaac-AutoMate-Assembly-Direct-v0: 目标是将插头插入插座。你可以使用这个环境通过强化学习训练策略，或评估预训练模型。
-
-要训练装配策略，我们运行命令 ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --train ```。我们可以通过可选参数自定义训练流程: 使用 --headless 以无界面模式运行（不打开GUI窗口）， --max_iterations=MAX_ITERATIONS 设置训练迭代次数， --num_envs=NUM_ENVS 设置训练时的并行环境数量， --seed=SEED 指定随机种子。训练过程中，策略检查点会自动保存在 logs/rl_games/Assembly/test 目录下。
-
-要评估一个装配策略，我们运行命令 ```python source/isaaclab_tasks/isaaclab_tasks/direct/automate/run_w_id.py --assembly_id=ASSEMBLY_ID --checkpoint=CHECKPOINT --log_eval ```。评估结果存储在 evaluation_{ASSEMBLY_ID}.h5 。
-
-见【图6-116】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-###### FORGE
-
-FORGE 环境通过以下方式扩展了 Factory 环境:
-
-力传感: 添加末端执行器所受力的观测值。
-
-过度力惩罚: 添加一个选项来惩罚智能体超出接触力限制的行为。
-
-动力学随机化: 随机化控制器增益、资产属性（摩擦、质量）和死区。
-
-成功预测: 添加一个额外的动作来预测任务成功。
-
-这些任务共享相同的任务配置和控制选项。您可以通过指定任务名称在它们之间切换。
-
-Isaac-Forge-PegInsert-Direct-v0: 使用Franka机械臂进行销钉插入
-
-Isaac-Forge-GearMesh-Direct-v0: 与Franka机械臂啮合的齿轮
-
-Isaac-Forge-NutThread-Direct-v0: 用Franka机械臂进行螺母螺栓紧固
-
-见【图6-117】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 运动
-
-基于四足运动任务的环境
-
-见【图6-118,6-119,6-120,6-121,6-122,6-123,6-124】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 导航
-
-见【图6-125】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### Others
-
-备注：对抗运动先验 (AMP) 训练仅在 skrl 库中可用，因为它是当前集成的库中唯一一个开箱即用支持该功能的库（对于其他库，需要实现该算法和架构）。有关更多信息，请参见 skrl’s AMP Documentation 。可以通过向训练/播放脚本添加命令行输入 --algorithm AMP 来激活 AMP 算法。
-
-为了评估，脚本的命令行输入 --real-time 允许环境和智能体之间的交互循环在可能的情况下实时运行。
-
-见【图6-126】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 空间展示
-
-cartpole_showcase 文件夹包含示例任务（基于 Cartpole 和 Cartpole-Camera Direct 任务），用于定义/使用 Isaac Lab 支持的各种 Gymnasium 观测空间和动作空间。
-
-备注：目前，仅 Isaac Lab 的 Direct 工作流支持定义除 Box 之外的观测空间和动作空间。请参阅 Direct 工作流的 observation_space / action_space 文档以获取更多详细信息。
-
-下表总结了 Cartpole 和 Cartpole-Camera 任务中展示的不同观测空间与动作空间的组合。在训练和评估的任务名称中，用 <OBSERVATION> 和 <ACTION> 替换相应的观测空间和动作空间。
-
-见【图6-127】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-##### 3.2 多智能体
-
-备注：真正的多智能体训练仅在 skrl 库中可用，更多信息请参见 多智能体文档 。它支持 IPPO 和 MAPPO 算法，可以通过在训练/回放脚本中添加命令行输入 --algorithm IPPO 或 --algorithm MAPPO 来激活。如果这些环境与其他库一起运行或没有 IPPO 或 MAPPO 标志，它们将在后台转换为单智能体环境。
-
-###### 经典
-
-见【图6-128】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-
-###### 操作臂
-
-基于固定机械臂操作任务的环境。
-
-见【图6-129】(详见 files/formulas/第六节/第六章-图片.md)
-
-###### 综合环境列表
-
-对于在 推理任务名称 下列出不同任务名称的环境，请在运行 play.py 或任何推理工作流时使用提供的推理任务名称。这些任务提供了更适合推理的配置，包括从已训练好的检查点读取数据，并禁用训练时使用的运行时扰动。
-
-见【图6-130,6-131,6-132,6-133,6-134,6-135,6-136,6-137,6-138,6-139,6-140】(详见 files/formulas/第六节/第六章-图片.md)
-
-#### 4、资产与场景：USD/URDF 导入、相机布局、光照与碰撞
-##### 4.1 USD/URDF 导入
-###### URDF文件数据集
-
-转自：知乎huyoust
-
-里面收集的资料也比较多，都分类整理了，有机械臂，双足，双臂，飞行器，执行器，仿人，四足，轮式等。实际上github上有很多awesome类型的项目，这些作者都有着极大的专注与热情，能省去自己找资料的麻烦，推荐感兴趣的去给他们点个免费的star。
-
-见【图6-141,6-142,6-143,6-144】(详见 files/formulas/第六节/第六章-图片.md)
-
-最近在Github上找一个机械臂的URDF文件时，发现一个很好的仓库。这应该是目前整理的最好最全的关于工业机械臂的URDF文件的仓库了，地址如下：
-
-[GitHub - Daniella1/urdf_files_dataset
-github.com/Daniella1/urdf_files_dataset](https://github.com/Daniella1/urdf_files_dataset)
-本来以为这也只是一个awesome xxx这样的资源收集型Git仓库，但是在README文件中看到，这个仓库还是一篇论文中的公开数据库：Understanding URDF: A Dataset and Analysis。点进去看一下全文，发现作者中居然有Peter Corke大佬，因此特意整理记录一下。
-
-**（1）不同机器人仿真软件/工具**
-
-机器人仿真软件/工具很多，通产每个仿真软件中的机器人模型都有自己原生的文件格式，下面表格所示为几种不同仿真软件原生模型的文件格式以及它们对URDF文件描述的机器人模型的支持性。可以看到，绝大部分的仿真软件都是支持导入URDF格式描述的机器人模型的。
-
-见【图6-145】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-不同机器人仿真工具对URDF文件的支持
-
-**（2）为什么是URDF格式**
-
-URDF，全称是Unified Robot Description Format，统一机器人描述格式。URDF文件格式用于描述机器人最早是由机器人操作系统（ROS）的开发人员在2009年引入，是一种描述机器人的运动学、动力学和几何形状的通用格式文件，独立于软件程序，方便不同的软件工具以及开发人员共享机器人数据模型。URDF文件重要的一点是其可读性，因为它是XML类型的文本文件。URDF文件中可以描述机器人的运动学结构、动力学参数、视觉外观（通过引用其它文件）和几何碰撞边界（通过引用其它文件）。
-
-关于URDF的更对细节可以参考：
-
-[urdf/XML - ROS Wiki](https://wiki.ros.org/urdf/XML)
-
-[urdf/Tutorials - ROS Wiki](https://wiki.ros.org/urdf/Tutorials)
-
-**（3）URDF文件解析**
-
-**模型（model）**
-创建一个URDF文件的最小要求是机器人的名称和一个连杆。如下所示的URDF文件示例，它表示了一个2自由度的平面连杆机构，外观使用简单的几何形状：方块和圆柱，这个示例文件中有3个连杆和2个关节：
-
-见【图6-146】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-简单的平面3连杆机构
-
-可以看到URDF文件中有一些关键的元素：
-
-**连杆（link）**
-
-连杆是可以使用关节进行连接的刚体，连杆有惯量（inertial）、视觉（visual）和碰撞（collision）等属性。惯性特性描述了连杆的质量、质心位置以及惯性矩。可视化特性和碰撞特性稍后再说。URDF中连杆只能是刚体，而不能是可形变的物体（在这一定程度上限制了URDF的应用范围，像涉及柔性体的机器人就不能用URDF文件直接表示）。
-
-见【图6-147】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-更通用的连杆属性
-
-前面的示例模型中，3个连杆的名称分别为“base link”、“link 1”和“link 2”。我们查看“基本链接”来说明如何指定链接，参见第3-10行的清单1。“base link”表示机器人的固定底座，其中它的视觉属性由一个原点和一个由一个方块组成的几何体来定义，方块的大小由其三个边的长度指定。一个连杆唯一的必需属性的是它的名称，在一个URDF文件中，连杆名称必须是唯一的，不同连杆的名称必须不同。
-
-**关节（joint）**
-
-关节用于连接两个连杆，一个父连杆和一个子连杆。父连杆是更靠近基座的连杆，子连杆是更靠近末端工具的连杆。关节的主要参数是关节类型（运动学）、动力学参数，以及活动范围。关节类型包括：
-
-旋转关节（revolute）：特指关节运动范围有明确的上限和下限的转动关节。
-连续关节（continuous）：关节运动范围无限的转动关节，即可以连续旋转的转动关节。
-平移关节（prismatic）：沿轴滑动的滑动关节，运动范围有明确的上限和下限。
-固定关节（fixed）：类似于焊接，不是真正的关节，因为它无法移动，所有自由度都被锁定。这种类型的关节不需要<Axis>，<calibration>，<dynamics>，<limits>或<seafe_controller>等参数。
-浮动关节（floating）：允许所有6个自由度的运动。
-平面关节（planar）：允许在垂直于轴的平面中运动。
-关节也有很多可以编辑的属性：
-
-见【图6-148】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-**关节属性**
-
-前面的示例模型中，关节的名称是“joint 1”和“joint 2”。关节类型是连续关节，这意味着它们是没有运动限制的旋转关节。“axis”属性指定关节轴的方向，在本例中，关节轴沿着Y轴。关节的必需属性是它的父连杆和子连杆的名称、关节类型和关节名称。
-
-可视化与碰撞几何形状（Visual and Collision Geometries）
-几何对象用于表示机器人连杆的形状，用于可视化或碰撞的目的，统称为网格对象（mesh），它们由一组构成对象表面的三角面组成。网格中的多边形越多，形状的细节级别就越高，但会以牺牲渲染和计算时间为代价。
-
-网格对象可以用不同的CAD文件类型，每种文件类型都有不同的内部格式，并有其自身的好处和限制，因此应该根据使用的应用程序进行选择。URDF中可视化和碰撞网格的一种常用格式是STL（文件扩展名为.stl），它只使用三角形而不使用颜色或纹理信息来表示三维表面几何图形。另一种通常用于可视化的文件格式为collada（文件扩展名为.dae），它同时支持颜色和纹理信息。OBJ格式（文件扩展名为.obj）支持颜色、纹理和自由形式的曲线，允许更高级的细节可视化，但是，颜色和纹理数据存储在一个单独的（.mtl）文件中。
-
-在URDF的一些应用中，碰撞检测是必需的，而在其他应用中，URDF模型仅用于可视化目的。根据应用程序的不同，URDF Bundle中可以包含不同类型的网格对象。例如，通常同时使用STL和COLLADA网格，因为STL网格不包含颜色与纹理，可以减少计算和渲染时间，同时STL可以进行凸包运算简化形状，因此常用于表示连杆的碰撞几何形状（碰撞检测通常需要大量运算，但是不需要关注结构细节，例如螺丝、螺帽、细孔这些），而COLLADA网格由于可以设置颜色、纹理等属性，因此通常作为连杆的可视化对象，提供高质量的可视化效果。
-
-**URDF文件包（URDF Bundle/package）**
-
-一个URDF机器人模型通常包含描述机器人拓扑结构的URDF文件以及描述机器人物理外观网格文件组成。URDF文件本身（具有.urdf文件扩展名）和URDF文件中所引用的网格对象（作为link的属性）所组成的文件集，通常称为URDF包。如下所示的URDF文件包，包含了名为myrobot.urdf的URDF文件，以及mesh文件夹中网格对象。URDF文件是指使用相对路径生成的不同链接的几何网格文件。
-
-见【图6-149】(详见 files/formulas/第六节/第六章-图片.md)
-
-
-**Xacro文件**
-
-从前面可以看到，URDF文件适合定义静态的、完整的机器人模型，但对于复杂的机器人，URDF 可能会显得冗长且难以维护。Xacro是一种基于 XML 的宏扩展语言，主要用于简化和生成 URDF。Xacro 允许使用宏（macros）、变量、数学运算和参数化的方式来定义机器人模型，以提高可重用性和可读性。例如：
-
-减少重复代码：可以定义一个通用的部件并多次使用
-参数化设计：允许调整不同参数来生成不同的 URDF 结构
-数学计算：可在 XML 内部执行计算，避免手动计算坐标或尺寸
-Xacro 文件最终会被解析成标准 URDF 文件，例如在ROS中可以使用如下命令将 Xacro 转换为 URDF：
-
-rosrun xacro xacro my_robot.xacro > my_robot.urdf
-关于Xacro的具体内容这里暂不展开，感兴趣的可以参考：
-
-Using Xacro to Clean Up a URDF File
-
-**（4）URDF数据库**
-
-对于大多数工业机械臂，由于其结构参数与特征都是固定的，因此在使用不同的软件工具进行算法仿真的时候，除非是初期的学习，通常都没必要自己再手动建模一遍，都是找现成的URDF文件，因为绝大多数机器人仿真软件都支持URDF格式文件的导入。前面提到的Understanding URDF: A Dataset and Analysis这篇文章中，作者规范地整理了超过300个不同来源的公开的URDF模型。
-
-见【图6-150,6-151】(详见 files/formulas/第六节/第六章-图片.md)
-
-补充数据库资源：
-[https://github.com/robot-descriptions/awesome-robot-descriptions
-github.com/robot-descriptions/awesome-robot-descriptions](https://github.com/robot-descriptions/awesome-robot-descriptions
-github.com/robot-descriptions/awesome-robot-descriptions)
-
-[GitHub - robot-descriptions/awesome-robot-descriptions: A curated list of awesome robot descriptions (URDF, MJCF)](https://github.com/robot-descriptions/awesome-robot-descriptions)
-
-[https://github.com/robot-descriptions/awesome-robot-descriptions
-github.com/robot-descriptions/awesome-robot-descriptions
-](https://github.com/robot-descriptions/awesome-robot-descriptions
-github.com/robot-descriptions/awesome-robot-descriptions
-)
-
-##### 3.2 相机布局
-
-###### 配置仿真上下文
-
-当从独立脚本启动仿真器时，用户可以完全控制播放、暂停和步进仿真器。所有这些操作都通过 仿真上下文 处理。它负责各种时间轴事件，并为仿真器配置 物理场景 。
-
-在 Isaac Lab 中 , sim.SimulationContext 类继承了 Isaac Sim 的 isaacsim.core.api.simulation_context.SimulationContext ，以允许通过 Python 的 dataclass 对象配置仿真器，并处理仿真步进的某些复杂性。
-
-对于本教程，我们将将物理和渲染时间步长设置为0.01秒。通过将这些数量传递给 sim.SimulationCfg ，然后用它创建仿真上下文的实例。
-```python
-    # Initialize the simulation context
-    sim_cfg = SimulationCfg(dt=0.01)
-    sim = SimulationContext(sim_cfg)
-    # Set main camera
-    sim.set_camera_view([2.5, 2.5, 2.5], [0.0, 0.0, 0.0])
-```
-创建仿真上下文后，我们只配置了作用于仿真场景的物理。这包括用于仿真的设备、重力矢量和其他高级求解器参数。现在还有两个主要步骤剩下来运行仿真:
-
-设计仿真场景: 添加传感器、机器人和其他仿真对象
-
-运行仿真循环: 使仿真器进行步进，并从仿真器中设置和获取数据
-
-##### 3.3 光照与碰撞
-
-###### 生成地面平面
-
-GroundPlaneCfg 配置了一个类似网格的地面平面，其外观和大小等属性可修改。
-```python
-    # Ground-plane
-    cfg_ground = sim_utils.GroundPlaneCfg()
-    cfg_ground.func("/World/defaultGroundPlane", cfg_ground)
-```
-
-###### 生成灯光
-
-可以将 不同类型的灯光基本体 生成到场景中。这些包括远光灯、球形灯、圆盘灯和圆柱灯。在本教程中，我们生成一个远光灯，这是一种远离场景无限远的灯，只朝一个方向发光。
-```python
-    # spawn distant light
-    cfg_light_distant = sim_utils.DistantLightCfg(
-        intensity=3000.0,
-        color=(0.75, 0.75, 0.75),
-    )
-    cfg_light_distant.func("/World/lightDistant", cfg_light_distant, translation=(1, 0, 10))
-```
-###### 生成基本形状
-
-在生成基本形状之前，我们介绍了一个变换基本体或Xform的概念。变换基本体是一个仅包含变换属性的基本体。它用于将其他基本体分组，并作为一个组对其进行变换。在这里，我们创建一个Xform基本体，将所有的基本形状分组在其中。
-```python
-    # create a new xform prim for all objects to be spawned under
-    prim_utils.create_prim("/World/Objects", "Xform")
-```
-###### 实例
-接下来，我们使用 ConeCfg 类生成一个圆锥体。可以指定圆锥体的半径、高度、物理属性和材质属性。默认情况下，物理和材质属性是禁用的。
-
-我们生成的前两个圆锥 Cone1 和 Cone2 是视觉元素，不启用物理属性。
-```python
-    # spawn a red cone
-    cfg_cone = sim_utils.ConeCfg(
-        radius=0.15,
-        height=0.5,
-        visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(1.0, 0.0, 0.0)),
-    )
-    cfg_cone.func("/World/Objects/Cone1", cfg_cone, translation=(-1.0, 1.0, 1.0))
-    cfg_cone.func("/World/Objects/Cone2", cfg_cone, translation=(-1.0, -1.0, 1.0))
-```
-对于第三个圆锥 ConeRigid ，我们在配置类中设置刚体物理属性。通过这些属性，我们可以指定圆锥体的质量、摩擦力和弹性。如果未指定，它们将默认为USD Physics设置的默认值。
-```python
-    # spawn a green cone with colliders and rigid body
-    cfg_cone_rigid = sim_utils.ConeCfg(
-        radius=0.15,
-        height=0.5,
-        rigid_props=sim_utils.RigidBodyPropertiesCfg(),
-        mass_props=sim_utils.MassPropertiesCfg(mass=1.0),
-        collision_props=sim_utils.CollisionPropertiesCfg(),
-        visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0, 1.0, 0.0)),
-    )
-    cfg_cone_rigid.func(
-        "/World/Objects/ConeRigid", cfg_cone_rigid, translation=(-0.2, 0.0, 2.0), orientation=(0.5, 0.0, 0.5, 0.0)
-    )
-```
-最后，我们生成一个长方体 CuboidDeformable ，其中包含可变形体物理属性。与刚体仿真不同，可变形体可以在其顶点之间具有相对运动。这对于仿真软体如布料、橡胶或果冻非常有用。需要注意的是，可变形体仅在GPU仿真中受支持，并且需要生成一个带有可变形体物理属性的网格对象。
-```python
-    # spawn a blue cuboid with deformable body
-    cfg_cuboid_deformable = sim_utils.MeshCuboidCfg(
-        size=(0.2, 0.5, 0.2),
-        deformable_props=sim_utils.DeformableBodyPropertiesCfg(),
-        visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.0, 0.0, 1.0)),
-        physics_material=sim_utils.DeformableBodyMaterialCfg(),
-    )
-    cfg_cuboid_deformable.func("/World/Objects/CuboidDeformable", cfg_cuboid_deformable, translation=(0.15, 0.0, 2.0))
-```
-从另一个文件生成
-最后，可以从其他文件格式生成基本体，例如其他USD、URDF或OBJ文件。在本教程中，我们将一个表的USD文件生成到场景中。这个表是一个网格基本体，并且有一个与之关联的材质基本体。所有这些信息都存储在其USD文件中。
-```python
-    # spawn a usd file of a table into the scene
-    cfg = sim_utils.UsdFileCfg(usd_path=f"{ISAAC_NUCLEUS_DIR}/Props/Mounts/SeattleLabTable/table_instanceable.usd")
-    cfg.func("/World/Objects/Table", cfg, translation=(0.0, 0.0, 1.05))
-```
-上面的表被添加为场景的一个引用。简单来说，这意味着表实际上并没有添加到场景中，而是添加了一个指向表资产的 指针 。这允许我们修改表资产，并使更改以非破坏性的方式反映在场景中。例如，我们可以更改表的材质，而不实际修改表资产的底层文件。只有更改存储在USD场景中。
-
-### 4、日志与回放：录制、重放、评测
-#### 4.1 查看日志
-
-在单独的终端中，您可以通过执行以下命令监视训练进度:
-```python
-# execute from the root directory of the repository
+```bash
 ./isaaclab.sh -p -m tensorboard.main --logdir logs/sb3/Isaac-Cartpole-v0
 ```
-播放经过训练的 agent
-一旦训练完成，您可以通过执行以下命令来可视化经过训练的 agent:
-```python
-# execute from the root directory of the repository
+
+**- 播放训练结果**：
+
+```bash
 ./isaaclab.sh -p scripts/reinforcement_learning/sb3/play.py --task Isaac-Cartpole-v0 --num_envs 32 --use_last_checkpoint
 ```
-上述命令将从 logs/sb3/Isaac-Cartpole-v0 目录加载最新的检查点。您也可以通过传递 --checkpoint 标志指定特定的检查点。
+
+#### 8、 资产与场景构建
+##### 8.1 任务基准
+
+类别	示例任务	描述
+经典	Isaac-Ant-v0	MuJoCo风格四足运动
+操作臂	Isaac-Lift-Cube-Franka-v0	机械臂抓取立方体
+富接触	Isaac-Factory-PegInsert-Direct-v0	精细装配任务
+自动装配	Isaac-AutoMate-Assembly-Direct-v0	100种装配任务
+运动	Isaac-Allegro-Legged-v0	腿式机器人运动
+
+具体见files/foundations/6.1.3-Isaac Lab任务及日志.md。
+
+##### 8.2 URDF/USD导入
+- 支持标准URDF文件格式
+
+- 可直接导入USD格式资产
+
+- 推荐使用Xacro简化复杂模型
+
+##### 8.3 场景配置
+```
+python
+# 地面平面
+cfg_ground = sim_utils.GroundPlaneCfg()
+cfg_ground.func("/World/defaultGroundPlane", cfg_ground)
+
+# 灯光
+cfg_light = sim_utils.DistantLightCfg(intensity=3000.0)
+cfg_light.func("/World/lightDistant", cfg_light)
+```
+
+##### 8.4 物理属性
+**- 刚体物理**：质量、摩擦、弹性
+
+**- 可变形体**：软体仿真
+
+**- 碰撞检测**：精确的交互模拟
+
+#### 9、 Isaac Lab 最小上手（可复制运行）
+
+见【代码6-1，6-2，6-3】(详见 files/formulas/第六节/第六章-代码.md) 分别为train.py, play.py 及 isaaclab.sh。
+
+```shell
+	# 环境（示例）
+	conda create -n isaaclab python=3.10 -y
+	conda activate isaaclab
+	# 安装依赖（按官方指引）
+	# ...
+	# 运行最小任务（如 Isaac-Ant-v0）
+	./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Ant-v0 --headless
+	./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task Isaac-Isaac-Ant-v0 --checkpoint model_999.pt
+```
+
+#### 10、 资源汇总
+##### 10.1 官方文档
+
+[Omniverse 开发者文档](https://docs.omniverse.nvidia.com/dev-guide/latest/index.html)
+
+[Isaac Sim 开发者文档](https://docs.omniverse.nvidia.com/isaacsim/latest/index.html)
+
+[Isaac Lab 开发者文档](https://isaac-sim.github.io/IsaacLab/main/index.html)
+
+[Isaac lab 开发者文档中文版](https://docs.robotsfan.com/isaaclab/source/setup/quickstart.html)
+
+[Isaac sim 写代码 API参考文档](https://docs.omniverse.nvidia.com/py/isaacsim/index.html)
+
+[Isaac extension 文档](https://docs.omniverse.nvidia.com/py/isaacsim/index.html)
+
+[ros ros2 文档](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html)
+
+##### 10.2 教程与课程：
+
+[NVIDIA 机器人开发基础课程](https://www.nvidia.cn/training/learning-path/robotics/)
+
+[Isaac Sim 视频教程 (Bilibili)](https://www.bilibili.com/video/BV1B24y1s7Hc/)
+
+[AI 仓库：使用 Isaac Sim 和 Isaac ROS 实现视觉导航](https://player.bilibili.com/player.html?bvid=BV1a44y1N79U&autoplay=0)
+
+[Github示例](https://github.com/isaac-sim/IsaacSim-ros_workspaces)
+
+[URDF资源库](https://github.com/Daniella1/urdf_files_dataset)
 
 
-#### 5、**样板：Isaac Lab 最小上手（可复制运行）**
+##### 10.3 社区与支持：
 
-见【代码6-1，6-2，6-3】(详见 files/formulas/第六节.md) 分别为train.py, play.py 及 isaaclab.sh。
+[Isaac Sim 论坛](https://forums.developer.nvidia.com/c/robotics-edge-computing/jetson-embedded-systems/announcements/71)
 
-  ```bash
-  # 环境（示例）
-  conda create -n isaaclab python=3.10 -y
-  conda activate isaaclab
-  # 安装依赖（按官方指引）
-  # ...
-  # 运行最小任务（如 Isaac-Ant-v0）
-  ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task=Isaac-Ant-v0 --headless
-  ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py --task Isaac-Isaac-Ant-v0 --checkpoint model_999.pt
-  ```
+[Github Issues](https://github.com/features/issues)
 
-#### 6、IsaacLab资料汇总
+[ROS Discourse社区](https://discourse.openrobotics.org/)
 
-##### 6.1 文档
-
-[https://docs.omniverse.nvidia.com/](https://docs.omniverse.nvidia.com/)
-[https://developer.nvidia.com/isaac/sim ](https://developer.nvidia.com/isaac/sim )
-
-omniverse 开发者文档 [https://docs.omniverse.nvidia.com/dev-guide/latest/index.html](https://docs.omniverse.nvidia.com/dev-guide/latest/index.html)
-
-isaac sim 开发者文档 [https://docs.omniverse.nvidia.com/isaacsim/latest/index.html](https://docs.omniverse.nvidia.com/isaacsim/latest/index.html)
-
-isaac lab 开发者文档 [https://isaac-sim.github.io/IsaacLab/](https://isaac-sim.github.io/IsaacLab/)
-
-isaac sim 写代码 API 参考文档 [https://docs.omniverse.nvidia.com/py/isaacsim/index.html](https://docs.omniverse.nvidia.com/py/isaacsim/index.html)
-
-isaac extension 文档 [https://docs.omniverse.nvidia.com/py/isaacsim/index.html](https://docs.omniverse.nvidia.com/py/isaacsim/index.html)
-
-ros ros2 文档 [https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html](https://docs.omniverse.nvidia.com/isaacsim/latest/ros_ros2_tutorials.html)
-
-isaac lab 官方文档 [https://docs.robotsfan.com/isaaclab/source/setup/quickstart.html
-](https://docs.robotsfan.com/isaaclab/source/setup/quickstart.html
-)
-
-##### 4.2 视频教程
-
-[https://player.bilibili.com/player.html?bvid=BV1B24y1s7Hc&autoplay=0](https://player.bilibili.com/player.html?bvid=BV1B24y1s7Hc&autoplay=0)
-讲义在百度网盘
-资料链接： [https://pan.baidu.com/s/1RGOQ4UOwcEGEhWMZRyfDXA?pwd=kvq7](https://pan.baidu.com/s/1RGOQ4UOwcEGEhWMZRyfDXA?pwd=kvq7) 提取码: kvq7
-
-[https://player.bilibili.com/player.html?bvid=BV1a44y1N79U&autoplay=0](https://player.bilibili.com/player.html?bvid=BV1a44y1N79U&autoplay=0)
-AI 仓库：使用 Isaac Sim 和 Isaac ROS 实现视觉导航
-
-##### 4.3 github 教程
-
-[https://github.com/isaac-sim/IsaacSim-ros_workspaces](https://github.com/isaac-sim/IsaacSim-ros_workspaces)
-
-[https://github.com/NVIDIA-AI-IOT/Nav2-with-Isaac-ROS-GEMs
-](https://github.com/NVIDIA-AI-IOT/Nav2-with-Isaac-ROS-GEMs
-)
-
-[https://developer.nvidia.com/blog/accelerate-ai-enabled-robotics-with-advanced-simulation-and-perception-tools-in-nvidia-isaac-platform/
-](https://developer.nvidia.com/blog/accelerate-ai-enabled-robotics-with-advanced-simulation-and-perception-tools-in-nvidia-isaac-platform/
-)
 
 ### 6.2 MuJoCo
 #### 1、MuJoCo 简介
