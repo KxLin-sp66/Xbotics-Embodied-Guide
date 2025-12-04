@@ -12,9 +12,6 @@
     <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide?style=social">
   </a>
 
-  <!-- PRs Welcome -->
-  <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
-
   <!-- License -->
   <img alt="License" src="https://img.shields.io/badge/License-CC%20BY%204.0-blue">
 
