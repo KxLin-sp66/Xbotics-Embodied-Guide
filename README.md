@@ -7,11 +7,22 @@
 <!-- TODO: 将下方徽章中的 repo 与 path 替换为你的仓库名 -->
 
 <p>
-  <a href="https://github.com/your-org/your-repo"><img alt="GitHub repo stars" src="https://img.shields.io/github/stars/your-org/your-repo?style=social"></a>
+  <!-- GitHub Stars -->
+  <a href="https://github.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide">
+    <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide?style=social">
+  </a>
+
+  <!-- PRs Welcome -->
   <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
+
+  <!-- License -->
   <img alt="License" src="https://img.shields.io/badge/License-CC%20BY%204.0-blue">
-  <img alt="Visitors" src="https://api.visitorbadge.io/api/visitors?path=your-org/your-repo&label=visitors&countColor=%23263759&style=flat">
+
+  <!-- Visitors -->
+  <img alt="Visitors"
+       src="https://api.visitorbadge.io/api/visitors?path=Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide&label=visitors&countColor=%23263759&style=flat">
 </p>
+
 
 </div>
 
