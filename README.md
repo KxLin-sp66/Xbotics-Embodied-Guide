@@ -7,18 +7,15 @@
 <!-- TODO: 将下方徽章中的 repo 与 path 替换为你的仓库名 -->
 
 <p>
-  <!-- GitHub Stars -->
   <a href="https://github.com/Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide">
     <img alt="GitHub repo stars" src="https://img.shields.io/github/stars/Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide?style=social">
   </a>
-
-  <!-- License -->
+  <img alt="PRs welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen">
   <img alt="License" src="https://img.shields.io/badge/License-CC%20BY%204.0-blue">
-
-  <!-- Visitors -->
-  <img alt="Visitors"
-       src="https://api.visitorbadge.io/api/visitors?path=Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide&label=visitors&countColor=%23263759&style=flat">
+  <img alt="Visitors" src="https://api.visitorbadge.io/api/visitors?path=Xbotics-Embodied-AI-club/Xbotics-Embodied-Guide&label=visitors&countColor=%23263759&style=flat">
 </p>
+
+
 
 
 </div>
