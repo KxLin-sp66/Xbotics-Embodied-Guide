@@ -1,6 +1,6 @@
 <div align="center">
 
-<h1>Xbotics 具身智能学习路线（Embodied‑AI Guide）</h1>
+<h1>Xbotics 具身智能学习路线（Xbotics Roadmap to Embodied-AI）</h1>
 
 <p><em>更偏重机器人基础学习与开源项目实践 · 非“教程”，而是可以执行的学习路线与资源导航</em></p>
 
